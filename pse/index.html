@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSE · 心理系统引擎 | INTRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== 全局样式（与首页保持一致） ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e3349;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #cddeee;
+            padding-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #163A5F;
+            line-height: 1.1;
+        }
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #2f5577;
+            margin-top: 0.4rem;
+            border-left: 5px solid #4f8ab0;
+            padding-left: 1.3rem;
+            background: linear-gradient(to right, transparent, #ecf3fa);
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+        }
+        .meta-badge {
+            display: inline-block;
+            background: #dde9f5;
+            color: #1f4a72;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+            border: 1px solid #b6d0e6;
+        }
+        .section-label {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #163A5F;
+            margin: 3rem 0 1.5rem 0;
+            letter-spacing: -0.01em;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 6px 16px rgba(18, 52, 86, 0.08);
+            border: 1px solid #d6e3f0;
+            transition: 0.2s;
+            margin-bottom: 1.5rem;
+        }
+        .card:hover {
+            box-shadow: 0 16px 24px -8px rgba(26, 67, 113, 0.12);
+            border-color: #9fbede;
+        }
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #143a5e;
+            margin-bottom: 0.8rem;
+        }
+        .card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e4b77;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .badge {
+            display: inline-block;
+            background: #ecf3fa;
+            color: #163A5F;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            border: 1px solid #b9cfec;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+            margin: 1.5rem 0;
+        }
+        th {
+            background: #dde9f5;
+            color: #163A5F;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2edf7;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .footnote {
+            font-size: 0.9rem;
+            color: #4d6e8f;
+            background: #ecf3fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            margin: 2rem 0;
+        }
+        .layer-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            background: #e7f0fa;
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid #c7daf0;
+            margin: 2rem 0;
+        }
+        .layer-row {
+            display: flex;
+            align-items: center;
+            background: #d2e1f1;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            border: 2px solid transparent;
+            justify-content: space-between;
+        }
+        .layer-row.highlight {
+            background: #2b6390;
+            color: white;
+            border-color: #123f64;
+        }
+        .layer-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .layer-desc {
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+        .layer-row:not(.highlight) .layer-desc {
+            background: #b9cfec;
+            color: #1f3d5b;
+        }
+        .code-block {
+            background: #1e2f40;
+            color: #e2e9f0;
+            padding: 1rem;
+            border-radius: 0.8rem;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #c5d7ea;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #2f5277;
+            font-size: 0.95rem;
+        }
+        .github-link {
+            background: #eef4fc;
+            padding: 0.6rem 1.3rem;
+            border-radius: 40px;
+            border: 1px solid #b3ceec;
+            transition: background 0.2s;
+            color: #163A5F;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+        }
+        .github-link:hover {
+            background: #deecfd;
+            border-color: #7aa9d1;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 2.2rem; }
+            .section-label { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <h1>PSE · 心理系统引擎</h1>
+            <div class="subhead">Psychological System Engine — 功能层心理动力学仿真器</div>
+            <span class="meta-badge"><i class="fas fa-microchip" style="margin-right: 0.3rem;"></i>五层架构 · 心智六论 · v1.0.0</span>
+        </header>
+
+        <!-- 导航回首页 -->
+        <div style="margin-bottom: 2rem;">
+            <a href="../index.html" style="color: #2f5577; text-decoration: none;"><i class="fas fa-arrow-left"></i> 返回首页</a>
+        </div>
+
+        <!-- 1. 概述 -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-cogs" style="margin-right: 0.8rem; color:#356f9c;"></i>PSE 是什么？</h2>
+            <div class="card">
+                <p>PSE 是基于 UPLS 状态语法的心理动力学仿真引擎。它将心智六论转化为可计算的微分方程组，通过大规模蒙特卡洛仿真生成心理演化的概率轨迹，并利用贝叶斯校准实现个体化精准预测。</p>
+                <p><strong>核心目标</strong>：从静态诊断走向动态轨迹预判，量化干预措施的预期效果。</p>
+            </div>
+        </section>
+
+        <!-- 2. 五层架构 -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-layer-group" style="margin-right: 0.8rem; color:#356f9c;"></i>五层架构</h2>
+            <div class="layer-diagram">
+                <div class="layer-row highlight">
+                    <span class="layer-name">1. 架构层 (静态本体论)</span>
+                    <span class="layer-desc">M‑R‑D‑S, G‑M‑A‑R, S‑P, N‑S‑R</span>
+                </div>
+                <div class="layer-row">
+                    <span class="layer-name">2. 算法层 (动态动力学)</span>
+                    <span class="layer-desc">心智六论 (MCT, MTT, MKT, MDT, MPT, MET)</span>
+                </div>
+                <div class="layer-row">
+                    <span class="layer-name">3. 参数层 (概率分布场)</span>
+                    <span class="layer-desc">心智五库 (SPMC, SPSM, SPER, SPDC, SPOT)</span>
+                </div>
+                <div class="layer-row">
+                    <span class="layer-name">4. 方法层 (制造工艺)</span>
+                    <span class="layer-desc">PSE‑I / PSE‑M / PSE‑P / PSE‑C</span>
+                </div>
+                <div class="layer-row">
+                    <span class="layer-name">5. 协议层 (执行流水线)</span>
+                    <span class="layer-desc">VTS‑P, ETS‑P, SID‑P, MMD‑P, STO‑P</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 心智六论 -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-brain" style="margin-right: 0.8rem; color:#356f9c;"></i>心智六论 (Mental Six Theses)</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>MCT — 心智编译理论</h4>
+                    <p>将临床主诉、自然语言编译为 M‑R‑D‑S 状态向量。调用 PSL‑L 映射与 PCUI 先验。</p>
+                </div>
+                <div class="card">
+                    <h4>MTT — 心智拓扑理论</h4>
+                    <p>构建模块间因果依赖网络，识别枢纽节点与级联路径。</p>
+                </div>
+                <div class="card">
+                    <h4>MKT — 心智动力理论</h4>
+                    <p>建立资源演化微分方程：<code>dM4_DSP_B/dt = 0.65*M2_DSP_B - 0.08*M3_RES_D + ...</code></p>
+                </div>
+                <div class="card">
+                    <h4>MDT — 心智调度理论</h4>
+                    <p>基于 ROI 优化干预序列，规划 G‑M‑A‑R 操作的最佳时机。</p>
+                </div>
+                <div class="card">
+                    <h4>MPT — 心智塑性理论</h4>
+                    <p>描述结构层改变的时间窗口与巩固过程，预测复发风险。</p>
+                </div>
+                <div class="card">
+                    <h4>MET — 心智生态理论</h4>
+                    <p>量化环境（S‑P）与个体系统的耦合，评估个体‑环境适配度。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 仿真流程 (PSE‑M / PSE‑C) -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-chart-line" style="margin-right: 0.8rem; color:#356f9c;"></i>仿真与校准</h2>
+            <div class="card">
+                <h4>PSE‑M：大规模蒙特卡洛仿真</h4>
+                <p>基于心智六论和 PCUI 参数先验，生成千万级虚拟个体，在不同环境压力与干预条件下演化，输出轨迹概率云图。</p>
+                <div class="code-block">
+                    <span># 示例输出（无干预路径）</span><br>
+                    panic_attack_within_4w: 0.382<br>
+                    functional_collapse: 0.273<br>
+                    critical_window: "day 5‑7 (p=0.45)"
+                </div>
+            </div>
+            <div class="card">
+                <h4>PSE‑C：贝叶斯校准</h4>
+                <p>用真实临床数据更新先验分布，置信度逐步提升：70% (第0天) → 87% (第3天) → 94% (第14天)。</p>
+                <p><strong>闭环反馈</strong>：校准后的后验参数反哺 UPLS 知识库，使先验越来越准。</p>
+            </div>
+        </section>
+
+        <!-- 5. 案例：王梅（简要） -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-user-md" style="margin-right: 0.8rem; color:#356f9c;"></i>案例演示：王梅（暴食）</h2>
+            <div class="card">
+                <p><strong>主诉</strong>：“控制不住想吃东西，尤其晚上，工作压力大，觉得自己失败。”</p>
+                <p><strong>PSE 诊断</strong>：M4‑DSP‑B↑(88), M4‑RES‑D↓(25), M2‑DSP‑B↑(78), M3‑RES‑D↓(31) … 系统健康度 O_i = 41。</p>
+                <p><strong>仿真预测</strong>：4周内恐慌发作概率 38.2%，功能崩溃概率 27.3%，首次高峰在第5‑7天。</p>
+                <p><strong>干预序列</strong>：GATING‑ M4 (正念) → MODULATE+ M1 (睡眠) → ALIGN M2 (认知重构) → RELINK M4 (情感重建)。</p>
+                <div class="footnote">
+                    <i class="fas fa-info-circle"></i> 完整案例见 <a href="#" style="color:#163A5F;">INTRE‑PSE DEMO</a>（待完善）
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer>
+            <div class="copyright">
+                © 2026 INTRE 项目 · 以 CC0 公开
+            </div>
+            <a href="https://github.com/project003125/INTRE" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> GitHub 仓库
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
