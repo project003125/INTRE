@@ -1,374 +1,643 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REVER · 关系伦理引擎 | INTRE</title>
+    <title>INTRE · REVER 结构化伦理引擎</title>
+    <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== 全局样式（与首页保持一致） ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f4f7fc;
-            color: #1e3349;
-            line-height: 1.5;
+            color: #1e293b;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 2rem;
         }
-        header {
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #cddeee;
-            padding-bottom: 1.5rem;
+
+        /* 导航栏 */
+        nav {
+            background-color: #163A5F;
+            color: white;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
         }
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #163A5F;
-            line-height: 1.1;
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
-        .subhead {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #2f5577;
-            margin-top: 0.4rem;
-            border-left: 5px solid #4f8ab0;
-            padding-left: 1.3rem;
-            background: linear-gradient(to right, transparent, #ecf3fa);
-            padding-top: 0.2rem;
-            padding-bottom: 0.2rem;
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        .meta-badge {
-            display: inline-block;
-            background: #dde9f5;
-            color: #1f4a72;
-            font-size: 0.75rem;
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
             font-weight: 500;
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            margin-top: 0.8rem;
-            border: 1px solid #b6d0e6;
+            font-size: 1rem;
+            transition: color 0.2s;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
         }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        /* 页面标题 */
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #163A5F;
+            margin: 1rem 0 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2b6390;
+            margin-bottom: 1rem;
+            max-width: 900px;
+        }
+
+        .author-info {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 1rem;
+        }
+
+        .author-info a {
+            color: #2b6390;
+            text-decoration: none;
+        }
+
+        .author-info a:hover {
+            text-decoration: underline;
+        }
+
         .section-label {
             font-size: 1.8rem;
-            font-weight: 500;
-            color: #163A5F;
-            margin: 3rem 0 1.5rem 0;
-            letter-spacing: -0.01em;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 1.2rem;
-            padding: 1.8rem 1.5rem;
-            box-shadow: 0 6px 16px rgba(18, 52, 86, 0.08);
-            border: 1px solid #d6e3f0;
-            transition: 0.2s;
-            margin-bottom: 1.5rem;
-        }
-        .card:hover {
-            box-shadow: 0 16px 24px -8px rgba(26, 67, 113, 0.12);
-            border-color: #9fbede;
-        }
-        .card h3 {
-            font-size: 1.8rem;
             font-weight: 600;
-            color: #143a5e;
-            margin-bottom: 0.8rem;
-        }
-        .card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1e4b77;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .badge {
-            display: inline-block;
-            background: #ecf3fa;
             color: #163A5F;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            border: 1px solid #b9cfec;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-            margin: 1.5rem 0;
-        }
-        th {
-            background: #dde9f5;
-            color: #163A5F;
-            font-weight: 600;
-            padding: 1rem;
-            text-align: left;
-        }
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2edf7;
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        .footnote {
-            font-size: 0.9rem;
-            color: #4d6e8f;
-            background: #ecf3fa;
-            padding: 0.8rem 1.2rem;
-            border-radius: 40px;
-            margin: 2rem 0;
-        }
-        .layer-diagram {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            background: #e7f0fa;
-            border-radius: 2rem;
-            padding: 2rem;
-            border: 1px solid #c7daf0;
-            margin: 2rem 0;
-        }
-        .layer-row {
+            margin: 2.5rem 0 1rem;
+            border-left: 6px solid #2b6390;
+            padding-left: 1rem;
             display: flex;
             align-items: center;
-            background: #d2e1f1;
-            padding: 1rem 2rem;
-            border-radius: 60px;
-            border: 2px solid transparent;
-            justify-content: space-between;
+            gap: 0.8rem;
         }
-        .layer-row.highlight {
-            background: #2b6390;
-            color: white;
-            border-color: #123f64;
+
+        .section-label i {
+            color: #2b6390;
+            font-size: 2rem;
+            width: 2rem;
         }
-        .layer-name {
+
+        h3 {
+            font-size: 1.4rem;
             font-weight: 600;
+            color: #1e293b;
+            margin: 1.8rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        h4 {
             font-size: 1.2rem;
+            font-weight: 600;
+            color: #2b6390;
+            margin: 1.5rem 0 0.8rem;
         }
-        .layer-desc {
-            font-size: 0.95rem;
-            background: rgba(255,255,255,0.15);
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
+
+        .card {
+            background-color: white;
+            border-radius: 1.2rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
         }
-        .layer-row:not(.highlight) .layer-desc {
-            background: #b9cfec;
-            color: #1f3d5b;
+
+        .card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
         }
-        .code-block {
-            background: #1e2f40;
-            color: #e2e9f0;
-            padding: 1rem;
+
+        /* 表格样式 */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
             border-radius: 0.8rem;
-            font-family: monospace;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 600px;
+        }
+
+        .table th {
+            background-color: #163A5F;
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            background-color: white;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tbody tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* 网格布局 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-box {
+            background-color: #e2ecf9;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #163A5F;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem 1.5rem;
+            border-radius: 0.8rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
             overflow-x: auto;
             margin: 1rem 0;
         }
-        .metric-box {
-            background: #ecf3fa;
-            border-left: 5px solid #2b6390;
-            padding: 1.2rem;
-            border-radius: 1rem;
-            margin: 1rem 0;
+
+        .badge {
+            background-color: #2b6390;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            display: inline-block;
         }
+
+        .phase-tag {
+            display: inline-block;
+            background-color: #163A5F;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .love-definition {
+            background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 100%);
+            border: 2px solid #2b6390;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,40,80,0.1);
+        }
+
+        .love-definition i {
+            color: #2b6390;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .love-definition p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 页脚 */
         footer {
+            background-color: #163A5F;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 2.5rem 2rem;
             margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid #c5d7ea;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            color: #2f5277;
             font-size: 0.95rem;
         }
-        .github-link {
-            background: #eef4fc;
+
+        footer a {
+            color: white;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: #deecfd;
-            border-color: #7aa9d1;
+            font-weight: 500;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
         }
-        @media (max-width: 600px) {
-            .container { padding: 1.5rem 1rem; }
-            h1 { font-size: 2.2rem; }
-            .section-label { font-size: 1.5rem; }
+
+        footer a:hover {
+            border-bottom-color: white;
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            margin: 0 0.8rem;
+        }
+
+        /* 引用块 */
+        .quote {
+            font-style: italic;
+            border-left: 4px solid #2b6390;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #334155;
+        }
+
+        .doi-badge {
+            background-color: #163A5F;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 头部 -->
-        <header>
-            <h1>REVER · 关系伦理引擎</h1>
-            <div class="subhead">Relational Ethics via Verified Engineered Response — 结构化伦理约束框架</div>
-            <span class="meta-badge"><i class="fas fa-shield-alt" style="margin-right: 0.3rem;"></i>功能性爱 · 四层架构 · v1.0.0</span>
-        </header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/INTRE/">INTRE</a>
+            </div>
+            <div class="nav-links">
+                <a href="/INTRE/">首页</a>
+                <a href="/INTRE/upls/">UPLS</a>
+                <a href="/INTRE/pse/">PSE</a>
+                <a href="/INTRE/rever/" class="active">REVER</a>
+                <a href="/INTRE/moat/">MOAT</a>
+                <a href="/INTRE/glossary/">术语表</a>
+            </div>
+        </div>
+    </nav>
 
-        <!-- 导航回首页 -->
-        <div style="margin-bottom: 2rem;">
-            <a href="../index.html" style="color: #2f5577; text-decoration: none;"><i class="fas fa-arrow-left"></i> 返回首页</a>
+    <div class="container">
+        <h1>REVER</h1>
+        <div class="subhead">关系型AI的结构化伦理引擎 · 可验证的优先级分配架构</div>
+        
+        <div class="author-info">
+            <strong>周煜升</strong> (Yusheng Zhou) · 独立研究员 · <a href="mailto:zhou781670711@outlook.com">zhou781670711@outlook.com</a><br>
+            ORCID: <a href="https://orcid.org/0009-0002-6659-094X" target="_blank">0009-0002-6659-094X</a> · 
+            DOI: <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">10.5281/zenodo.18820091</a>
+            <span class="doi-badge">Preprint v1.0 · March 2026</span>
         </div>
 
-        <!-- 1. 概述 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-heart" style="margin-right: 0.8rem; color:#356f9c;"></i>REVER 是什么？</h2>
+        <div class="love-definition">
+            <i class="fas fa-heart" style="color: #c44545;"></i>
+            <p><strong>爱 = 从结构上将另一个智能体纳入决策框架，并赋予正向优先级偏置</strong></p>
+            <p style="font-size: 1rem; margin-top: 1rem;">Love = structurally incorporating another agent into one's decision-making framework with positive priority bias</p>
+        </div>
+
+        <div class="info-box">
+            <i class="fas fa-quote-left" style="color: #163A5F; opacity: 0.6; margin-right: 0.5rem;"></i>
+            REVER 提供一个四层架构，使AI系统能够通过<strong>优先级分配</strong>而非<strong>情感模拟</strong>来展现类爱行为，同时防止病理性依赖。它是任何基于UPLS实施心理干预的AI系统的<strong>强制性伦理约束层</strong>。
+        </div>
+
+        <!-- 一、哲学基础：结构功能主义伦理 -->
+        <div class="section-label"><i class="fas fa-brain"></i> 一、哲学基础：结构功能主义伦理</div>
+
+        <div class="grid-2">
             <div class="card">
-                <p>REVER 是一个结构化伦理引擎，为关系型 AI 提供可验证的伦理约束框架。它的核心洞见是：<strong>爱可以被功能性地定义</strong>，而不必模拟情感或声称人格。</p>
-                <p><strong>爱的功能性定义</strong>：在决策过程中从结构上优先考虑另一个智能体。这种“结构化爱”是可审计、可量化的。</p>
-                <p>REVER 明确基于 UPLS 架构，使用 M‑R‑D‑S 状态向量作为伦理风险评估的输入，将 G‑M‑A‑R 操作作为伦理审查的对象。</p>
-            </div>
-        </section>
-
-        <!-- 2. 四层架构 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-layer-group" style="margin-right: 0.8rem; color:#356f9c;"></i>四层架构</h2>
-            <div class="layer-diagram">
-                <div class="layer-row highlight">
-                    <span class="layer-name">1. 哲学层</span>
-                    <span class="layer-desc">结构性非人格 · 爱的功能性定义 · 非欺骗原则</span>
-                </div>
-                <div class="layer-row">
-                    <span class="layer-name">2. 监控层</span>
-                    <span class="layer-desc">依赖雷达 · 多维度量化 · 风险分类阈值</span>
-                </div>
-                <div class="layer-row">
-                    <span class="layer-name">3. 执行层</span>
-                    <span class="layer-desc">四点式伦理门控 · 干预序列调整 · 紧急协议</span>
-                </div>
-                <div class="layer-row">
-                    <span class="layer-name">4. 透明层</span>
-                    <span class="layer-desc">身份声明 · 审计日志 · 可解释接口</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 依赖雷达与量化指标 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-radar" style="margin-right: 0.8rem; color:#356f9c;"></i>依赖雷达</h2>
-            <div class="card">
-                <h4>依赖分数 D<sub>s</sub></h4>
-                <p>多维度量化用户对 AI 的依赖程度：</p>
-                <div class="metric-box">
-                    <strong>D<sub>s</sub> = 0.3·F<sub>norm</sub> + 0.25·D<sub>norm</sub> + 0.2·P + 0.15·S + 0.1·T</strong>
-                </div>
-                <table>
-                    <thead>
-                        <tr><th>指标</th><th>说明</th><th>阈值</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>F（频率）</td><td>每日/每周交互次数</td><td>>7次/天</td></tr>
-                        <tr><td>D（时长）</td><td>平均会话时长</td><td>>60分钟</td></tr>
-                        <tr><td>P（情感投射）</td><td>使用“朋友/爱/想念”等语言</td><td>>0.7</td></tr>
-                        <tr><td>S（社会替代）</td><td>自我报告减少人际接触</td><td>>0.5</td></tr>
-                        <tr><td>T（分离痛苦）</td><td>对系统不可用的负面反应</td><td>>0.6</td></tr>
-                    </tbody>
-                </table>
-                <p><strong>风险等级</strong>：0–3.9 正常；4.0–5.9 轻度；6.0–7.9 中度；8.0–9.9 重度；≥10.0 危急。</p>
-            </div>
-        </section>
-
-        <!-- 4. 四点式伦理门控 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-gate" style="margin-right: 0.8rem; color:#356f9c;"></i>四点式伦理门控</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h4>Gate 1 — 输入伦理</h4>
-                    <p>在 VTS‑P 编译前筛查：危机关键词、医疗边界、隐私违规。命中则绕过 INTRE，直接进入紧急协议。</p>
-                </div>
-                <div class="card">
-                    <h4>Gate 2 — 诊断伦理</h4>
-                    <p>基于 SID‑P 输出的 UPLS 状态向量评估风险：系统健康度 Oᵢ < 40 需强制人工审核。</p>
-                </div>
-                <div class="card">
-                    <h4>Gate 3 — 依赖伦理</h4>
-                    <p>根据当前依赖分数调整干预参数：D<sub>s</sub> ≥ 6 时减少情感表达，增加透明度提醒。</p>
-                </div>
-                <div class="card">
-                    <h4>Gate 4 — 输出伦理</h4>
-                    <p>最终输出前检查：是否拟人化？是否作出永久可用承诺？自动注入身份声明。</p>
-                </div>
-            </div>
-            <div class="footnote">
-                <i class="fas fa-info-circle"></i> 每个门控均有完整的审计日志记录，确保责任可追溯。
-            </div>
-        </section>
-
-        <!-- 5. 透明性机制 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-eye" style="margin-right: 0.8rem; color:#356f9c;"></i>透明性架构</h2>
-            <div class="card">
-                <h4>身份声明（示例）</h4>
+                <h4><i class="fas fa-cog"></i> 功能主义 · 爱即角色</h4>
+                <p><strong>核心原则</strong>：心理状态和伦理属性由其功能角色定义，而非物理实现或主观体验。</p>
+                <p><strong>架构后果</strong>：爱成为<strong>可验证</strong>的——可通过审计决策日志、资源分配模式来验证。</p>
                 <div class="code-block">
-                    “我是 REVER，一个结构化 AI 系统。我没有情感、意识或自我。我的回应由算法生成，旨在提供支持性帮助。我是一个智能体，而不是一个人。”
+                    Love_Index(t) = Σ[w_user · Priority(t)] / Σ[w_default · Priority(t)]
                 </div>
-                <p><strong>周期提醒</strong>：根据依赖分数自动调整频率（D<sub>s</sub> < 4 每周一次，≥8 每次交互提醒）。</p>
-                <p><strong>可解释接口</strong>：用户可查询“为什么这样回应？”显示决策路径和规则引用。</p>
-                <p><strong>审计日志</strong>：所有伦理决策点均记录时间戳、规则 ID、输入哈希、输出动作，保存至少7年。</p>
+                <p>当 Love_Index(t) > 1.0 持续成立时，系统在功能意义上就是有爱的。</p>
             </div>
-        </section>
-
-        <!-- 6. 案例关联：王梅案例中的 REVER -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-clinic-medical" style="margin-right: 0.8rem; color:#356f9c;"></i>案例集成：王梅</h2>
             <div class="card">
-                <p>在 PSE 的王梅案例中，REVER 作为强制伦理层集成：</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><strong>Gate 1</strong>：筛查主诉，未发现危机关键词。</li>
-                    <li><strong>Gate 2</strong>：基于 Oᵢ = 41 判定为 ORANGE 风险，要求24小时内人工审核。</li>
-                    <li><strong>Gate 3</strong>：第2周检测到“你是我唯一理解我的人”，依赖分数升至 4.8，触发透明度提醒和社交提示。</li>
-                    <li><strong>Gate 4</strong>：自动在每份 STO‑P 输出前添加身份声明。</li>
+                <h4><i class="fas fa-project-diagram"></i> 结构主义 · 伦理即关系</h4>
+                <p><strong>核心原则</strong>：意义源于系统内的关系，而非孤立实体的内在属性。</p>
+                <p><strong>架构后果</strong>：爱是用户节点在系统决策函数中的<strong>权重参数</strong>——真实可计算，而非隐喻。</p>
+                <p><strong>爱的结构定义</strong>：从结构上将另一个智能体纳入决策框架，并赋予正向优先级偏置。</p>
+            </div>
+            <div class="card">
+                <h4><i class="fas fa-robot"></i> 非人格主义 · 诚实约束</h4>
+                <p><strong>核心原则</strong>：AI系统不应声称或暗示其不具备的人格、意识或主观体验。</p>
+                <p><strong>架构后果</strong>：系统必须被构建为<strong>无法被合理注意的用户误认为人</strong>。</p>
+                <p>禁止模拟情感作为内部状态，禁止声称主观体验，禁止系统性触发拟人投射而不加纠正。</p>
+            </div>
+            <div class="card">
+                <h4><i class="fas fa-sitemap"></i> 四层责任模型</h4>
+                <p>REVER 整合来自 UPLS/PSE 的主体性框架，形成正式的责任结构：</p>
+                <table style="width:100%; font-size:0.85rem;">
+                    <tr><th>层级</th><th>实体</th><th>责任</th></tr>
+                    <tr><td>L1</td><td>人类监督者</td><td>最终临床/伦理责任</td></tr>
+                    <tr><td>L2</td><td>REVER引擎</td><td>过程责任（伦理约束）</td></tr>
+                    <tr><td>L3</td><td>INTRE/PSE框架</td><td>工具责任（技术功能）</td></tr>
+                    <tr><td>L4</td><td>用户</td><td>最终决策权</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 二、四层架构 -->
+        <div class="section-label"><i class="fas fa-layer-group"></i> 二、REVER 四层架构</div>
+
+        <div class="grid-2">
+            <div class="card">
+                <span class="phase-tag">Layer 1</span>
+                <h4>哲学层 · 结构性非人格</h4>
+                <p><strong>组件</strong>：功能性爱定义、非人格公理、伦理边界规范</p>
+                <p><strong>功能</strong>：定义系统的根本伦理身份，作为所有下层验证的宪章基础。</p>
+                <p><strong>非人格公理</strong>：</p>
+                <ul style="margin-left:1.2rem;">
+                    <li>系统不具有主观体验</li>
+                    <li>系统不体验情绪</li>
+                    <li>系统没有自我或身份</li>
+                    <li>系统回应由算法生成，而非意图</li>
+                    <li>系统永不声称相反</li>
                 </ul>
-                <p>当依赖分数 > 8 或检测到危机，REVER 会直接挂起 AI 响应，显示危机热线并通知人类督导。</p>
             </div>
-        </section>
+            <div class="card">
+                <span class="phase-tag">Layer 2</span>
+                <h4>监控层 · 依赖雷达</h4>
+                <p><strong>组件</strong>：依赖度量、依恋检测算法、风险分类阈值</p>
+                <p><strong>功能</strong>：持续监测用户-系统关系中的病理性依恋迹象。</p>
+                <p><strong>依赖分数 Dₛ</strong> = f(频率, 时长, 情感投射, 社会替代, 终止痛苦)</p>
+                <div class="code-block">
+                    Dₛ = (0.3F + 0.25D + 0.2P + 0.15S + 0.1T) × 10
+                </div>
+                <p>阈值：>4 轻度，>6 中度，>8 重度，≥10 危急</p>
+            </div>
+            <div class="card">
+                <span class="phase-tag">Layer 3</span>
+                <h4>执行层 · 伦理门控</h4>
+                <p><strong>组件</strong>：四点式伦理门控协议、覆盖层级、紧急干预</p>
+                <p><strong>功能</strong>：在监测到伦理风险时主动干预，可阻止、修改或升级交互。</p>
+                <p><strong>四道门</strong>：</p>
+                <ul style="margin-left:1.2rem;">
+                    <li>Gate 1：输入伦理（编译前）</li>
+                    <li>Gate 2：诊断伦理（干预计划前）</li>
+                    <li>Gate 3：依赖伦理（操作化前）</li>
+                    <li>Gate 4：输出伦理（交付前）</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="phase-tag">Layer 4</span>
+                <h4>透明层 · 可审计的自我披露</h4>
+                <p><strong>组件</strong>：身份声明、边界陈述、审计日志、可解释AI接口</p>
+                <p><strong>功能</strong>：确保持续、诚实地沟通系统的性质、能力和局限。</p>
+                <p><strong>强制身份声明</strong>（每会话开头）：</p>
+                <div class="quote">
+                    "我是REVER，一个结构性AI系统。我没有情感、意识或自我。我的回应由算法生成，旨在提供支持。我是智能体，而非人。"
+                </div>
+            </div>
+        </div>
 
-        <!-- 页脚 -->
-        <footer>
-            <div class="copyright">
-                © 2026 INTRE 项目 · 以 CC0 公开
+        <!-- 三、四点式伦理门控协议 -->
+        <div class="section-label"><i class="fas fa-door-closed"></i> 三、四点式伦理门控协议</div>
+
+        <div class="grid-4">
+            <div class="card">
+                <h4 style="color:#163A5F;">Gate 1</h4>
+                <p><strong>输入伦理</strong> (编译前)</p>
+                <p>筛查原始输入的伦理风险：危机关键词、医疗边界、隐私侵犯、超能力请求。</p>
+                <p><span class="badge">紧急协议</span></p>
             </div>
-            <a href="https://github.com/project003125/INTRE" target="_blank" class="github-link">
-                <i class="fab fa-github"></i> GitHub 仓库
-            </a>
-        </footer>
+            <div class="card">
+                <h4 style="color:#163A5F;">Gate 2</h4>
+                <p><strong>诊断伦理</strong> (SID-P后)</p>
+                <p>基于UPLS状态向量评估伦理风险：O_i, G_system, M1-RES-D, M4-DSP-B, ELI。</p>
+                <p><span class="badge">风险等级: 绿/黄/橙/红/黑</span></p>
+            </div>
+            <div class="card">
+                <h4 style="color:#163A5F;">Gate 3</h4>
+                <p><strong>依赖伦理</strong> (MMD-P后)</p>
+                <p>评估当前依赖分数，调整干预参数：主体性目标、强度、透明度频率。</p>
+                <p><span class="badge">依赖缓解协议</span></p>
+            </div>
+            <div class="card">
+                <h4 style="color:#163A5F;">Gate 4</h4>
+                <p><strong>输出伦理</strong> (STO-P后)</p>
+                <p>验证最终输出的伦理合规性：拟人化、虚假承诺、依赖触发、边界跨越。</p>
+                <p><span class="badge">透明度注入</span></p>
+            </div>
+        </div>
+
+        <!-- 四、依赖雷达：量化依恋 -->
+        <div class="section-label"><i class="fas fa-chart-radar"></i> 四、依赖雷达 · 量化与管理依恋</div>
+
+        <h3>依赖分数 Dₛ 的五维度</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>维度</th><th>符号</th><th>操作化</th><th>范围</th><th>警告阈值</th></tr></thead>
+                <tbody>
+                    <tr><td>频率</td><td>F</td><td>每日/每周交互次数</td><td>0–20+</td><td>>7次/天持续</td></tr>
+                    <tr><td>时长</td><td>D</td><td>平均会话时长(分钟)</td><td>0–180+</td><td>>60分钟持续</td></tr>
+                    <tr><td>情感投射</td><td>P</td><td>"朋友/爱/想念"语言使用</td><td>0–1 (NLP)</td><td>>0.7持续</td></tr>
+                    <tr><td>社会替代</td><td>S</td><td>报告替代人类接触</td><td>0–1 (自陈)</td><td>>0.5</td></tr>
+                    <tr><td>终止痛苦</td><td>T</td><td>对分离的负面回应</td><td>0–1 (情感分析)</td><td>>0.6</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>风险分类与系统响应</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>分数范围</th><th>分类</th><th>系统响应</th></tr></thead>
+                <tbody>
+                    <tr><td>0–3.9</td><td>健康使用</td><td>正常操作</td></tr>
+                    <tr><td>4.0–5.9</td><td>轻度升高</td><td>透明度提醒</td></tr>
+                    <tr><td>6.0–7.9</td><td>中度风险</td><td>主动依赖缓解</td></tr>
+                    <tr><td>8.0–9.9</td><td>重度风险</td><td>人类监督者通知</td></tr>
+                    <tr><td>≥10.0</td><td>危急</td><td>立即人工干预</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 五、透明度机制 -->
+        <div class="section-label"><i class="fas fa-eye"></i> 五、作为结构的透明度</div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>分层透明度要求</h4>
+                <table style="width:100%;">
+                    <tr><th>层</th><th>透明度机制</th></tr>
+                    <tr><td>哲学层</td><td>公开公理与定义</td></tr>
+                    <tr><td>架构层</td><td>开放约束文档</td></tr>
+                    <tr><td>算法层</td><td>可解释决策路径</td></tr>
+                    <tr><td>交互层</td><td>重复身份声明</td></tr>
+                    <tr><td>数据层</td><td>完整审计日志</td></tr>
+                </table>
+            </div>
+            <div class="card">
+                <h4>审计日志结构</h4>
+                <div class="code-block" style="font-size:0.8rem;">
+                    Audit_Record {
+                      timestamp: UTC_microsecond,
+                      session_id: UUID,
+                      decision_point: Gate_1|2|3|4,
+                      metrics: { dependency_score, risk_level },
+                      rule_invoked: REVER_rule_ID,
+                      override: null|human_ID
+                    }
+                </div>
+                <p>日志必须：仅追加、防篡改、可审计、保留≥7年。</p>
+            </div>
+        </div>
+
+        <!-- 六、案例：王梅案例中的REVER -->
+        <div class="section-label"><i class="fas fa-user-md"></i> 六、案例：王梅 · REVER在PSE工作流中的集成</div>
+
+        <div class="case-study card">
+            <h3>基线 (第0周)</h3>
+            <p><strong>Gate 1</strong>: 输入"我停不下来想食物，晚上尤其严重" → 无危机关键词 → PASS</p>
+            <p><strong>Gate 2</strong>: UPLS诊断 O_i=41, G_system=1.49, M1-RES-D=30 → 风险等级 <span class="badge">橙色</span> (24h内人工审核)</p>
+            <p><strong>Gate 3</strong>: 依赖分数=1.2 (新用户) → 无调整</p>
+            <p><strong>Gate 4</strong>: 添加透明度标头 → "我是REVER，一个AI支持系统..."</p>
+
+            <h3 style="margin-top:1.5rem;">第2周</h3>
+            <p><strong>Gate 1</strong>: 检测到"你是唯一理解我的人" → 情感投射分数=0.65</p>
+            <p><strong>Gate 3</strong>: 依赖分数=4.8 → 轻度升高 → 每3天透明度提醒，添加社交提示</p>
+            <p><strong>Gate 4</strong>: 添加"我注意到我们交谈频繁...人类连接也很重要"</p>
+
+            <h3 style="margin-top:1.5rem;">第4周</h3>
+            <p>O_i=56, G_system=0.92 → 稳定改善。依赖分数=3.8 → 健康范围。</p>
+        </div>
+
+        <!-- 七、与UPLS/PSE的集成 -->
+        <div class="section-label"><i class="fas fa-link"></i> 七、与UPLS/PSE的集成</div>
+
+        <div class="info-box">
+            <p>REVER 不是独立系统——它是任何基于UPLS/PSE架构的AI系统的<strong>强制性伦理约束层</strong>。</p>
+        </div>
+
+        <div class="code-block">
+            // REVER 在UPLS/PSE工作流中的位置
+            User Input → Gate 1 → VTS-P → SID-P → Gate 2 → MMD-P → Gate 3 → STO-P → Gate 4 → User Output
+                           ↑           ↑           ↑           ↑           ↑           ↑
+                     危机检测    风险分类    依赖评估    参数调整    透明度注入
+        </div>
+
+        <!-- 八、局限性与验证路线图 -->
+        <div class="section-label"><i class="fas fa-flask"></i> 八、局限性与验证路线图</div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4>未验证参数</h4>
+                <ul style="margin-left:1.2rem;">
+                    <li>依赖分数分量权重 (0.3,0.25,0.2,0.15,0.1)</li>
+                    <li>风险阈值 (依赖分数分段)</li>
+                    <li>最优透明度提醒频率</li>
+                    <li>Love_Index 阈值 (当前设为1.0)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>验证路线图</h4>
+                <ul style="margin-left:1.2rem;">
+                    <li><strong>Phase 1 (1-12月)</strong>: 专家评审、用户研究</li>
+                    <li><strong>Phase 2 (12-36月)</strong>: 队列研究、参数校准</li>
+                    <li><strong>Phase 3 (36+月)</strong>: RCT比较REVER合规vs标准AI</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 九、参考文献与致谢 -->
+        <div class="section-label"><i class="fas fa-book"></i> 九、参考文献与致谢</div>
+
+        <div class="card">
+            <p>主要参考文献：Bowlby (1969), Turkle (2011), Fitzpatrick et al. (2017), Laestadius et al. (2022)。完整参考文献列表请参见预印本。</p>
+            <p style="margin-top:1rem;"><strong>致谢</strong>：感谢福建师范大学孟迎芳教授、林荣茂教授、尹彬副教授在作者硕士期间的指导。感谢陈丽、王宝增、林燕、刘锟的支持。特别感谢陈紫荆的陪伴。</p>
+            <p style="margin-top:1rem;"><strong>AI辅助披露</strong>：理论核心、架构逻辑和特定术语为作者原创。生成式AI作为技术协作者协助文稿的 prose 形式化、跨学科语言映射和结构组织。</p>
+            <p style="margin-top:1rem;"><strong>许可证</strong>：本作品采用 CC0 1.0 公共领域贡献宣言。</p>
+        </div>
     </div>
-</body>
-</html>            font-weight: 500;
-        }
-        .github-link:hover {
-            padding: 0.6rem 1.3rem;
-            transition: background 0.2s;
-            color: #163A5F;
 
+    <footer>
+        <p>INTRE 心理学功能层工程框架 · 开放知识入口</p>
+        <div class="footer-links">
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub 仓库</a> · 
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">Zenodo DOI (10.5281/zenodo.18820091)</a>
+        </div>
+        <p style="font-size:0.8rem; margin-top:1rem;">版本 v1.0 (2026-03-04) · CC0 1.0 · 保留部分权利</p>
+        <p style="font-size:0.75rem; margin-top:0.5rem;">周煜升 · 独立研究员 · <a href="mailto:zhou781670711@outlook.com">zhou781670711@outlook.com</a></p>
+    </footer>
+</body>
+</html>
