@@ -1,290 +1,478 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPLS · 统一心理语言系统 | INTRE</title>
+    <title>INTRE · UPLS 统一心理语言系统</title>
+    <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== 全局样式（与首页保持一致） ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f4f7fc;
-            color: #1e3349;
-            line-height: 1.5;
+            color: #1e293b;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 2rem;
         }
-        header {
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #cddeee;
-            padding-bottom: 1.5rem;
+
+        /* 导航栏 */
+        nav {
+            background-color: #163A5F;
+            color: white;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
         }
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #163A5F;
-            line-height: 1.1;
-        }
-        .subhead {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #2f5577;
-            margin-top: 0.4rem;
-            border-left: 5px solid #4f8ab0;
-            padding-left: 1.3rem;
-            background: linear-gradient(to right, transparent, #ecf3fa);
-            padding-top: 0.2rem;
-            padding-bottom: 0.2rem;
-        }
-        .meta-badge {
-            display: inline-block;
-            background: #dde9f5;
-            color: #1f4a72;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            margin-top: 0.8rem;
-            border: 1px solid #b6d0e6;
-        }
-        .section-label {
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: #163A5F;
-            margin: 3rem 0 1.5rem 0;
-            letter-spacing: -0.01em;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 1.2rem;
-            padding: 1.8rem 1.5rem;
-            box-shadow: 0 6px 16px rgba(18, 52, 86, 0.08);
-            border: 1px solid #d6e3f0;
-            transition: 0.2s;
-            margin-bottom: 1.5rem;
-        }
-        .card:hover {
-            box-shadow: 0 16px 24px -8px rgba(26, 67, 113, 0.12);
-            border-color: #9fbede;
-        }
-        .card h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #143a5e;
-            margin-bottom: 0.8rem;
-        }
-        .card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1e4b77;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .badge {
-            display: inline-block;
-            background: #ecf3fa;
-            color: #163A5F;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            border: 1px solid #b9cfec;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-            margin: 1.5rem 0;
-        }
-        th {
-            background: #dde9f5;
-            color: #163A5F;
-            font-weight: 600;
-            padding: 1rem;
-            text-align: left;
-        }
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2edf7;
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        .footnote {
-            font-size: 0.9rem;
-            color: #4d6e8f;
-            background: #ecf3fa;
-            padding: 0.8rem 1.2rem;
-            border-radius: 40px;
-            margin: 2rem 0;
-        }
-        footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid #c5d7ea;
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            color: #2f5277;
+            flex-wrap: wrap;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        /* 页面标题 */
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #163A5F;
+            margin: 1rem 0 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2b6390;
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .section-label {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #163A5F;
+            margin: 2.5rem 0 1rem;
+            border-left: 6px solid #2b6390;
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-label i {
+            color: #2b6390;
+            font-size: 2rem;
+            width: 2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 1.8rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2b6390;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 1.2rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        /* 表格样式 */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 0.8rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 600px;
+        }
+
+        .table th {
+            background-color: #163A5F;
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            background-color: white;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tbody tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* 网格布局 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-box {
+            background-color: #e2ecf9;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #163A5F;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem 1.5rem;
+            border-radius: 0.8rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            background-color: #2b6390;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            display: inline-block;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #163A5F;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
             font-size: 0.95rem;
         }
-        .github-link {
-            background: #eef4fc;
-            padding: 0.6rem 1.3rem;
-            border-radius: 40px;
-            border: 1px solid #b3ceec;
-            transition: background 0.2s;
-            color: #163A5F;
+
+        footer a {
+            color: white;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
             font-weight: 500;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
         }
-        .github-link:hover {
-            background: #deecfd;
-            border-color: #7aa9d1;
+
+        footer a:hover {
+            border-bottom-color: white;
         }
-        @media (max-width: 600px) {
-            .container { padding: 1.5rem 1rem; }
-            h1 { font-size: 2.2rem; }
-            .section-label { font-size: 1.5rem; }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            margin: 0 0.8rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 头部 -->
-        <header>
-            <h1>UPLS · 统一心理语言系统</h1>
-            <div class="subhead">Unified Psychological Language System — 心理学的“元素周期表”</div>
-            <span class="meta-badge"><i class="fas fa-layer-group" style="margin-right: 0.3rem;"></i>功能层元语言 · v1.0.0</span>
-        </header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/INTRE/">INTRE</a>
+            </div>
+            <div class="nav-links">
+                <a href="/INTRE/">首页</a>
+                <a href="/INTRE/upls/" class="active">UPLS</a>
+                <a href="/INTRE/pse/">PSE</a>
+                <a href="/INTRE/rever/">REVER</a>
+                <a href="/INTRE/moat/">MOAT</a>
+                <a href="/INTRE/glossary/">术语表</a>
+            </div>
+        </div>
+    </nav>
 
-        <!-- 导航回首页 -->
-        <div style="margin-bottom: 2rem;">
-            <a href="../index.html" style="color: #2f5577; text-decoration: none;"><i class="fas fa-arrow-left"></i> 返回首页</a>
+    <div class="container">
+        <h1>UPLS</h1>
+        <div class="subhead">统一心理语言系统 · 心理学的形式化元语言</div>
+
+        <div class="info-box">
+            <i class="fas fa-quote-left" style="color: #163A5F; opacity: 0.6; margin-right: 0.5rem;"></i>
+            UPLS 提供一套严格的形式化语法，使心理状态可描述、可计算、可干预。它包含<strong>内感架构 M‑R‑D‑S</strong>、<strong>操作架构 G‑M‑A‑R</strong> 以及<strong>知识基础设施 PCUI/PSA/PSL</strong>，是 INTRE 框架的元语言基础。
         </div>
 
-        <!-- 1. 核心语法 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-code" style="margin-right: 0.8rem; color:#356f9c;"></i>核心语法</h2>
-            <div class="card">
-                <h3>M‑R‑D‑S 状态语法</h3>
-                <p style="margin-bottom: 1rem;">任何心理状态可表示为六模块 (M1–M6) 与三层分解 (R‑D‑S) 的组合，共48维诊断空间。</p>
-                <div style="background: #f4f9ff; padding: 1rem; border-radius: 1rem;">
-                    <div><span class="badge">M1 具身</span><span class="badge">M2 认知</span><span class="badge">M3 意志</span><span class="badge">M4 情绪</span><span class="badge">M5 言语</span><span class="badge">M6 行为</span></div>
-                    <div style="margin-top: 1rem;">
-                        <span class="badge">RES-D 调度资源</span>
-                        <span class="badge">RES-B 基底资源</span>
-                        <span class="badge">DSP-F 前台调度</span>
-                        <span class="badge">DSP-B 后台调度</span>
-                        <span class="badge">STR-R 规则结构</span>
-                        <span class="badge">STR-C 连接结构</span>
-                        <span class="badge">STR-S 序列结构</span>
-                    </div>
-                </div>
-                <p style="margin-top: 1.5rem;"><strong>示例：</strong>焦虑状态 → <code>M4-DSP-B↑ (88), M4-RES-D↓ (25), M2-DSP-B↑ (78), M3-RES-D↓ (31)</code></p>
-            </div>
+        <!-- 一、M-R-D-S 内感架构 -->
+        <div class="section-label"><i class="fas fa-cube"></i> 一、M‑R‑D‑S 内感架构</div>
+        <p style="margin-bottom: 1.5rem;">描述心理状态内部组成的语法：<strong>M</strong>（六大功能模块）、<strong>R</strong>（资源层）、<strong>D</strong>（调度层）、<strong>S</strong>（结构层）。</p>
 
-            <div class="card">
-                <h3>G‑M‑A‑R 操作语法</h3>
-                <p>四种原子操作，对应心理干预的四种基本类型：</p>
-                <div class="grid-2">
-                    <div style="background: #f0f7fe; padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-power-off" style="color:#2b6390;"></i> <strong>GATE (门控)</strong> — 启动/抑制进程 (DSP, STR-S)
-                    </div>
-                    <div style="background: #f0f7fe; padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-sliders-h" style="color:#2b6390;"></i> <strong>MODULATE (调制)</strong> — 调节资源水平 (RES)
-                    </div>
-                    <div style="background: #f0f7fe; padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-ruler" style="color:#2b6390;"></i> <strong>ALIGN (校准)</strong> — 修正信念规则 (STR-R)
-                    </div>
-                    <div style="background: #f0f7fe; padding: 1rem; border-radius: 1rem;">
-                        <i class="fas fa-link" style="color:#2b6390;"></i> <strong>RELINK (重联)</strong> — 重塑情感连接 (STR-C)
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. 知识基础设施 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-database" style="margin-right: 0.8rem; color:#356f9c;"></i>知识基础设施</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h4>PCUI</h4>
-                    <p>心理学概念唯一标识符，解决“同名异义、异名同义”。每个概念拥有唯一编码。</p>
-                    <div style="background: #e9f2fa; padding: 0.5rem; border-radius: 0.8rem; font-family: monospace;">
-                        CORE_BELIEF_NEGATIVE.UPLS.v3.0.007#M2-STR-R
-                    </div>
-                </div>
-                <div class="card">
-                    <h4>PSA</h4>
-                    <p>心理语义网络 — 定义概念间关系 (如 M4-DSP-B ↑ → M2-DSP-B ↑ 权重 0.85)。</p>
-                </div>
-                <div class="card">
-                    <h4>PSL</h4>
-                    <p>专项词汇库，将自然语言映射到 PCUI。例如“脑子停不下来” → <code>M2-DSP-B↑</code></p>
-                </div>
-                <div class="card">
-                    <h4>五大知识库</h4>
-                    <p>SPMC-L, SPER-L, SPSM-L, SPDC-L, SPOT-L，支撑从诊断到干预的全流程。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 跨流派整合 -->
-        <section>
-            <h2 class="section-label"><i class="fas fa-sitemap" style="margin-right: 0.8rem; color:#356f9c;"></i>跨流派整合</h2>
-            <table>
-                <thead>
-                    <tr><th>流派</th><th>核心概念</th><th>UPLS 坐标</th><th>G-M-A-R 操作</th></tr>
-                </thead>
+        <h3>1.1 六大功能模块（M层）</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>模块</th><th>英文</th><th>中文</th><th>功能定位</th><th>系统角色</th></tr></thead>
                 <tbody>
-                    <tr><td>CBT</td><td>核心信念</td><td>M2-STR-R</td><td>ALIGN</td></tr>
-                    <tr><td>精神分析</td><td>移情</td><td>M4-STR-C</td><td>RELINK</td></tr>
-                    <tr><td>ACT</td><td>认知融合</td><td>M2-DSP-B ↔ M2-STR-R</td><td>GATING-</td></tr>
-                    <tr><td>行为主义</td><td>条件反射</td><td>M6-STR-C</td><td>ALIGN (消退/建立)</td></tr>
-                    <tr><td>人本主义</td><td>价值条件</td><td>M4-STR-C</td><td>RELINK</td></tr>
+                    <tr><td><strong>M1</strong></td><td>Embodied</td><td>具身</td><td>物理基座与能量引擎</td><td>提供生理能量基底，约束其他模块</td></tr>
+                    <tr><td><strong>M2</strong></td><td>Cognitive</td><td>认知</td><td>建模引擎与知识库</td><td>存储信念、知识，进行推理</td></tr>
+                    <tr><td><strong>M3</strong></td><td>Volition</td><td>意志</td><td>中央调度器</td><td>目标设定、优先级分配</td></tr>
+                    <tr><td><strong>M4</strong></td><td>Emotional</td><td>情绪</td><td>价值评估中心</td><td>对内外事件赋予效价</td></tr>
+                    <tr><td><strong>M5</strong></td><td>Linguistic</td><td>言语</td><td>符号接口与社会连接</td><td>语言生成与理解，社会沟通</td></tr>
+                    <tr><td><strong>M6</strong></td><td>Behavioral</td><td>行为</td><td>执行系统</td><td>动作输出与习惯执行</td></tr>
                 </tbody>
             </table>
-            <div class="footnote">
-                <i class="fas fa-info-circle"></i> 完整映射见 <a href="#" style="color:#163A5F;">附录 E：跨流派概念汇编</a> (待完善)
-            </div>
-        </section>
+        </div>
 
-        <!-- 页脚 -->
-        <footer>
-            <div class="copyright">
-                © 2026 INTRE 项目 · 以 CC0 公开
+        <h3>1.2 资源层（R层）</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>组件</th><th>英文</th><th>中文</th><th>时间特征</th><th>功能定义</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>RES-D</strong></td><td>Dispatchable Resource</td><td>调度资源</td><td>小时-天（快速波动）</td><td>即时可用的心理燃料（注意力、意志力）</td></tr>
+                    <tr><td><strong>RES-B</strong></td><td>Basal Resource</td><td>基底资源</td><td>周-月（缓慢变化）</td><td>长期心理资本（自尊、希望、韧性）</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.3 调度层（D层）</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>组件</th><th>英文</th><th>中文</th><th>运行特征</th><th>功能定义</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>DSP-F</strong></td><td>Foreground Dispatch</td><td>前台调度</td><td>需意识参与</td><td>目标导向的主动控制进程</td></tr>
+                    <tr><td><strong>DSP-B</strong></td><td>Background Dispatch</td><td>后台调度</td><td>自动运行</td><td>本能反应与习惯化进程</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.4 结构层（S层）</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>组件</th><th>英文</th><th>中文</th><th>系统角色</th><th>功能定义</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>STR-R</strong></td><td>Rules Structure</td><td>规则结构</td><td>系统规则内容</td><td>指导决策与评估的逻辑算法（如“我必须完美”）</td></tr>
+                    <tr><td><strong>STR-C</strong></td><td>Connections Structure</td><td>连接结构</td><td>系统关联网络</td><td>存储元素间的关系权重（如“失败”与“无价值”的强连接）</td></tr>
+                    <tr><td><strong>STR-S</strong></td><td>Sequence Structure</td><td>序列结构</td><td>系统执行流程</td><td>定义行为或反应的序列步骤（如习惯链）</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="code-block">
+            // 示例：抑郁状态的 M-R-D-S 向量表示<br>
+            {<br>
+            &nbsp;&nbsp;M1: { RES-D: 20, RES-B: 35 },<br>
+            &nbsp;&nbsp;M2: { STR-R: "自我否定信念", STR-C: "失败→无价值" },<br>
+            &nbsp;&nbsp;M3: { DSP-F: 0.3, DSP-B: 0.8 },<br>
+            &nbsp;&nbsp;M4: { 效价: -0.7, 唤醒度: 0.2 },<br>
+            &nbsp;&nbsp;M6: { 行为抑制: 0.9 }<br>
+            }
+        </div>
+
+        <!-- 二、G-M-A-R 操作架构 -->
+        <div class="section-label"><i class="fas fa-sliders"></i> 二、G‑M‑A‑R 操作架构</div>
+        <p>原子级心理操作语法，对应系统动力学的四种基本干预类型。</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h4><i class="fas fa-door-open" style="color: #2b6390;"></i> GATE · 门控</h4>
+                <p><strong>作用对象：</strong> DSP、STR-S</p>
+                <p><strong>操作本质：</strong> 通道开关控制（启动/抑制进程）</p>
+                <p><strong>示例：</strong> GATE(DSP-B, -) —— 抑制后台自动思维</p>
             </div>
-            <a href="https://github.com/project003125/INTRE" target="_blank" class="github-link">
-                <i class="fab fa-github"></i> GitHub 仓库
-            </a>
-        </footer>
+            <div class="card">
+                <h4><i class="fas fa-sliders-h" style="color: #2b6390;"></i> MODULATE · 调制</h4>
+                <p><strong>作用对象：</strong> RES</p>
+                <p><strong>操作本质：</strong> 资源数量调节（增加/减少）</p>
+                <p><strong>示例：</strong> MODULATE(RES-D, +0.3) —— 提升调度资源</p>
+            </div>
+            <div class="card">
+                <h4><i class="fas fa-arrows-spin" style="color: #2b6390;"></i> ALIGN · 对齐</h4>
+                <p><strong>作用对象：</strong> STR-R</p>
+                <p><strong>操作本质：</strong> 规则修正（更新信念）</p>
+                <p><strong>示例：</strong> ALIGN(STR-R, "我不必完美")</p>
+            </div>
+            <div class="card">
+                <h4><i class="fas fa-link" style="color: #2b6390;"></i> RELINK · 重联</h4>
+                <p><strong>作用对象：</strong> STR-C</p>
+                <p><strong>操作本质：</strong> 连接重构（改变关系权重）</p>
+                <p><strong>示例：</strong> RELINK(STR-C, "失败"→"学习", +0.6)</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>正交性证明：</strong> G-M-A-R 四操作分别作用于 <strong>进程（DSP/STR-S）、存量（RES）、规则（STR-R）、连接（STR-C）</strong>，四个维度互不重叠，覆盖所有心理干预的基本形式。</p>
+        </div>
+
+        <!-- 三、知识基础设施 -->
+        <div class="section-label"><i class="fas fa-database"></i> 三、知识基础设施</div>
+
+        <h3>3.1 PCUI · 心理概念唯一标识符</h3>
+        <p>为每个心理学概念分配唯一编码，消除歧义，支持跨流派映射。</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>PCUI</th><th>概念名称</th><th>所属流派</th><th>对应 M-R-D-S 位置</th></tr></thead>
+                <tbody>
+                    <tr><td>PCUI-0012</td><td>自动化思维</td><td>CBT</td><td>M2-STR-R（规则结构）</td></tr>
+                    <tr><td>PCUI-0037</td><td>情绪效价</td><td>情绪心理学</td><td>M4（情绪模块）</td></tr>
+                    <tr><td>PCUI-0089</td><td>自我效能感</td><td>社会认知理论</td><td>M3-RES-B（基底资源）</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3.2 PSA · 心理语义网络</h3>
+        <p>定义概念间的关系（因果、关联、层级），形成可计算的知识图谱。</p>
+        <div class="code-block">
+            // PSA 关系示例<br>
+            PCUI-0012 (自动化思维) --[causes]→ PCUI-0037 (负性情绪)<br>
+            PCUI-0089 (自我效能感) --[modulates]→ M3-DSP-F (前台调度)
+        </div>
+
+        <h3>3.3 PSL · 心理专项词汇库</h3>
+        <p>自然语言与形式化 PCUI 的映射词典，支持临床文本的自动编译。</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>自然语言表达</th><th>映射 PCUI</th><th>上下文约束</th></tr></thead>
+                <tbody>
+                    <tr><td>"我感到筋疲力尽"</td><td>PCUI-0056 (能量耗竭) → M1-RES-D↓</td><td>资源层下降</td></tr>
+                    <tr><td>"我什么都做不好"</td><td>PCUI-0012 (自动化思维) → M2-STR-R固化</td><td>规则层负性信念</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 四、跨流派整合 -->
+        <div class="section-label"><i class="fas fa-diagram-project"></i> 四、跨流派整合</div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead><tr><th>心理学流派</th><th>核心概念</th><th>UPLS 映射</th></tr></thead>
+                <tbody>
+                    <tr><td>CBT（认知行为疗法）</td><td>自动化思维、核心信念</td><td>M2-STR-R（规则结构）</td></tr>
+                    <tr><td>DBT（辩证行为疗法）</td><td>情绪调节、痛苦耐受</td><td>M4（情绪）+ M3-DSP-F（前台调度）</td></tr>
+                    <tr><td>ACT（接纳承诺疗法）</td><td>认知解离、接纳</td><td>GATE(DSP-B) + ALIGN(STR-R)</td></tr>
+                    <tr><td>EFT（情绪聚焦疗法）</td><td>情绪转化</td><td>M4 + RELINK(STR-C)</td></tr>
+                    <tr><td>精神分析</td><td>防御机制、潜意识</td><td>DSP-B（后台调度）+ GATE 门控</td></tr>
+                    <tr><td>人本主义</td><td>自我实现、价值条件</td><td>M3-RES-B + STR-R</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <p><strong>UPLS 的整合价值：</strong> 不同流派的概念不再是不可通约的“语言游戏”，而是可以映射到同一套形式化语法（M-R-D-S、G-M-A-R）的不同参数配置。这为心理学知识的累积和跨流派对话提供了工程基础。</p>
+        </div>
+
+        <!-- 五、UPLS 协议体系 -->
+        <div class="section-label"><i class="fas fa-file-signature"></i> 五、UPLS 协议体系</div>
+
+        <div class="grid-3">
+            <div class="card">
+                <h4>PCC-P</h4>
+                <p><strong>概念采集协议</strong></p>
+                <p>从文献/临床文本中提取心理学概念原材料。</p>
+            </div>
+            <div class="card">
+                <h4>PCF-P</h4>
+                <p><strong>概念形式化协议</strong></p>
+                <p>将自然语言概念编译为标准化 PCUI 和 PSA 关系。</p>
+            </div>
+            <div class="card">
+                <h4>PCV-P</h4>
+                <p><strong>概念验证协议</strong></p>
+                <p>跨流派共识验证，确定 PCUI 的效度和信度。</p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>INTRE 心理学功能层工程框架 · 开放知识入口</p>
+        <div class="footer-links">
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub 仓库</a> · 
+            <a href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank">Zenodo DOI (10.5281/zenodo.XXXXXXX)</a>
+        </div>
+        <p style="font-size:0.8rem; margin-top:1rem;">版本 v1.0 (2026-03-04) · CC BY-NC 4.0 · 保留部分权利</p>
+    </footer>
 </body>
 </html>
