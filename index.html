@@ -1,0 +1,424 @@
+以下是您需要的INTRE项目官网首页HTML代码。它采用学术蓝灰色调，通过Grid与Flex布局清晰展示了核心模块入口与三层架构图，并高亮了“功能层”，适合作为心理学功能层工程框架的学术项目主页。
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口设置，确保移动端适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRE · 心理学功能层工程</title>
+    <!-- 使用Inter字体，干净现代；Font Awesome 6 提供图标支持 (学术风格中可选的视觉辅助) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- 全局重置与基调 ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f7fc;  /* 极浅蓝灰背景 */
+            color: #1e3349;              /* 深蓝灰主文本 */
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        /* ---------- 头部：项目名称 + 核心标语 ---------- */
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #cddeee;
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #163A5F;              /* 学术深蓝 */
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: #2f5577;
+            margin-top: 0.4rem;
+            border-left: 5px solid #4f8ab0;
+            padding-left: 1.3rem;
+            background: linear-gradient(to right, transparent, #ecf3fa);
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+        }
+
+        /* 可选小徽章，增强学术版本感 */
+        .meta-badge {
+            display: inline-block;
+            background: #dde9f5;
+            color: #1f4a72;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+            border: 1px solid #b6d0e6;
+        }
+
+        /* ---------- 核心模块卡片网格 (四个入口) ---------- */
+        .section-label {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #163A5F;
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.01em;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+            margin: 2.5rem 0 4rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 2rem 1.2rem 1.8rem 1.2rem;
+            box-shadow: 0 6px 16px rgba(18, 52, 86, 0.08);
+            border: 1px solid #d6e3f0;
+            transition: all 0.2s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 16px 24px -8px rgba(26, 67, 113, 0.12);
+            border-color: #9fbede;
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #143a5e;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card .desc {
+            font-size: 0.95rem;
+            color: #3c5f83;
+            margin-bottom: 1rem;
+            max-width: 200px;
+        }
+
+        .card .detail-arrow {
+            color: #607f9f;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border-top: 1px dashed #b9cfec;
+            padding-top: 0.8rem;
+            width: 80%;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .card .detail-arrow i {
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .card:hover .detail-arrow {
+            color: #163A5F;
+        }
+
+        .card:hover .detail-arrow i {
+            transform: translateX(4px);
+        }
+
+        /* ---------- 三层架构图 · 高亮功能层 ---------- */
+        .layers-panel {
+            background: #e7f0fa;          /* 柔和蓝灰基底 */
+            border-radius: 2.5rem;
+            padding: 2.5rem 2rem;
+            margin: 4rem 0;
+            border: 1px solid #c7daf0;
+            box-shadow: inset 0 2px 6px rgba(255,255,255,0.8), 0 10px 20px rgba(0,30,60,0.06);
+        }
+
+        .layers-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #254e77;
+            margin-bottom: 2rem;
+        }
+
+        .layers-title i {
+            font-size: 1.5rem;
+            color: #3f6b99;
+        }
+
+        .layers-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .layer-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #d2e1f1;
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            border: 2px solid transparent;
+            transition: 0.2s;
+            color: #1a3957;
+        }
+
+        /* 高亮功能层：醒目的学术蓝 + 白字 + 强化边框 */
+        .layer-item.highlight {
+            background: #2b6390;           /* 浓郁功能层蓝色 */
+            color: white;
+            border-color: #123f64;
+            box-shadow: 0 8px 14px -6px #2b639066;
+        }
+
+        .layer-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .layer-desc {
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 400;
+            background: rgba(255,255,255,0.15);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        .layer-item:not(.highlight) .layer-desc {
+            background: #b9cfec;
+            color: #1f3d5b;
+        }
+
+        .layer-item.highlight .layer-desc {
+            background: #407eb0;
+            color: white;
+        }
+
+        .layer-icon {
+            font-size: 1.3rem;
+            width: 2rem;
+            text-align: center;
+        }
+
+        .layers-footnote {
+            text-align: center;
+            margin-top: 2rem;
+            color: #2b5a82;
+            font-size: 0.95rem;
+            background: #d8e8fa;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---------- 页脚 ---------- */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 2px solid #c5d7ea;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #2f5277;
+            font-size: 0.95rem;
+        }
+
+        .copyright {
+            opacity: 0.9;
+        }
+
+        .github-link {
+            background: #eef4fc;
+            padding: 0.6rem 1.3rem;
+            border-radius: 40px;
+            border: 1px solid #b3ceec;
+            transition: background 0.2s;
+            color: #163A5F;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+        }
+
+        .github-link:hover {
+            background: #deecfd;
+            border-color: #7aa9d1;
+        }
+
+        .github-link i {
+            font-size: 1.2rem;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+            .layer-name {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .subhead {
+                font-size: 1.1rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .layer-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                border-radius: 40px;
+                padding: 1.2rem 1.5rem;
+            }
+            .layer-desc {
+                margin-left: 0;
+            }
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <!-- 内联CSS完毕，以下为内容结构 -->
+</head>
+<body>
+    <div class="container">
+        <!-- 头部：网站名称 + 核心标语 (INTRE / 心理学功能层工程框架) -->
+        <header>
+            <h1>INTRE</h1>
+            <div class="subhead">INTRE – 心理学的功能层工程框架</div>
+            <span class="meta-badge"><i class="fas fa-layer-group" style="margin-right: 0.3rem;"></i>功能层优先 ·  v0.9.0</span>
+        </header>
+
+        <!-- 核心模块区域：四个醒目入口卡片 (UPLS, PSE, REVER, MOAT) -->
+        <section>
+            <h2 class="section-label"><i class="fas fa-cube" style="margin-right: 0.8rem; color:#356f9c;"></i>核心功能模块</h2>
+            <div class="cards-grid">
+                <!-- UPLS 卡片 -->
+                <div class="card">
+                    <h3>UPLS</h3>
+                    <div class="desc">统一心理学语言系统<br><span style="font-size:0.8rem;">现象学原语</span></div>
+                    <a href="#" class="detail-arrow" aria-label="了解UPLS">探索模块 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- PSE 卡片 -->
+                <div class="card">
+                    <h3>PSE</h3>
+                    <div class="desc">心理状态引擎<br><span style="font-size:0.8rem;">动态状态转换</span></div>
+                    <a href="#" class="detail-arrow" aria-label="了解PSE">探索模块 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- REVER 卡片 -->
+                <div class="card">
+                    <h3>REVER</h3>
+                    <div class="desc">逆向推断与验证<br><span style="font-size:0.8rem;">神经关联验证</span></div>
+                    <a href="#" class="detail-arrow" aria-label="了解REVER">探索模块 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- MOAT 卡片 -->
+                <div class="card">
+                    <h3>MOAT</h3>
+                    <div class="desc">模块化架构工具包<br><span style="font-size:0.8rem;">功能层组合</span></div>
+                    <a href="#" class="detail-arrow" aria-label="了解MOAT">探索模块 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三层架构图展示：现象层 · 功能层(高亮) · 神经层 -->
+        <section class="layers-panel">
+            <div class="layers-title">
+                <i class="fas fa-diagram-project"></i> 三层架构 · 功能层为核心
+            </div>
+            <div class="layers-stack">
+                <!-- 现象层 -->
+                <div class="layer-item">
+                    <span class="layer-name"><i class="fas fa-cloud layer-icon"></i> 现象层</span>
+                    <span class="layer-desc">主观体验 · 行为</span>
+                </div>
+                <!-- 功能层（高亮） -->
+                <div class="layer-item highlight">
+                    <span class="layer-name"><i class="fas fa-microchip layer-icon"></i> 功能层</span>
+                    <span class="layer-desc">计算过程 · 表征 · 工程核心</span>
+                </div>
+                <!-- 神经层 -->
+                <div class="layer-item">
+                    <span class="layer-name"><i class="fas fa-brain layer-icon"></i> 神经层</span>
+                    <span class="layer-desc">生物实现 · 回路</span>
+                </div>
+            </div>
+            <div class="layers-footnote">
+                <i class="fas fa-bullseye" style="margin-right: 0.5rem;"></i> 功能层形式化工具，连接现象与神经实现
+            </div>
+        </section>
+
+        <!-- 页脚：包含版权信息和指向GitHub仓库的链接 -->
+        <footer>
+            <div class="copyright">
+                © 2025 INTRE 心理学功能层工程.  CC BY-NC 4.0
+            </div>
+            <a href="https://github.com/intre-psy" target="_blank" rel="noopener noreferrer" class="github-link">
+                <i class="fab fa-github"></i> GitHub 仓库
+            </a>
+        </footer>
+    </div>
+
+    <!-- ========== 代码结构说明 ========== -->
+    <!-- 1. header: 展示项目名称“INTRE”及核心标语“INTRE – 心理学的功能层工程框架” -->
+    <!-- 2. 四卡片网格 (.cards-grid): 使用grid布局展示四个核心模块UPLS, PSE, REVER, MOAT，每个卡片包含名称、简要描述及探索链接，设计醒目且具有学术感。 -->
+    <!-- 3. 三层架构图 (.layers-panel): 以垂直列表呈现现象层、功能层、神经层，功能层通过.highlight类高亮（深蓝背景+白字+强调边框），同时配有图标和描述。 -->
+    <!-- 4. footer: 包含版权信息与指向GitHub仓库的超链接（实际链接为https://github.com/intre-psy，新窗口打开），采用蓝灰按钮样式。 -->
+    <!-- 整体色调为学术蓝灰色调，大量使用#163A5F、#2b6390、#ecf3fa等。Flex/Grid混合布局，响应式适配移动端/平板。 -->
+</body>
+</html>
+```
