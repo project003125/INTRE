@@ -541,18 +541,20 @@ footer p { margin: 0; }
 }
 .toc-overlay.show { display: block; }
 
-/* ===== Desktop: fixed sidebar always visible ===== */
+/* ===== Desktop: fixed sidebar on RIGHT side ===== */
 @media (min-width: 1400px) {
     .toc-sidebar {
         top: 3.2rem;
         bottom: auto;
-        left: 0; right: auto;
+        left: auto;
+        right: 0;
         width: 220px;
         height: calc(100vh - 3.2rem);
         max-height: none;
         border-radius: 0;
         background: var(--bg-sidebar);
-        border-right: 0.5px solid var(--border-light);
+        border-left: 0.5px solid var(--border-light);
+        border-right: none;
         border-top: none;
         padding: 1.2rem 0.5rem 1rem;
         transform: none !important;
@@ -577,9 +579,15 @@ footer p { margin: 0; }
     .toc-overlay, .toc-overlay.show { display: none !important; }
 
     .textbook-content,
-    .page-footer-nav { margin-left: 220px; }
+    .page-footer-nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-    .page-header-inner { padding-left: calc(1.5rem + 220px); }
+    .page-header-inner {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 
 /* Mobile/tablet: show toggle button */
