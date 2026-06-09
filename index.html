@@ -360,18 +360,6 @@
             line-height: 1.85;
         }
 
-        .manifesto-tag {
-            display: inline-block;
-            margin-top: 1.2rem;
-            background: var(--blue-ghost);
-            color: var(--blue);
-            font-size: 0.82rem;
-            font-weight: 500;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            border: 1px solid rgba(43,99,144,0.10);
-        }
-
         /* ========== CARD GRID ========== */
         .section-header {
             text-align: center;
@@ -383,6 +371,20 @@
             font-weight: 700;
             color: var(--navy);
             letter-spacing: -0.03em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-light), var(--navy));
+            border-radius: 2px;
         }
 
         .section-header p {
@@ -439,6 +441,24 @@
             transform: translateY(-8px);
             box-shadow: var(--shadow-card-hover);
             border-color: var(--blue-pale);
+        }
+
+        /* 卡片内部光晕装饰 */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(43,99,144,0.03) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-smooth);
+        }
+
+        .card:hover::after {
+            opacity: 1;
         }
 
         .card-icon {
@@ -938,22 +958,11 @@
         <div class="manifesto">
             <div class="manifesto-icon"><i class="fas fa-quote-left"></i></div>
             <p>INTRE 提供一套严格的功能层语言（M‑R‑D‑S / G‑M‑A‑R）和工程化协议，使心理状态可描述、可仿真、可干预。它是一个理论框架，也是构建新一代心理评估与干预系统的开放知识库。</p>
-            <div class="manifesto-tag">
-                <i class="fas fa-tag" style="margin-right:0.3rem;"></i> v2.0 · 三通道融合架构 · 三篇 Zenodo 预印本
-            </div>
-        </div>
-
-        <!-- 装饰分隔 -->
-        <div class="section-decoration">
-            <span class="line"></span>
-            <span class="diamond"></span>
-            <span class="line"></span>
         </div>
 
         <!-- 核心模块卡片 -->
         <div class="section-header">
             <h2>核心模块</h2>
-            <p>INTRE 框架的四大核心构件</p>
         </div>
 
         <div class="card-grid">
