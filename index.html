@@ -13,13 +13,13 @@
     <style>
         /* ========== DESIGN TOKENS ========== */
         :root {
-            --navy: #163A5F;
-            --navy-light: #1f4d7a;
-            --blue: #2b6390;
-            --blue-light: #5b8db8;
-            --blue-pale: #dce8f5;
-            --blue-ghost: #eef4fa;
-            --blue-mist: #f5f8fd;
+            --navy: #1F4880;
+            --navy-light: #2A5DA0;
+            --blue: #3B6FB5;
+            --blue-light: #6DA3D4;
+            --blue-pale: #E4EEF8;
+            --blue-ghost: #F2F6FB;
+            --blue-mist: #F8FAFC;
             --slate-900: #0f172a;
             --slate-800: #1e293b;
             --slate-700: #334155;
@@ -29,13 +29,13 @@
             --slate-200: #e2e8f0;
             --slate-100: #f1f5f9;
             --white: #ffffff;
-            --radius-sm: 0.75rem;
-            --radius-md: 1.25rem;
-            --radius-lg: 2rem;
-            --radius-xl: 2.5rem;
-            --shadow-card: 0 4px 12px rgba(22,58,95,0.06);
-            --shadow-card-hover: 0 20px 40px -8px rgba(22,58,95,0.16);
-            --shadow-nav: 0 6px 14px rgba(22,58,95,0.10);
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.25rem;
+            --shadow-card: 0 0 0 0.5px rgba(0,0,0,0.06);
+            --shadow-card-hover: 0 0 0 0.5px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-nav: 0 0 0 0.5px rgba(0,0,0,0.05);
             --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -45,40 +45,11 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--blue-mist);
-            color: var(--slate-800);
+            background: var(--white);
+            color: #111827;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            /* 极淡的网点背景 — 工程/科学感 */
-            background-image:
-                radial-gradient(circle, rgba(43,99,144,0.06) 1px, transparent 1px);
-            background-size: 28px 28px;
-            position: relative;
-        }
-
-        /* body 装饰性光晕 — 左上和右下两团氛围 */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            border-radius: 50%;
-        }
-        body::before {
-            top: -20%;
-            left: -10%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(91,141,184,0.07) 0%, transparent 70%);
-        }
-        body::after {
-            bottom: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(22,58,95,0.05) 0%, transparent 70%);
         }
 
         /* 所有主要内容在 z-index 上层 */
@@ -89,13 +60,13 @@
 
         /* ========== NAVIGATION ========== */
         nav {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            background: var(--navy);
             color: var(--white);
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow-nav);
+            border-bottom: 0.5px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
@@ -104,41 +75,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 3.8rem;
+            height: 3.2rem;
         }
 
         .logo a {
             color: var(--white);
             text-decoration: none;
-            font-size: 1.65rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: rgba(255,255,255,0.08);
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            transition: background var(--ease-smooth) 0.2s;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
-        .logo a:hover { background: rgba(255,255,255,0.16); }
+        .logo a:hover { opacity: 0.9; }
 
         .nav-links {
             display: flex;
-            gap: 0.25rem;
+            gap: 0.15rem;
             align-items: center;
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.78);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.4rem 0.9rem;
-            border-radius: 30px;
-            transition: all var(--ease-smooth) 0.2s;
+            font-size: 0.82rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
         }
 
         .nav-links a:hover {
             color: var(--white);
-            background: rgba(255,255,255,0.10);
+            background: rgba(255,255,255,0.08);
         }
 
         .nav-links a.active {
@@ -151,85 +118,49 @@
         .hero {
             position: relative;
             overflow: hidden;
-            padding: 4.5rem 2rem 3.5rem;
-            background: linear-gradient(165deg, var(--navy) 0%, #0f2b47 55%, var(--navy-light) 100%);
+            padding: 4rem 2rem 3rem;
+            background: var(--navy);
             text-align: center;
-        }
-
-        /* 几何网格（更精致的等边三角形网格氛围） */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-
-        /* 装饰光晕 x2 */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(91,141,184,0.10) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-glow-left {
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(43,99,144,0.08) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 780px;
             margin: 0 auto;
         }
 
         .hero-label {
             display: inline-block;
-            background: rgba(255,255,255,0.07);
-            color: rgba(255,255,255,0.65);
-            font-size: 0.78rem;
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.14em;
-            padding: 0.4rem 1.2rem;
-            border-radius: 30px;
-            margin-bottom: 1.8rem;
-            border: 1px solid rgba(255,255,255,0.06);
-            backdrop-filter: blur(4px);
+            letter-spacing: 0.1em;
+            padding: 0.3rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border: 0.5px solid rgba(255,255,255,0.08);
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
+            font-size: 3.2rem;
+            font-weight: 700;
             color: var(--white);
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            margin-bottom: 0.3rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
         }
 
         .hero h1 .accent-dot {
             display: inline-block;
-            width: 16px;
-            height: 16px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8bbce6, #bed9f0);
+            background: var(--blue-light);
             margin-left: 0.1rem;
-            vertical-align: super;
-            font-size: 0.5em;
+            vertical-align: middle;
         }
 
         .hero-sub {
@@ -281,12 +212,8 @@
 
         /* ========== HERO → CONTENT 过渡 ========== */
         .hero-divider {
-            position: relative;
-            z-index: 1;
-            height: 40px;
-            margin-top: -1px;
-            background: linear-gradient(180deg, #0f2b47, var(--blue-mist));
-            clip-path: ellipse(70% 100% at 50% 100%);
+            height: 0;
+            border-top: 0.5px solid var(--slate-200);
         }
 
         /* ========== CONTAINER ========== */
@@ -409,56 +336,18 @@
         .card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 2rem 1.8rem;
-            border: 1px solid var(--slate-200);
-            box-shadow: var(--shadow-card);
-            transition: all 0.35s var(--ease-smooth);
+            padding: 1.5rem 1.5rem;
+            border: 0.5px solid var(--slate-200);
+            transition: all 0.15s ease;
             position: relative;
-            overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
 
-        /* 卡片顶部装饰条（悬停浮现） */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue-light), var(--navy));
-            opacity: 0;
-            transition: opacity 0.35s var(--ease-smooth);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-card-hover);
             border-color: var(--blue-pale);
-        }
-
-        /* 卡片内部光晕装饰 */
-        .card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(43,99,144,0.03) 0%, transparent 60%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s var(--ease-smooth);
-        }
-
-        .card:hover::after {
-            opacity: 1;
+            background: var(--blue-ghost);
         }
 
         .card-icon {
@@ -782,21 +671,9 @@
             background: linear-gradient(135deg, var(--navy) 0%, #0f2b47 100%);
             color: rgba(255,255,255,0.65);
             text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        /* 页脚顶部装饰线 */
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            right: 10%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
+            padding: 1.8rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.82rem;
         }
 
         footer .footer-brand {

@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7fc;
+            background-color: #F8FAFC;
             color: #1e293b;
             line-height: 1.6;
         }
@@ -32,10 +32,13 @@
 
         /* 导航栏 */
         nav {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
-            padding: 0.8rem 2rem;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            padding: 0 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 0.5px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
@@ -44,21 +47,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            height: 3.2rem;
         }
 
         .logo a {
             color: white;
             text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0.15rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -81,7 +84,7 @@
         h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: #163A5F;
+            color: #1F4880;
             margin: 1rem 0 0.5rem;
             letter-spacing: -1px;
         }
@@ -89,7 +92,7 @@
         .subhead {
             font-size: 1.3rem;
             font-weight: 400;
-            color: #2b6390;
+            color: #3B6FB5;
             margin-bottom: 1rem;
             max-width: 900px;
         }
@@ -97,9 +100,9 @@
         .section-label {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #163A5F;
+            color: #1F4880;
             margin: 2.5rem 0 1rem;
-            border-left: 6px solid #2b6390;
+            border-left: 6px solid #3B6FB5;
             padding-left: 1rem;
             display: flex;
             align-items: center;
@@ -107,7 +110,7 @@
         }
 
         .section-label i {
-            color: #2b6390;
+            color: #3B6FB5;
             font-size: 2rem;
             width: 2rem;
         }
@@ -124,7 +127,7 @@
         h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #2b6390;
+            color: #3B6FB5;
             margin: 1.5rem 0 0.8rem;
         }
 
@@ -158,7 +161,7 @@
         }
 
         .table th {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
             font-weight: 600;
             padding: 0.9rem 1rem;
@@ -223,7 +226,7 @@
             background-color: #e2ecf9;
             border-radius: 1rem;
             padding: 1.5rem;
-            border-left: 4px solid #163A5F;
+            border-left: 4px solid #1F4880;
             margin: 1.5rem 0;
         }
 
@@ -239,7 +242,7 @@
         }
 
         .badge {
-            background-color: #2b6390;
+            background-color: #3B6FB5;
             color: white;
             font-size: 0.75rem;
             font-weight: 600;
@@ -251,7 +254,7 @@
 
         .phase-tag {
             display: inline-block;
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
             padding: 0.3rem 1rem;
             border-radius: 30px;
@@ -263,7 +266,7 @@
 
         .love-definition {
             background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 100%);
-            border: 2px solid #2b6390;
+            border: 2px solid #3B6FB5;
             border-radius: 1.5rem;
             padding: 2rem;
             margin: 2rem 0;
@@ -274,7 +277,7 @@
         }
 
         .love-definition i {
-            color: #2b6390;
+            color: #3B6FB5;
             font-size: 2rem;
             margin-bottom: 1rem;
         }
@@ -286,12 +289,12 @@
 
         /* 页脚 */
         footer {
-            background-color: #163A5F;
-            color: rgba(255,255,255,0.8);
+            background-color: #1F4880;
+            color: rgba(255,255,255,0.65);
             text-align: center;
-            padding: 2.5rem 2rem;
-            margin-top: 4rem;
-            font-size: 0.95rem;
+            padding: 1.8rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.82rem;
         }
 
         footer a {
@@ -316,7 +319,7 @@
         /* 引用块 */
         .quote {
             font-style: italic;
-            border-left: 4px solid #2b6390;
+            border-left: 4px solid #3B6FB5;
             padding-left: 1.5rem;
             margin: 1.5rem 0;
             color: #334155;
@@ -353,7 +356,7 @@
         </div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" style="color: #163A5F; opacity: 0.6; margin-right: 0.5rem;"></i>
+            <i class="fas fa-quote-left" style="color: #1F4880; opacity: 0.6; margin-right: 0.5rem;"></i>
             REVER 提供一个四层架构，使AI系统能够通过<strong>优先级分配</strong>而非<strong>情感模拟</strong>来展现类爱行为，同时防止病理性依赖。它是任何基于UPLS实施心理干预的AI系统的<strong>强制性伦理约束层</strong>。
         </div>
 
@@ -454,25 +457,25 @@
 
         <div class="grid-4">
             <div class="card">
-                <h4 style="color:#163A5F;">Gate 1</h4>
+                <h4 style="color:#1F4880;">Gate 1</h4>
                 <p><strong>输入伦理</strong> (编译前)</p>
                 <p>筛查原始输入的伦理风险：危机关键词、医疗边界、隐私侵犯、超能力请求。</p>
                 <p><span class="badge">紧急协议</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#163A5F;">Gate 2</h4>
+                <h4 style="color:#1F4880;">Gate 2</h4>
                 <p><strong>诊断伦理</strong> (SID-P后)</p>
                 <p>基于UPLS状态向量评估伦理风险：O_i, G_system, M1-RES-D, M4-DSP-B, ELI。</p>
                 <p><span class="badge">风险等级: 绿/黄/橙/红/黑</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#163A5F;">Gate 3</h4>
+                <h4 style="color:#1F4880;">Gate 3</h4>
                 <p><strong>依赖伦理</strong> (MMD-P后)</p>
                 <p>评估当前依赖分数，调整干预参数：主体性目标、强度、透明度频率。</p>
                 <p><span class="badge">依赖缓解协议</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#163A5F;">Gate 4</h4>
+                <h4 style="color:#1F4880;">Gate 4</h4>
                 <p><strong>输出伦理</strong> (STO-P后)</p>
                 <p>验证最终输出的伦理合规性：拟人化、虚假承诺、依赖触发、边界跨越。</p>
                 <p><span class="badge">透明度注入</span></p>

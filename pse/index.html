@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7fc;
+            background-color: #F8FAFC;
             color: #1e293b;
             line-height: 1.6;
         }
@@ -32,10 +32,13 @@
 
         /* 导航栏 */
         nav {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
-            padding: 0.8rem 2rem;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            padding: 0 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 0.5px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
@@ -44,21 +47,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            height: 3.2rem;
         }
 
         .logo a {
             color: white;
             text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0.15rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -81,7 +84,7 @@
         h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: #163A5F;
+            color: #1F4880;
             margin: 1rem 0 0.5rem;
             letter-spacing: -1px;
         }
@@ -89,7 +92,7 @@
         .subhead {
             font-size: 1.3rem;
             font-weight: 400;
-            color: #2b6390;
+            color: #3B6FB5;
             margin-bottom: 2rem;
             max-width: 900px;
         }
@@ -97,9 +100,9 @@
         .section-label {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #163A5F;
+            color: #1F4880;
             margin: 2.5rem 0 1rem;
-            border-left: 6px solid #2b6390;
+            border-left: 6px solid #3B6FB5;
             padding-left: 1rem;
             display: flex;
             align-items: center;
@@ -107,7 +110,7 @@
         }
 
         .section-label i {
-            color: #2b6390;
+            color: #3B6FB5;
             font-size: 2rem;
             width: 2rem;
         }
@@ -124,7 +127,7 @@
         h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #2b6390;
+            color: #3B6FB5;
             margin: 1.5rem 0 0.8rem;
         }
 
@@ -158,7 +161,7 @@
         }
 
         .table th {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
             font-weight: 600;
             padding: 0.9rem 1rem;
@@ -219,7 +222,7 @@
             background-color: #e2ecf9;
             border-radius: 1rem;
             padding: 1.5rem;
-            border-left: 4px solid #163A5F;
+            border-left: 4px solid #1F4880;
             margin: 1.5rem 0;
         }
 
@@ -235,7 +238,7 @@
         }
 
         .badge {
-            background-color: #2b6390;
+            background-color: #3B6FB5;
             color: white;
             font-size: 0.75rem;
             font-weight: 600;
@@ -247,7 +250,7 @@
 
         .phase-tag {
             display: inline-block;
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
             padding: 0.3rem 1rem;
             border-radius: 30px;
@@ -259,12 +262,12 @@
 
         /* 页脚 */
         footer {
-            background-color: #163A5F;
-            color: rgba(255,255,255,0.8);
+            background-color: #1F4880;
+            color: rgba(255,255,255,0.65);
             text-align: center;
-            padding: 2.5rem 2rem;
-            margin-top: 4rem;
-            font-size: 0.95rem;
+            padding: 1.8rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.82rem;
         }
 
         footer a {
@@ -319,7 +322,7 @@
         <div class="subhead">心理系统工程 · 基于仿真的心理状态预测与优化</div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" style="color: #163A5F; opacity: 0.6; margin-right: 0.5rem;"></i>
+            <i class="fas fa-quote-left" style="color: #1F4880; opacity: 0.6; margin-right: 0.5rem;"></i>
             PSE 将 UPLS 的形式化描述转化为可计算的动力学系统。它基于<strong>心智六论</strong>构建仿真引擎，通过<strong>PSE‑M（蒙特卡洛仿真）</strong>和<strong>PSE‑C（临床校准）</strong>，实现对心理状态演化的预测和干预优化。
         </div>
 
@@ -328,37 +331,37 @@
 
         <div class="grid-3">
             <div class="card">
-                <h4><i class="fas fa-compass" style="color: #2b6390;"></i> MCT · 心智编译理论</h4>
+                <h4><i class="fas fa-compass" style="color: #3B6FB5;"></i> MCT · 心智编译理论</h4>
                 <p><strong>Mental Compilation Theory</strong></p>
                 <p>将临床观测（主诉、量表）编译为 M-R-D-S 状态向量。解决“现象→形式化”的映射问题。</p>
                 <div class="code-block" style="font-size:0.8rem;">主诉“疲惫不堪”→ M1-RES-D↓</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-project-diagram" style="color: #2b6390;"></i> MTT · 心智拓扑理论</h4>
+                <h4><i class="fas fa-project-diagram" style="color: #3B6FB5;"></i> MTT · 心智拓扑理论</h4>
                 <p><strong>Mental Topology Theory</strong></p>
                 <p>描述 M-R-D-S 组件间的连接结构与因果网络。定义依赖强度矩阵 w_base。</p>
                 <div class="code-block" style="font-size:0.8rem;">M1-RES-D → M3-RES-D: 0.8</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-chart-line" style="color: #2b6390;"></i> MKT · 心智动力理论</h4>
+                <h4><i class="fas fa-chart-line" style="color: #3B6FB5;"></i> MKT · 心智动力理论</h4>
                 <p><strong>Mental Kinetics Theory</strong></p>
                 <p>资源与状态的演化方程，包含存量-流量-结构动力学。定义速率常数 k。</p>
                 <div class="code-block" style="font-size:0.8rem;">d(RES-D)/dt = k_rec - k_cons</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-sliders-h" style="color: #2b6390;"></i> MDT · 心智调度理论</h4>
+                <h4><i class="fas fa-sliders-h" style="color: #3B6FB5;"></i> MDT · 心智调度理论</h4>
                 <p><strong>Mental Dispatch Theory</strong></p>
                 <p>干预优化的决策理论，将 G-M-A-R 操作映射为控制信号。优化干预序列。</p>
                 <div class="code-block" style="font-size:0.8rem;">选择 MODULATE+ 时机</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-dna" style="color: #2b6390;"></i> MPT · 心智塑性理论</h4>
+                <h4><i class="fas fa-dna" style="color: #3B6FB5;"></i> MPT · 心智塑性理论</h4>
                 <p><strong>Mental Plasticity Theory</strong></p>
                 <p>结构层（STR）的改变机制，描述学习与习惯化的速率。</p>
                 <div class="code-block" style="font-size:0.8rem;">d(STR-R)/dt = η·Δ</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-globe-asia" style="color: #2b6390;"></i> MET · 心智生态理论</h4>
+                <h4><i class="fas fa-globe-asia" style="color: #3B6FB5;"></i> MET · 心智生态理论</h4>
                 <p><strong>Mental Ecology Theory</strong></p>
                 <p>环境-系统耦合模型，描述 S-P 外感架构如何影响内感状态。</p>
                 <div class="code-block" style="font-size:0.8rem;">P-M1-RES-D+ 来自社会支持</div>

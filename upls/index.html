@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7fc;
+            background-color: #F8FAFC;
             color: #1e293b;
             line-height: 1.6;
         }
@@ -32,10 +32,13 @@
 
         /* 导航栏 */
         nav {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
-            padding: 0.8rem 2rem;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            padding: 0 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 0.5px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
@@ -44,21 +47,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            height: 3.2rem;
         }
 
         .logo a {
             color: white;
             text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0.15rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -81,7 +84,7 @@
         h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: #163A5F;
+            color: #1F4880;
             margin: 1rem 0 0.5rem;
             letter-spacing: -1px;
         }
@@ -89,7 +92,7 @@
         .subhead {
             font-size: 1.3rem;
             font-weight: 400;
-            color: #2b6390;
+            color: #3B6FB5;
             margin-bottom: 2rem;
             max-width: 900px;
         }
@@ -97,9 +100,9 @@
         .section-label {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #163A5F;
+            color: #1F4880;
             margin: 2.5rem 0 1rem;
-            border-left: 6px solid #2b6390;
+            border-left: 6px solid #3B6FB5;
             padding-left: 1rem;
             display: flex;
             align-items: center;
@@ -107,7 +110,7 @@
         }
 
         .section-label i {
-            color: #2b6390;
+            color: #3B6FB5;
             font-size: 2rem;
             width: 2rem;
         }
@@ -124,7 +127,7 @@
         h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #2b6390;
+            color: #3B6FB5;
             margin: 1.5rem 0 0.8rem;
         }
 
@@ -158,7 +161,7 @@
         }
 
         .table th {
-            background-color: #163A5F;
+            background-color: #1F4880;
             color: white;
             font-weight: 600;
             padding: 0.9rem 1rem;
@@ -212,7 +215,7 @@
             background-color: #e2ecf9;
             border-radius: 1rem;
             padding: 1.5rem;
-            border-left: 4px solid #163A5F;
+            border-left: 4px solid #1F4880;
             margin: 1.5rem 0;
         }
 
@@ -228,7 +231,7 @@
         }
 
         .badge {
-            background-color: #2b6390;
+            background-color: #3B6FB5;
             color: white;
             font-size: 0.75rem;
             font-weight: 600;
@@ -240,12 +243,12 @@
 
         /* 页脚 */
         footer {
-            background-color: #163A5F;
-            color: rgba(255,255,255,0.8);
+            background-color: #1F4880;
+            color: rgba(255,255,255,0.65);
             text-align: center;
-            padding: 2.5rem 2rem;
-            margin-top: 4rem;
-            font-size: 0.95rem;
+            padding: 1.8rem 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.82rem;
         }
 
         footer a {
@@ -291,7 +294,7 @@
         <div class="subhead">统一心理语言系统 · 心理学的形式化元语言</div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" style="color: #163A5F; opacity: 0.6; margin-right: 0.5rem;"></i>
+            <i class="fas fa-quote-left" style="color: #1F4880; opacity: 0.6; margin-right: 0.5rem;"></i>
             UPLS 提供一套严格的形式化语法，使心理状态可描述、可计算、可干预。它包含<strong>内感架构 M‑R‑D‑S</strong>、<strong>操作架构 G‑M‑A‑R</strong> 以及<strong>知识基础设施 PCUI/PSA/PSL</strong>，是 INTRE 框架的元语言基础。
         </div>
 
@@ -365,25 +368,25 @@
 
         <div class="grid-2">
             <div class="card">
-                <h4><i class="fas fa-door-open" style="color: #2b6390;"></i> GATE · 门控</h4>
+                <h4><i class="fas fa-door-open" style="color: #3B6FB5;"></i> GATE · 门控</h4>
                 <p><strong>作用对象：</strong> DSP、STR-S</p>
                 <p><strong>操作本质：</strong> 通道开关控制（启动/抑制进程）</p>
                 <p><strong>示例：</strong> GATE(DSP-B, -) —— 抑制后台自动思维</p>
             </div>
             <div class="card">
-                <h4><i class="fas fa-sliders-h" style="color: #2b6390;"></i> MODULATE · 调制</h4>
+                <h4><i class="fas fa-sliders-h" style="color: #3B6FB5;"></i> MODULATE · 调制</h4>
                 <p><strong>作用对象：</strong> RES</p>
                 <p><strong>操作本质：</strong> 资源数量调节（增加/减少）</p>
                 <p><strong>示例：</strong> MODULATE(RES-D, +0.3) —— 提升调度资源</p>
             </div>
             <div class="card">
-                <h4><i class="fas fa-arrows-spin" style="color: #2b6390;"></i> ALIGN · 对齐</h4>
+                <h4><i class="fas fa-arrows-spin" style="color: #3B6FB5;"></i> ALIGN · 对齐</h4>
                 <p><strong>作用对象：</strong> STR-R</p>
                 <p><strong>操作本质：</strong> 规则修正（更新信念）</p>
                 <p><strong>示例：</strong> ALIGN(STR-R, "我不必完美")</p>
             </div>
             <div class="card">
-                <h4><i class="fas fa-link" style="color: #2b6390;"></i> RELINK · 重联</h4>
+                <h4><i class="fas fa-link" style="color: #3B6FB5;"></i> RELINK · 重联</h4>
                 <p><strong>作用对象：</strong> STR-C</p>
                 <p><strong>操作本质：</strong> 连接重构（改变关系权重）</p>
                 <p><strong>示例：</strong> RELINK(STR-C, "失败"→"学习", +0.6)</p>
