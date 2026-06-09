@@ -38,9 +38,12 @@
         .appendix-item:hover { background:rgba(31,72,128,.06); color:#1F4880; }
         .appendix-item strong { color:#1F4880; }
         footer { background:#1F4880; color:rgba(255,255,255,.65); text-align:center; padding:1.8rem 1.5rem; margin-top:3rem; font-size:.82rem; }
-        footer a { color:rgba(255,255,255,.85); text-decoration:none; }
+        footer .footer-brand { font-size:1.2rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.4rem; }
+        footer a { color:rgba(255,255,255,.7); text-decoration:none; transition:all .2s; }
         footer a:hover { color:white; }
-        .footer-links { margin:.4rem 0; }
+        .footer-links { margin:0.8rem 0; display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; }
+        .footer-links a { padding:0.3rem 0.8rem; border-radius:20px; background:rgba(255,255,255,.04); font-size:.85rem; border:1px solid rgba(255,255,255,.04); }
+        .footer-links a:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.10); }
         .card-link-icon { color:#1F4880; font-size:.7rem; margin-left:.35rem; opacity:0; transition:opacity .12s; }
         .chapter-card:hover .card-link-icon { opacity:1; }
         @media (max-width:768px) { .chapter-grid{grid-template-columns:1fr} .container{padding:1.5rem} h1{font-size:1.8rem} .subhead{font-size:.9rem} .nav-links a{font-size:.72rem;padding:.22rem .45rem} .section-label{font-size:.9rem} }
@@ -129,14 +132,15 @@
     </div>
 
     <footer>
-        <p>INTRE 心理学功能层工程框架 · 开放知识入口</p>
+        <div class="footer-brand">INTRE</div>
+        <p style="font-size:0.88rem;">心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank"><i class="fas fa-file-alt"></i> PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank"><i class="fas fa-file-alt"></i> UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank"><i class="fas fa-file-alt"></i> REVER</a>
         </div>
-        <p style="font-size:.8rem;margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</p>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</div>
     </footer>
 </body>
 </html>
