@@ -7,35 +7,59 @@
     <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免费) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ========== DESIGN TOKENS ========== */
+        :root {
+            --navy: #163A5F;
+            --navy-light: #1f4d7a;
+            --blue: #2b6390;
+            --blue-light: #5b8db8;
+            --blue-pale: #dce8f5;
+            --blue-ghost: #f0f6fc;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --white: #ffffff;
+            --radius-sm: 0.75rem;
+            --radius-md: 1.25rem;
+            --radius-lg: 2rem;
+            --radius-xl: 2.5rem;
+            --shadow-card: 0 4px 12px rgba(22,58,95,0.06);
+            --shadow-card-hover: 0 20px 40px -8px rgba(22,58,95,0.16);
+            --shadow-nav: 0 6px 14px rgba(22,58,95,0.10);
+            --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
+        /* ========== RESET & BASE ========== */
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f7fc;
-            color: #1e293b;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--blue-ghost);
+            color: var(--slate-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 2rem;
-        }
-
-        /* 导航栏 */
+        /* ========== NAVIGATION ========== */
         nav {
-            background-color: #163A5F;
-            color: white;
-            padding: 0.8rem 2rem;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-nav);
+            backdrop-filter: blur(6px);
         }
 
         .nav-container {
@@ -44,235 +68,594 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            height: 3.8rem;
         }
 
         .logo a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.65rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: rgba(255,255,255,0.08);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            transition: background var(--ease-smooth) 0.2s;
         }
+        .logo a:hover { background: rgba(255,255,255,0.16); }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0.25rem;
+            align-items: center;
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.78);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
-            padding: 0.3rem 0;
-            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 30px;
+            transition: all var(--ease-smooth) 0.2s;
         }
 
-        .nav-links a:hover,
+        .nav-links a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.10);
+        }
+
         .nav-links a.active {
-            color: white;
-            border-bottom-color: white;
+            color: var(--navy);
+            background: var(--white);
+            font-weight: 600;
         }
 
-        /* 主标题 */
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #163A5F;
-            margin: 1rem 0 0.5rem;
-            letter-spacing: -1px;
+        /* ========== HERO SECTION ========== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(165deg, var(--navy) 0%, #0f2b47 60%, var(--navy-light) 100%);
+            text-align: center;
         }
 
-        .subhead {
-            font-size: 1.3rem;
+        /* 装饰性背景几何网格 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        /* 装饰性光晕 */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(91,141,184,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            color: var(--blue-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, #8bbce6 0%, #bed9f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
             font-weight: 400;
-            color: #2b6390;
-            margin-bottom: 2rem;
-            max-width: 800px;
+            color: rgba(255,255,255,0.7);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
 
-        .mission {
-            font-size: 1.1rem;
-            background-color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 1.2rem;
-            border-left: 6px solid #2b6390;
-            margin: 2rem 0 3rem;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
         }
 
-        /* 卡片网格 */
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.55);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-stat-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            margin-right: 0.4rem;
+            vertical-align: middle;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* ========== MISSION / MANIFESTO ========== */
+        .manifesto {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 3rem;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            border: 1px solid rgba(220,232,245,0.5);
+        }
+
+        .manifesto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 3rem;
+            right: 3rem;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-light), var(--navy), var(--blue-light));
+            border-radius: 0 0 3px 3px;
+        }
+
+        .manifesto-icon {
+            float: left;
+            font-size: 2rem;
+            color: var(--blue);
+            opacity: 0.5;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            line-height: 1;
+        }
+
+        .manifesto p {
+            font-size: 1.05rem;
+            color: var(--slate-600);
+            line-height: 1.8;
+        }
+
+        .manifesto-tag {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: var(--blue-ghost);
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(43,99,144,0.12);
+        }
+
+        /* ========== CARD GRID ========== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.03em;
+        }
+
+        .section-header p {
+            color: var(--slate-500);
+            font-size: 1rem;
+            margin-top: 0.4rem;
+        }
+
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+            margin: 0 0 3rem;
         }
 
         .card-link {
             text-decoration: none;
             color: inherit;
             display: block;
-            height: 100%;
         }
 
         .card {
-            background-color: white;
-            border-radius: 1.5rem;
-            border: 1px solid #e2e8f0;
-            padding: 2rem 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.8rem;
+            border: 1px solid var(--slate-200);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s var(--ease-smooth);
+            position: relative;
+            overflow: hidden;
             height: 100%;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -10px rgba(0,35,70,0.15);
-            border-color: #bdd3eb;
+        /* 卡片顶部装饰条 */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-light), var(--navy));
+            opacity: 0;
+            transition: opacity 0.35s var(--ease-smooth);
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            color: #2b6390;
-            margin-bottom: 1.2rem;
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #163A5F;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .card h2 i {
-            font-size: 1.3rem;
-            color: #2b6390;
-            opacity: 0.6;
-            transition: opacity 0.2s;
-        }
-
-        .card:hover h2 i {
+        .card:hover::before {
             opacity: 1;
         }
 
-        .card p {
-            color: #334155;
-            font-size: 1rem;
-            flex-grow: 1;
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--blue-pale);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            color: var(--blue);
+            margin-bottom: 1.2rem;
+            transition: transform 0.3s var(--ease-bounce);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            letter-spacing: -0.02em;
+        }
+
+        .card h2 .arrow {
+            font-size: 1.1rem;
+            color: var(--blue);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .card:hover h2 .arrow {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .card .badge {
-            background-color: #e9eef3;
-            color: #163A5F;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.25rem 0.8rem;
-            border-radius: 30px;
             display: inline-block;
-            margin-top: 1.2rem;
-            align-self: flex-start;
-        }
-
-        /* vault 目录映射 */
-        .vault-map {
-            background-color: white;
-            border-radius: 1.5rem;
-            padding: 2.5rem 2rem;
-            margin: 3rem 0;
-            border: 1px solid #dde7f0;
-        }
-
-        .vault-map h3 {
-            font-size: 2rem;
+            background: var(--blue-ghost);
+            color: var(--blue);
+            font-size: 0.75rem;
             font-weight: 600;
-            color: #163A5F;
-            margin-bottom: 1.5rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.6rem;
+            border: 1px solid rgba(43,99,144,0.10);
         }
 
-        .vault-grid {
+        .card p {
+            color: var(--slate-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-top: 0.6rem;
+        }
+
+        /* ========== THREE-CHANNEL FUSION ========== */
+        .fusion-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(220,232,245,0.5);
+            box-shadow: var(--shadow-card);
+        }
+
+        .fusion-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+
+        .fusion-section > .sub {
+            text-align: center;
+            color: var(--slate-500);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .fusion-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
-        .vault-item {
-            background: #f9fcff;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            border-left: 4px solid #2b6390;
+        .fusion-item {
+            background: var(--blue-ghost);
+            padding: 1.8rem;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--blue-light);
+            transition: all 0.25s var(--ease-smooth);
         }
 
-        .vault-item h4 {
+        .fusion-item:hover {
+            background: var(--blue-pale);
+            transform: translateY(-2px);
+        }
+
+        .fusion-item h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #163A5F;
-            margin-bottom: 0.5rem;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
         }
 
-        .vault-item p {
-            color: #334155;
+        .fusion-item p {
+            color: var(--slate-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .fusion-item .channel-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--blue);
+            margin-top: 0.8rem;
+            padding: 0.2rem 0.7rem;
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px;
+        }
+
+        .fusion-formula {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .fusion-formula code {
+            font-family: 'Inter', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #b4d4f0;
+            letter-spacing: 0.02em;
+        }
+
+        .fusion-formula p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+        }
+
+        /* ========== TEXTBOOK CTA ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--blue-ghost) 0%, var(--white) 100%);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid rgba(220,232,245,0.5);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blue), var(--navy), var(--blue), transparent);
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.03em;
+        }
+
+        .cta-section p {
+            color: var(--slate-600);
+            margin: 0.8rem 0 1.5rem;
+            font-size: 1rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s var(--ease-smooth);
+            box-shadow: 0 8px 20px rgba(22,58,95,0.25);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(22,58,95,0.35);
+        }
+
+        .cta-btn i {
+            transition: transform 0.3s var(--ease-smooth);
+        }
+        .cta-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f2b47 100%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
             font-size: 0.9rem;
         }
 
-        .vault-item .page-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: #2b6390;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
+        footer .footer-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
         }
 
-        .vault-item .page-link:hover {
-            text-decoration: underline;
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: #163A5F;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 2.5rem 2rem;
-            margin-top: 4rem;
-            font-size: 0.95rem;
+        footer .footer-links {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         footer a {
-            color: white;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px dotted rgba(255,255,255,0.5);
+            border-bottom: 1px dotted rgba(255,255,255,0.3);
+            transition: all 0.2s;
         }
-
         footer a:hover {
-            border-bottom-color: white;
+            color: var(--white);
+            border-bottom-color: var(--white);
         }
 
-        .footer-links {
-            margin: 1rem 0;
+        footer .footer-links a {
+            margin: 0 0.3rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            border-bottom: none;
+            background: rgba(255,255,255,0.04);
+            font-size: 0.85rem;
         }
 
-        .footer-links a {
-            margin: 0 0.6rem;
+        footer .footer-links a:hover {
+            background: rgba(255,255,255,0.10);
+            border-bottom: none;
         }
 
-        /* 响应式 */
+        footer .footer-meta {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .fusion-grid { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 1.5rem; }
-            h1 { font-size: 2.4rem; }
-            .subhead { font-size: 1.1rem; }
-            .nav-links { gap: 0.8rem; font-size: 0.9rem; }
-            .card-grid { gap: 1.5rem; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero-sub { font-size: 1rem; }
+            .nav-links { gap: 0.15rem; }
+            .nav-links a { font-size: 0.8rem; padding: 0.3rem 0.6rem; }
+            .logo a { font-size: 1.3rem; padding: 0.2rem 0.8rem; }
+            .card-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .manifesto { padding: 1.8rem 1.5rem; }
+            .fusion-section { padding: 2rem 1.5rem; }
+            .cta-section { padding: 2rem 1.5rem; }
+            .hero-stats { gap: 1.5rem; }
+            .section-header h2 { font-size: 1.6rem; }
         }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            nav { padding: 0 1rem; }
+            .nav-container { height: 3.2rem; }
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content { animation: fadeUp 0.8s var(--ease-smooth) both; }
+        .manifesto { animation: fadeUp 0.6s var(--ease-smooth) 0.2s both; }
+        .card-grid { animation: fadeUp 0.6s var(--ease-smooth) 0.3s both; }
+        .fusion-section { animation: fadeUp 0.6s var(--ease-smooth) 0.4s both; }
+        .cta-section { animation: fadeUp 0.6s var(--ease-smooth) 0.5s both; }
     </style>
 </head>
 <body>
@@ -284,8 +667,8 @@
             <div class="nav-links">
                 <a href="/INTRE/" class="active">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
-                <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/unis/">UNIS</a>
+                <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/rever/">REVER</a>
                 <a href="/INTRE/textbook/">📖教材</a>
                 <a href="/INTRE/glossary/">术语表</a>
@@ -293,108 +676,140 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h1>INTRE</h1>
-        <div class="subhead">心理学功能层工程框架 · 连接现象与神经的形式化工具</div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label"><i class="fas fa-cube" style="margin-right:0.4rem;"></i> 功能层工程框架</span>
+            <h1>INTRE<span class="accent">.</span></h1>
+            <p class="hero-sub">连接现象与神经的形式化工具 — 让心理状态可描述、可仿真、可干预。</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-num"><span class="hero-stat-dot"></span>三通道</div>
+                    <div class="hero-stat-label">行为 · 语义 · 神经融合</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num"><span class="hero-stat-dot"></span>M‑R‑D‑S</div>
+                    <div class="hero-stat-label">形式化功能层语法</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num"><span class="hero-stat-dot"></span>G‑M‑A‑R</div>
+                    <div class="hero-stat-label">原子操作协议</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num"><span class="hero-stat-dot"></span>42 维</div>
+                    <div class="hero-stat-label">状态向量表示</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="mission">
-            <i class="fas fa-quote-left" style="color: #2b6390; opacity: 0.6; margin-right: 0.5rem;"></i>
-            INTRE 提供一套严格的功能层语言（M‑R‑D‑S / G‑M‑A‑R）和工程化协议，使心理状态可描述、可仿真、可干预。它是一个理论框架，也是构建新一代心理评估与干预系统的开放知识库。
-            <span style="display:block; margin-top:0.8rem; font-size:0.9rem; color:#2b6390;">v2.0 · 三通道融合架构 · 三篇 Zenodo 预印本</span>
+    <div class="container">
+        <!-- MANIFESTO -->
+        <div class="manifesto">
+            <div class="manifesto-icon"><i class="fas fa-quote-left"></i></div>
+            <p>INTRE 提供一套严格的功能层语言（M‑R‑D‑S / G‑M‑A‑R）和工程化协议，使心理状态可描述、可仿真、可干预。它是一个理论框架，也是构建新一代心理评估与干预系统的开放知识库。</p>
+            <div class="manifesto-tag">
+                <i class="fas fa-tag" style="margin-right:0.3rem;"></i> v2.0 · 三通道融合架构 · 三篇 Zenodo 预印本
+            </div>
         </div>
 
-        <!-- 核心模块卡片（新增 UNIS，移除 MOAT） -->
+        <!-- 核心模块卡片 -->
+        <div class="section-header">
+            <h2>核心模块</h2>
+            <p>INTRE 框架的四大核心构件</p>
+        </div>
+
         <div class="card-grid">
-            <!-- UPLS 卡片 -->
+            <!-- UPLS -->
             <a href="/INTRE/upls/" class="card-link">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-language"></i></div>
-                    <h2>UPLS <i class="fas fa-arrow-right"></i></h2>
+                    <h2>UPLS <span class="arrow"><i class="fas fa-arrow-right"></i></span></h2>
+                    <div class="badge">语义通道 · 内感架构</div>
                     <p><strong>统一心理语言系统</strong> — 形式化心理描述语言，包含 M‑R‑D‑S 语法、G‑M‑A‑R 原子操作及知识库，为心理学提供可计算的元语言。</p>
-                    <span class="badge">语义通道 · 内感架构</span>
                 </div>
             </a>
-            <!-- PSE 卡片 -->
-            <a href="/INTRE/pse/" class="card-link">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
-                    <h2>PSE <i class="fas fa-arrow-right"></i></h2>
-                    <p><strong>心理系统工程</strong> — 基于心智六论的大规模仿真引擎，通过 PSE‑M 蒙特卡洛仿真与 PSE‑C 贝叶斯校准预测心理状态演化。</p>
-                    <span class="badge">计算引擎 · 行为通道</span>
-                </div>
-            </a>
-            <!-- UNIS 卡片（新增） -->
+            <!-- UNIS -->
             <a href="/INTRE/unis/" class="card-link">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-brain"></i></div>
-                    <h2>UNIS <i class="fas fa-arrow-right"></i></h2>
+                    <h2>UNIS <span class="arrow"><i class="fas fa-arrow-right"></i></span></h2>
+                    <div class="badge">神经通道 · 实时推理</div>
                     <p><strong>统一神经接口系统</strong> — 将原始神经信号转换为功能层似然的六层架构，为 PSE 提供标准化的神经输入通道。</p>
-                    <span class="badge">神经通道 · 实时推理</span>
                 </div>
             </a>
-            <!-- REVER 卡片 -->
+            <!-- PSE -->
+            <a href="/INTRE/pse/" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                    <h2>PSE <span class="arrow"><i class="fas fa-arrow-right"></i></span></h2>
+                    <div class="badge">计算引擎 · 行为通道</div>
+                    <p><strong>心理系统工程</strong> — 基于心智六论的大规模仿真引擎，通过 PSE‑M 蒙特卡洛仿真与 PSE‑C 贝叶斯校准预测心理状态演化。</p>
+                </div>
+            </a>
+            <!-- REVER -->
             <a href="/INTRE/rever/" class="card-link">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-heart" style="color:#c44545;"></i></div>
-                    <h2>REVER <i class="fas fa-arrow-right"></i></h2>
+                    <h2>REVER <span class="arrow"><i class="fas fa-arrow-right"></i></span></h2>
+                    <div class="badge">伦理门控 · 透明审计</div>
                     <p><strong>关系型AI结构化伦理引擎</strong> — 通过四层架构和依赖雷达 Dₛ 量化管理用户依恋，确保AI不诱导病理性依赖。</p>
-                    <span class="badge">伦理门控 · 透明审计</span>
                 </div>
             </a>
         </div>
 
         <!-- 三层架构 + 三通道融合 -->
-        <div class="vault-map">
+        <div class="fusion-section">
             <h3>三层架构 · 三通道融合</h3>
-            <div class="vault-grid">
-                <div class="vault-item" style="border-left-color: #5b8db8;">
+            <p class="sub">从现象到功能层再到神经层，三通道贝叶斯融合驱动</p>
+
+            <div class="fusion-grid">
+                <div class="fusion-item" style="border-left-color: var(--blue-light);">
                     <h4>现象层</h4>
                     <p>主观体验、行为表现、临床症状。可直接观测的心理现象，也是干预的最终目标层。</p>
-                    <p style="margin-top:0.5rem;"><strong>→ 行为通道</strong>：PSE-M 测量层处理量表/EMA/行为数据</p>
+                    <span class="channel-tag">→ 行为通道：PSE-M 测量层</span>
                 </div>
-                <div class="vault-item" style="border-left-color: #163A5F;">
-                    <h4>功能层 <span style="background: #2b6390; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem;">工程核心</span></h4>
-                    <p>包含 <strong>M‑R‑D‑S</strong> 内感架构（六大模块 M1‑M6、资源 RES、调度 DSP、结构 STR）及 <strong>S‑P</strong> 外感架构。心理状态在此层被形式化为 42 维状态向量。</p>
-                    <p style="margin-top:0.5rem;"><strong>→ 语义通道</strong>：UPLS PSL 将自然语言编译为状态向量</p>
+                <div class="fusion-item" style="border-left-color: var(--navy);">
+                    <h4>功能层 <span style="background: var(--navy); color: white; padding:0.15rem 0.6rem; border-radius:20px; font-size:0.75rem; margin-left:0.5rem;">工程核心</span></h4>
+                    <p><strong>M‑R‑D‑S</strong> 内感架构 + <strong>S‑P</strong> 外感架构。心理状态在此层被形式化为 42 维状态向量。</p>
+                    <span class="channel-tag">→ 语义通道：UPLS PSL 编译管线</span>
                 </div>
-                <div class="vault-item" style="border-left-color: #5b8db8;">
+                <div class="fusion-item" style="border-left-color: var(--blue-light);">
                     <h4>神经层</h4>
                     <p>生物实现，包括神经回路、脑区激活模式、生理信号。INTRE 保持硬件无关性，但通过 UNIS 与神经科学校准。</p>
-                    <p style="margin-top:0.5rem;"><strong>→ 神经通道</strong>：UNIS 六层架构输出神经似然 p(yₙ|Ψ)</p>
+                    <span class="channel-tag">→ 神经通道：UNIS 六层架构</span>
                 </div>
             </div>
-            <div style="margin-top:2rem; background:#e2ecf9; border-radius:1rem; padding:1.5rem; text-align:center;">
-                <p style="font-weight:600; color:#163A5F; font-size:1.1rem;">
-                    p(Ψₜ | y_{b,t}, y_{s,t}, y_{n,t}) ∝ p(y_b|Ψ)·p(y_s|Ψ)·p(y_n|Ψ)·p(Ψₜ|Ψₜ₋₁)
-                </p>
-                <p style="color:#334155; font-size:0.9rem; margin-top:0.5rem;">
-                    行为似然 · 语义似然 · 神经似然 — 三通道贝叶斯融合
-                </p>
+
+            <div class="fusion-formula">
+                <code>p(Ψₜ | y<sub>b,t</sub>, y<sub>s,t</sub>, y<sub>n,t</sub>) ∝ p(y<sub>b</sub>|Ψ) · p(y<sub>s</sub>|Ψ) · p(y<sub>n</sub>|Ψ) · p(Ψₜ|Ψₜ₋₁)</code>
+                <p>行为似然 · 语义似然 · 神经似然 — 三通道贝叶斯融合</p>
             </div>
         </div>
 
-        <!-- 08 教材入口 -->
-        <div style="background: white; border-radius: 1.5rem; padding: 2rem; border: 1px solid #dde7f0; margin: 3rem 0; text-align:center;">
-            <h3 style="font-size: 1.8rem; font-weight: 600; color: #163A5F;">
-                <i class="fas fa-book-open" style="color: #2b6390;"></i> 导论教材
-            </h3>
-            <p style="color: #334155; margin: 1rem 0;">完整的 INTRE 学习入口，29 章正文 + 14 篇附录，覆盖框架全部核心内容。</p>
-            <a href="/INTRE/textbook/" style="display: inline-block; background: #163A5F; color: white; padding: 0.8rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; margin-top: 0.5rem;">
-                <i class="fas fa-arrow-right"></i> 进入教材
+        <!-- 教材 CTA -->
+        <div class="cta-section">
+            <h3><i class="fas fa-book-open" style="color: var(--blue); margin-right: 0.6rem;"></i>导论教材</h3>
+            <p>完整的 INTRE 学习入口，29 章正文 + 14 篇附录，覆盖框架全部核心内容。</p>
+            <a href="/INTRE/textbook/" class="cta-btn">
+                进入教材 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </div>
 
     <footer>
-        <p>INTRE 心理学功能层工程框架 · 开放知识入口</p>
+        <div class="footer-brand">INTRE</div>
+        <p style="font-size:0.9rem;">心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank"><i class="fas fa-file-alt"></i> PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank"><i class="fas fa-file-alt"></i> UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank"><i class="fas fa-file-alt"></i> REVER</a>
         </div>
-        <p style="font-size:0.8rem; margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</p>
-        <p style="font-size:0.75rem; margin-top:0.5rem;">周煜升 · 独立研究员 · <a href="mailto:zhou781670711@outlook.com">zhou781670711@outlook.com</a></p>
+        <div class="footer-meta">
+            <p>版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</p>
+            <p>周煜升 · 独立研究员 · <a href="mailto:zhou781670711@outlook.com">zhou781670711@outlook.com</a></p>
+        </div>
     </footer>
 </body>
 </html>
