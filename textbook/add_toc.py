@@ -167,38 +167,42 @@ TOC_CSS = """
     font-weight: 500;
 }
 
-/* Toggle button (mobile) */
+/* Toggle button - prominent bottom bar on mobile */
 .toc-toggle-btn {
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 45;
     background: var(--accent);
     color: white;
     border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 40px;
-    font-size: 0.85rem;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(22,58,95,0.25);
-    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 -4px 16px rgba(22,58,95,0.12);
+    transition: all 0.2s ease;
 }
 
-.toc-toggle-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(22,58,95,0.35);
+.toc-toggle-btn:active {
+    background: var(--navy-light);
 }
 
-/* Overlay */
+.toc-toggle-btn i {
+    font-size: 1rem;
+}
+
+/* Bottom sheet overlay */
 .toc-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.35);
     z-index: 49;
 }
 
@@ -206,14 +210,102 @@ TOC_CSS = """
     display: block;
 }
 
+/* Bottom sheet panel (mobile) */
+.toc-sidebar {
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 55vh;
+    border-right: none;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 0.5rem 0 1.5rem;
+    transform: translateY(100%);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.12);
+}
+
+.toc-sidebar.open {
+    transform: translateY(0);
+}
+
+/* Drag handle */
+.toc-sidebar::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    margin: 0.6rem auto 0.4rem;
+}
+
+.toc-sidebar-header {
+    display: flex;
+    padding: 0.4rem 1.2rem 0.3rem;
+}
+
+.toc-sidebar-title {
+    font-size: 0.95rem;
+}
+
+.toc-close-btn {
+    font-size: 1.5rem;
+}
+
+.toc-sidebar-list {
+    padding: 0.2rem 0;
+}
+
+.toc-item {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-left-width: 3px;
+}
+
+.toc-close-btn {
+    display: block;
+}
+
 /* Desktop: show sidebar by default */
 @media (min-width: 1400px) {
     .toc-sidebar {
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        max-height: none;
+        border-right: 1px solid var(--border-light);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding: 5rem 0 2rem;
+        transform: translateX(-100%);
+        box-shadow: none;
+    }
+
+    .toc-sidebar::before {
+        display: none;
+    }
+
+    .toc-sidebar.open {
         transform: translateX(0);
     }
 
     .toc-toggle-btn {
         display: none;
+    }
+
+    .toc-sidebar-header {
+        display: none;
+    }
+
+    .toc-item {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+        border-left-width: 2px;
     }
 
     .textbook-content,
@@ -232,15 +324,10 @@ TOC_CSS = """
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1399px) {
+    /* Tablet: keep bottom sheet but make items nicer */
     .toc-sidebar {
-        width: 220px;
-    }
-    .toc-toggle-btn {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
+        max-height: 45vh;
     }
 }
 """

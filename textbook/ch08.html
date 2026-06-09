@@ -522,72 +522,56 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 
 
+
 <script>
 (function() {
-    // Build TOC from H2 headings
-    var tocList = document.getElementById('tocSidebarList');
-    var headings = document.querySelectorAll('.textbook-content h3');
-    var items = [];
+    var sidebar = document.getElementById('tocSidebar');
+    var toggleBtn = document.getElementById('tocToggleBtn');
+    var closeBtn = document.getElementById('tocCloseBtn');
+    var overlay = document.getElementById('tocOverlay');
+    var list = document.getElementById('tocSidebarList');
     
+    if (!sidebar) return;
+    
+    // Build TOC from H3 headings
+    var headings = document.querySelectorAll('.textbook-content h3');
     headings.forEach(function(h, i) {
-        var text = h.textContent.trim();
-        // Create anchor ID from text
-        var id = 'section-' + i;
+        var id = 's' + i;
         h.id = id;
-        items.push({id: id, text: text});
-        
         var link = document.createElement('a');
         link.href = '#' + id;
         link.className = 'toc-item';
-        link.textContent = text;
-        link.addEventListener('click', function(e) {
+        link.textContent = h.textContent;
+        link.onclick = function(e) {
             e.preventDefault();
-            document.getElementById(this.getAttribute('href').substring(1)).scrollIntoView({behavior: 'smooth'});
-            // Close sidebar on mobile
-            document.getElementById('tocSidebar').classList.remove('open');
-            document.getElementById('tocOverlay').classList.remove('show');
-        });
-        tocList.appendChild(link);
+            document.getElementById(id).scrollIntoView({behavior:'smooth'});
+            sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('show');
+        };
+        list.appendChild(link);
     });
     
-    // Toggle sidebar
-    var toggleBtn = document.getElementById('tocToggleBtn');
-    var sidebar = document.getElementById('tocSidebar');
-    var overlay = document.getElementById('tocOverlay');
-    var closeBtn = document.getElementById('tocCloseBtn');
+    function open() { sidebar.classList.add('open'); if (overlay) overlay.classList.add('show'); }
+    function close() { sidebar.classList.remove('open'); if (overlay) overlay.classList.remove('show'); }
     
-    function openSidebar() {
-        sidebar.classList.add('open');
-        overlay.classList.add('show');
-    }
+    if (toggleBtn) toggleBtn.onclick = open;
+    if (closeBtn) closeBtn.onclick = close;
+    if (overlay) overlay.onclick = close;
     
-    function closeSidebar() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('show');
-    }
-    
-    if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-    if (overlay) overlay.addEventListener('click', closeSidebar);
-    
-    // Highlight active section on scroll
+    // Highlight active section
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                document.querySelectorAll('.toc-item').forEach(function(el) {
-                    el.classList.remove('active');
-                });
-                var activeLink = document.querySelector('.toc-item[href="#' + entry.target.id + '"]');
-                if (activeLink) activeLink.classList.add('active');
+                list.querySelectorAll('.toc-item').forEach(function(el) { el.classList.remove('active'); });
+                var active = list.querySelector('.toc-item[href="#' + entry.target.id + '"]');
+                if (active) active.classList.add('active');
             }
         });
     }, {rootMargin: '-80px 0px -60% 0px'});
-    
-    headings.forEach(function(h) {
-        observer.observe(h);
-    });
+    headings.forEach(function(h) { observer.observe(h); });
 })();
 </script>
+
 
 </body>
 </html>
