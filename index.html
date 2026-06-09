@@ -182,8 +182,8 @@
             align-self: flex-start;
         }
 
-        /* 三层架构 */
-        .layers {
+        /* vault 目录映射 */
+        .vault-map {
             background-color: white;
             border-radius: 1.5rem;
             padding: 2.5rem 2rem;
@@ -191,42 +191,49 @@
             border: 1px solid #dde7f0;
         }
 
-        .layers h3 {
+        .vault-map h3 {
             font-size: 2rem;
             font-weight: 600;
             color: #163A5F;
             margin-bottom: 1.5rem;
         }
 
-        .layer-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: space-between;
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
-        .layer-item {
-            flex: 1 1 200px;
+        .vault-item {
             background: #f9fcff;
             padding: 1.5rem;
             border-radius: 1rem;
             border-left: 4px solid #2b6390;
         }
 
-        .layer-item h4 {
-            font-size: 1.4rem;
+        .vault-item h4 {
+            font-size: 1.2rem;
             font-weight: 600;
             color: #163A5F;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.5rem;
         }
 
-        .layer-item p {
+        .vault-item p {
             color: #334155;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .layer-item strong {
+        .vault-item .page-link {
+            display: inline-block;
+            margin-top: 0.5rem;
             color: #2b6390;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .vault-item .page-link:hover {
+            text-decoration: underline;
         }
 
         /* 页脚 */
@@ -255,7 +262,7 @@
         }
 
         .footer-links a {
-            margin: 0 0.8rem;
+            margin: 0 0.6rem;
         }
 
         /* 响应式 */
@@ -263,7 +270,7 @@
             .container { padding: 1.5rem; }
             h1 { font-size: 2.4rem; }
             .subhead { font-size: 1.1rem; }
-            .nav-links { gap: 1rem; }
+            .nav-links { gap: 0.8rem; font-size: 0.9rem; }
             .card-grid { gap: 1.5rem; }
         }
     </style>
@@ -278,8 +285,9 @@
                 <a href="/INTRE/" class="active">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
                 <a href="/INTRE/pse/">PSE</a>
+                <a href="/INTRE/unis/">UNIS</a>
                 <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/moat/">MOAT</a>
+                <a href="/INTRE/textbook/">📖教材</a>
                 <a href="/INTRE/glossary/">术语表</a>
             </div>
         </div>
@@ -291,18 +299,19 @@
 
         <div class="mission">
             <i class="fas fa-quote-left" style="color: #2b6390; opacity: 0.6; margin-right: 0.5rem;"></i>
-            INTRE 提供一套严格的功能层语言（M‑R‑D‑S / G‑M‑A‑R）和工程化协议，使心理状态可描述、可仿真、可干预。它既是一个理论框架，也是构建新一代心理评估与干预系统的开放知识库。
+            INTRE 提供一套严格的功能层语言（M‑R‑D‑S / G‑M‑A‑R）和工程化协议，使心理状态可描述、可仿真、可干预。它是一个理论框架，也是构建新一代心理评估与干预系统的开放知识库。
+            <span style="display:block; margin-top:0.8rem; font-size:0.9rem; color:#2b6390;">v2.0 · 三通道融合架构 · 三篇 Zenodo 预印本</span>
         </div>
 
-        <!-- 核心模块卡片（可点击） -->
+        <!-- 核心模块卡片（新增 UNIS，移除 MOAT） -->
         <div class="card-grid">
             <!-- UPLS 卡片 -->
             <a href="/INTRE/upls/" class="card-link">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-language"></i></div>
                     <h2>UPLS <i class="fas fa-arrow-right"></i></h2>
-                    <p><strong>统一心理语言系统</strong> — 形式化心理描述语言，包含 M‑R‑D‑S 语法、G‑M‑A‑R 原子操作及知识库（PCUI/PSA/PSL），为心理学提供可计算的元语言。</p>
-                    <span class="badge">内感架构 · 操作集</span>
+                    <p><strong>统一心理语言系统</strong> — 形式化心理描述语言，包含 M‑R‑D‑S 语法、G‑M‑A‑R 原子操作及知识库，为心理学提供可计算的元语言。</p>
+                    <span class="badge">语义通道 · 内感架构</span>
                 </div>
             </a>
             <!-- PSE 卡片 -->
@@ -310,66 +319,82 @@
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-microchip"></i></div>
                     <h2>PSE <i class="fas fa-arrow-right"></i></h2>
-                    <p><strong>心理系统工程</strong> — 基于心智六论（MCT, MTT, MKT, MDT, MPT, MET）的大规模仿真引擎，通过 PSE‑M 蒙特卡洛仿真与 PSE‑C 临床校准预测心理状态演化。</p>
-                    <span class="badge">仿真 · 预测</span>
+                    <p><strong>心理系统工程</strong> — 基于心智六论的大规模仿真引擎，通过 PSE‑M 蒙特卡洛仿真与 PSE‑C 贝叶斯校准预测心理状态演化。</p>
+                    <span class="badge">计算引擎 · 行为通道</span>
                 </div>
             </a>
-            <!-- REVER 卡片 - 修正版，基于论文精确定义 -->
+            <!-- UNIS 卡片（新增） -->
+            <a href="/INTRE/unis/" class="card-link">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h2>UNIS <i class="fas fa-arrow-right"></i></h2>
+                    <p><strong>统一神经接口系统</strong> — 将原始神经信号转换为功能层似然的六层架构，为 PSE 提供标准化的神经输入通道。</p>
+                    <span class="badge">神经通道 · 实时推理</span>
+                </div>
+            </a>
+            <!-- REVER 卡片 -->
             <a href="/INTRE/rever/" class="card-link">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-heart" style="color:#c44545;"></i></div>
                     <h2>REVER <i class="fas fa-arrow-right"></i></h2>
-                    <p><strong>关系型AI结构化伦理引擎</strong> — 基于功能性爱的定义（从结构上优先考虑另一智能体），通过四层架构（哲学层、监控层、执行层、透明层）和依赖雷达 Dₛ 量化管理用户依恋，确保AI在提供关怀的同时不诱导病理性依赖。</p>
-                    <span class="badge">结构化伦理 · 依赖预防 · 透明</span>
-                </div>
-            </a>
-            <!-- MOAT 卡片 - 更准确的描述，保持简洁但专业 -->
-            <a href="/INTRE/moat/" class="card-link">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-cubes"></i></div>
-                    <h2>MOAT <i class="fas fa-arrow-right"></i></h2>
-                    <p><strong>模块化架构工具包</strong> — 提供功能模块的组合规范与接口标准，支持自定义协议装配和知识库集成。架构设计已完成，内容持续建设中。</p>
-                    <span class="badge">模块化 · 协议 · 扩展</span>
+                    <p><strong>关系型AI结构化伦理引擎</strong> — 通过四层架构和依赖雷达 Dₛ 量化管理用户依恋，确保AI不诱导病理性依赖。</p>
+                    <span class="badge">伦理门控 · 透明审计</span>
                 </div>
             </a>
         </div>
 
-        <!-- 三层架构详细说明 -->
-        <div class="layers">
-            <h3>三层架构 · 功能层为核心</h3>
-            <div class="layer-list">
-                <div class="layer-item">
+        <!-- 三层架构 + 三通道融合 -->
+        <div class="vault-map">
+            <h3>三层架构 · 三通道融合</h3>
+            <div class="vault-grid">
+                <div class="vault-item" style="border-left-color: #5b8db8;">
                     <h4>现象层</h4>
-                    <p>主观体验、行为表现、临床症状。是可直接观测的心理现象，也是干预的最终目标层。</p>
+                    <p>主观体验、行为表现、临床症状。可直接观测的心理现象，也是干预的最终目标层。</p>
+                    <p style="margin-top:0.5rem;"><strong>→ 行为通道</strong>：PSE-M 测量层处理量表/EMA/行为数据</p>
                 </div>
-                <div class="layer-item">
+                <div class="vault-item" style="border-left-color: #163A5F;">
                     <h4>功能层 <span style="background: #2b6390; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem;">工程核心</span></h4>
-                    <p>包含 <strong>M‑R‑D‑S</strong> 内感架构（六大模块 M1‑M6、资源 RES、调度 DSP、结构 STR）及 <strong>S‑P</strong> 外感架构。心理状态在此层被形式化为向量和操作序列。</p>
+                    <p>包含 <strong>M‑R‑D‑S</strong> 内感架构（六大模块 M1‑M6、资源 RES、调度 DSP、结构 STR）及 <strong>S‑P</strong> 外感架构。心理状态在此层被形式化为 42 维状态向量。</p>
+                    <p style="margin-top:0.5rem;"><strong>→ 语义通道</strong>：UPLS PSL 将自然语言编译为状态向量</p>
                 </div>
-                <div class="layer-item">
+                <div class="vault-item" style="border-left-color: #5b8db8;">
                     <h4>神经层</h4>
-                    <p>生物实现，包括神经回路、脑区激活模式等。INTRE 保持硬件无关性，但可与神经科学发现校准。</p>
+                    <p>生物实现，包括神经回路、脑区激活模式、生理信号。INTRE 保持硬件无关性，但通过 UNIS 与神经科学校准。</p>
+                    <p style="margin-top:0.5rem;"><strong>→ 神经通道</strong>：UNIS 六层架构输出神经似然 p(yₙ|Ψ)</p>
                 </div>
+            </div>
+            <div style="margin-top:2rem; background:#e2ecf9; border-radius:1rem; padding:1.5rem; text-align:center;">
+                <p style="font-weight:600; color:#163A5F; font-size:1.1rem;">
+                    p(Ψₜ | y_{b,t}, y_{s,t}, y_{n,t}) ∝ p(y_b|Ψ)·p(y_s|Ψ)·p(y_n|Ψ)·p(Ψₜ|Ψₜ₋₁)
+                </p>
+                <p style="color:#334155; font-size:0.9rem; margin-top:0.5rem;">
+                    行为似然 · 语义似然 · 神经似然 — 三通道贝叶斯融合
+                </p>
             </div>
         </div>
 
-        <!-- 补充：为什么需要功能层 -->
-        <div style="background: #e2ecf9; border-radius: 1.2rem; padding: 2rem; margin: 2rem 0;">
-            <p style="font-size: 1.2rem; font-weight: 500; color: #163A5F; display: flex; gap: 1rem; align-items: center;">
-                <i class="fas fa-cogs" style="font-size: 2rem;"></i>
-                <span>功能层是连接现象与神经的工程桥梁。通过 M‑R‑D‑S 语法，任何心理状态（如抑郁、动机）均可表示为模块‑资源‑调度‑结构的组合，从而支持精准诊断与干预。</span>
-            </p>
+        <!-- 08 教材入口 -->
+        <div style="background: white; border-radius: 1.5rem; padding: 2rem; border: 1px solid #dde7f0; margin: 3rem 0; text-align:center;">
+            <h3 style="font-size: 1.8rem; font-weight: 600; color: #163A5F;">
+                <i class="fas fa-book-open" style="color: #2b6390;"></i> 导论教材
+            </h3>
+            <p style="color: #334155; margin: 1rem 0;">完整的 INTRE 学习入口，29 章正文 + 14 篇附录，覆盖框架全部核心内容。</p>
+            <a href="/INTRE/textbook/" style="display: inline-block; background: #163A5F; color: white; padding: 0.8rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; margin-top: 0.5rem;">
+                <i class="fas fa-arrow-right"></i> 进入教材
+            </a>
         </div>
     </div>
 
     <footer>
         <p>INTRE 心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub 仓库</a> · 
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">Zenodo DOI (10.5281/zenodo.18820091)</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a> · 
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a> · 
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a> · 
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
         </div>
-        <p style="font-size:0.8rem; margin-top:1rem;">版本 v1.0 (2026-03-04) · CC BY-NC 4.0 · 保留部分权利</p>
-        <p style="font-size:0.75rem; margin-top:0.5rem;">REVER 论文: 周煜升 · <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">10.5281/zenodo.18820091</a></p>
+        <p style="font-size:0.8rem; margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</p>
+        <p style="font-size:0.75rem; margin-top:0.5rem;">周煜升 · 独立研究员 · <a href="mailto:zhou781670711@outlook.com">zhou781670711@outlook.com</a></p>
     </footer>
 </body>
 </html>
