@@ -355,8 +355,10 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
     <title>%TITLE% · INTRE 导论教材</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="textbook.css?v=9">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="textbook.css?v=10">
+    <link rel="stylesheet" href="../shared/brand.css">
+    <link rel="stylesheet" href="../shared/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 </head>
@@ -378,12 +380,11 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
 
 <nav>
         <div class="nav-container">
-            <div class="logo">
-                <a href="/INTRE/">
-                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
-                    INTRE
-                </a>
-            </div>
+            <a href="/INTRE/" class="nav-logo">
+                <img src="../assets/logo-dark.svg" alt="INTRE" onerror="this.style.display='none'">
+                <span class="logo-text">INTRE</span>
+            </a>
+            <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
@@ -391,7 +392,7 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
                 <a href="/INTRE/ubms/">UBMS</a>
                 <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/" class="active">📖教材</a>
+                <a href="/INTRE/textbook/" class="active">教材</a>
                 <a href="/INTRE/glossary/">术语表</a>
             </div>
         </div>
@@ -414,8 +415,17 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
     </div>
 
     <footer>
-        <p>INTRE 心理学功能层工程框架 · 导论教材</p>
-        <p style="font-size:0.8rem; margin-top:0.5rem; opacity:0.6;">CC0 1.0 · 保留部分权利</p>
+        <div class="footer-brand">INTRE</div>
+        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">心理学功能层工程框架 · 导论教材</p>
+        <div class="footer-links">
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
+        </div>
+        <div class="footer-meta">
+            <p>版本 v2.1 (2026-06-10) · CC0 1.0</p>
+        </div>
     </footer>
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>

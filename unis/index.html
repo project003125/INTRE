@@ -6,80 +6,35 @@
     <title>INTRE · UNIS 统一神经接口系统</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../shared/brand.css">
+    <link rel="stylesheet" href="../shared/components.css">
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family:'Inter',sans-serif; background:#fff; color:#111827; line-height:1.6; }
-        .container { max-width:1400px; margin:0 auto; padding:2rem; }
-        nav { background:#1F4880; color:white; padding:0 1.5rem; position:sticky; top:0; z-index:100; border-bottom:0.5px solid rgba(255,255,255,0.08); }
-        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; height:3.2rem; }
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .logo a:hover { opacity: 0.9; }
-        .logo img, .logo svg {
-            height: 1.6rem;
-            width: auto;
-        }
-        .nav-links { display: flex; gap: 0.15rem; align-items: center; }
-        .nav-links a {
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.82rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            transition: all 0.15s ease;
-        }
-        .nav-links a:hover {
-            color: white;
-            background: rgba(255,255,255,0.08);
-        }
-        .nav-links a.active {
-            color: #1F4880;
-            background: white;
-            font-weight: 600;
-        }
-        h1 { font-size:2rem; font-weight:700; color:#111827; margin:1.5rem 0 .4rem; letter-spacing:-0.03em; }
-        .subhead { font-size:1.3rem; font-weight:400; color:#6B7280; margin-bottom:2rem; max-width:900px; }
-        .section-label { font-size:1rem; font-weight:600; color:#374151; margin:2.5rem 0 1rem; border-bottom:0.5px solid #F0F0F2; padding-bottom:0.4rem; padding-left:0; display:flex; align-items:center; gap:.5rem; }
-        .section-label i { color:#3B6FB5; font-size:1.5rem; width:1.5rem; }
-        h3 { font-size:1.4rem; font-weight:600; color:#1e293b; margin:1.8rem 0 1rem; padding-bottom:.3rem; border-bottom:0.5px solid #e2e8f0; }
-        h4 { font-size:1.2rem; font-weight:600; color:#3B6FB5; margin:1.2rem 0 .6rem; }
-        .card { background:white; border-radius:0.75rem; border:0.5px solid #E5E7EB; padding:1.5rem; margin-bottom:2rem; transition:background 0.15s ease; }
-        .card:hover { background:#F8F9FA; }
-        .table-responsive { overflow-x:auto; margin:1.5rem 0; border-radius:.8rem; border:0.5px solid #e2e8f0; }
+        .container { margin:0 auto; padding:2rem; }
+        .subhead { font-size:1.3rem; font-weight:400; color:var(--color-slate-500); margin-bottom:2rem; max-width:900px; }
+        .section-label { font-size:1rem; font-weight:600; color:var(--color-slate-700); margin:2.5rem 0 1rem; border-bottom:0.5px solid #F0F0F2; padding-bottom:0.4rem; padding-left:0; display:flex; align-items:center; gap:.5rem; }
+        .section-label i { color:var(--color-navy-400); font-size:1.5rem; width:1.5rem; }
+        h4 { font-size:1.2rem; font-weight:600; color:var(--color-navy-400); margin:1.2rem 0 .6rem; }
+        .card { background:white; border-radius:0.75rem; border:0.5px solid var(--color-slate-200); padding:1.5rem; margin-bottom:2rem; transition:background 0.15s ease; }
+        .card:hover { background:var(--color-slate-100); }
+        .table-responsive { overflow-x:auto; margin:1.5rem 0; border-radius:.8rem; border:0.5px solid var(--color-slate-200); }
         .table { width:100%; border-collapse:collapse; font-size:.95rem; min-width:600px; }
-        .table th { background:#1F4880; color:white; font-weight:600; padding:.9rem 1rem; text-align:left; white-space:nowrap; }
-        .table td { padding:.9rem 1rem; border-bottom:0.5px solid #e2e8f0; vertical-align:top; background:white; }
+        .table th { background:var(--color-navy-600); color:white; font-weight:600; padding:.9rem 1rem; text-align:left; white-space:nowrap; }
+        .table td { padding:.9rem 1rem; border-bottom:0.5px solid var(--color-slate-200); vertical-align:top; background:white; }
         .table tr:last-child td { border-bottom:none; }
         .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; margin:2rem 0; }
         .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin:2rem 0; }
         .grid-6 { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
-        @media (max-width:768px) { .grid-2,.grid-3,.grid-6{grid-template-columns:1fr} .container{padding:1.5rem} h1{font-size:2rem} .nav-links{gap:0.15rem} .nav-links a{font-size:0.78rem;padding:0.3rem 0.6rem} }
-        @media (max-width:480px) { .nav-links a{font-size:0.75rem;padding:0.2rem 0.45rem} }
-        .info-box { background:#F8F9FA; border-radius:0.75rem; padding:1.5rem; border:0.5px solid #F0F0F2; margin:1.5rem 0; }
-        .code-block { background:#1e293b; color:#e2e8f0; padding:1rem 1.5rem; border-radius:.8rem; font-family:'Courier New',monospace; font-size:.9rem; overflow-x:auto; margin:1rem 0; }
-        .badge { background:#3B6FB5; color:white; font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:20px; margin-left:.5rem; display:inline-block; }
-        .layer-card { background:white; border-radius:0.75rem; border:0.5px solid #E5E7EB; padding:1.5rem; }
-        .layer-card h4 { color:#1F4880; font-size:1.2rem; }
-        .layer-card .layer-num { display:inline-block; background:#1F4880; color:white; padding:.25rem .7rem; border-radius:30px; font-size:.8rem; font-weight:600; margin-bottom:.5rem; }
-        footer { background:#1F4880; color:rgba(255,255,255,.65); text-align:center; padding:1.8rem 1.5rem; margin-top:3rem; font-size:.82rem; }
-        footer .footer-brand { font-size:1.2rem; font-weight:700; color:white; letter-spacing:-0.02em; margin-bottom:0.4rem; }
-        footer a { color:rgba(255,255,255,.7); text-decoration:none; transition:all .2s; }
-        footer a:hover { color:white; }
-        .footer-links { margin:1rem 0; display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; }
-        .footer-links a { padding:0.3rem 0.8rem; border-radius:20px; background:rgba(255,255,255,.04); font-size:.85rem; border:1px solid rgba(255,255,255,.04); }
-        .footer-links a:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.10); }
+        @media (max-width:768px) { .grid-2,.grid-3,.grid-6{grid-template-columns:1fr} .container{padding:1.5rem} h1{font-size:2rem} }
+        .info-box { background:var(--color-slate-100); border-radius:0.75rem; padding:1.5rem; border:0.5px solid #F0F0F2; margin:1.5rem 0; }
+        .code-block { background:var(--color-slate-900); color:var(--color-slate-200); padding:1rem 1.5rem; border-radius:.8rem; font-family:'Courier New',monospace; font-size:.9rem; overflow-x:auto; margin:1rem 0; }
+        .badge { background:var(--color-navy-400); color:white; font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:20px; margin-left:.5rem; display:inline-block; }
+        .layer-card { background:white; border-radius:0.75rem; border:0.5px solid var(--color-slate-200); padding:1.5rem; }
+        .layer-card h4 { color:var(--color-navy-600); font-size:1.2rem; }
+        .layer-card .layer-num { display:inline-block; background:var(--color-navy-600); color:white; padding:.25rem .7rem; border-radius:30px; font-size:.8rem; font-weight:600; margin-bottom:.5rem; }
+
     
         /* === VISUAL POLISH === */
         
@@ -102,8 +57,8 @@
         
         /* Info-box left accent */
         .info-box {
-            border-left: 3px solid #3B6FB5;
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f9 100%);
+            border-left: 3px solid var(--color-navy-400);
+            background: linear-gradient(135deg, var(--color-slate-100) 0%, #f0f4f9 100%);
         }
         
         /* Card hover micro-interaction */
@@ -134,7 +89,7 @@
             content: '';
             display: block;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5, #6DA3D4, #3B6FB5, #1F4880);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400), #6DA3D4, var(--color-navy-400), var(--color-navy-600));
             border-radius: 0 0 3px 3px;
             margin-bottom: 0;
             opacity: 0;
@@ -152,7 +107,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
         
@@ -170,7 +125,7 @@
             top: 0.15rem;
             bottom: 0.15rem;
             width: 3px;
-            background: linear-gradient(180deg, #1F4880, #3B6FB5);
+            background: linear-gradient(180deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
         
@@ -186,14 +141,14 @@
         
         /* Better scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-track { background: var(--color-slate-100); }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
         /* Selection color */
         ::selection {
             background: rgba(31,72,128,0.15);
-            color: #111827;
+            color: var(--color-slate-900);
         }
     
         /* Sub-page header gradient accent */
@@ -208,7 +163,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #3B6FB5, #1F4880, #3B6FB5, transparent);
+            background: linear-gradient(90deg, transparent, var(--color-navy-400), var(--color-navy-600), var(--color-navy-400), transparent);
             border-radius: 2px;
         }
         
@@ -224,20 +179,19 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
     </style>
 </head>
-<body>
+<body lang="zh">
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <a href="/INTRE/">
-                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
-                    INTRE
-                </a>
-            </div>
+            <a href="/INTRE/" class="nav-logo">
+                <img src="../assets/logo-dark.svg" alt="INTRE" onerror="this.style.display='none'">
+                <span class="logo-text">INTRE</span>
+            </a>
+            <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
@@ -245,17 +199,17 @@
                 <a href="/INTRE/ubms/">UBMS</a>
                 <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/">📖教材</a>
+                <a href="/INTRE/textbook/">教材</a>
                 <a href="/INTRE/glossary/">术语表</a>
             </div>
         </div>
     </nav>
     <div class="container">
         <h1>UNIS</h1>
-        <div class="subhead">统一神经接口系统 · 生理信号→功能层似然的标准化管道 <span style="background:#3B6FB5;color:white;padding:.2rem .8rem;border-radius:20px;font-size:.85rem;margin-left:.5rem;">神经通道</span></div>
+        <div class="subhead">统一神经接口系统 · 生理信号→功能层似然的标准化管道 <span style="background:var(--color-navy-400);color:white;padding:.2rem .8rem;border-radius:20px;font-size:.85rem;margin-left:.5rem;">神经通道</span></div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" style="color:#1F4880;opacity:.6;margin-right:.5rem;"></i>
+            <i class="fas fa-quote-left" style="color:var(--color-navy-600);opacity:.6;margin-right:.5rem;"></i>
             UNIS 将原始神经信号（EEG、fNIRS、PPG、HRV 等）转换为神经似然 p(yₙ|Ψ) — 六层递进架构，每层回答一个独立问题，层间通过标准化协议通信。
         </div>
 
@@ -267,37 +221,37 @@
             <div class="layer-card">
                 <span class="layer-num">L1</span>
                 <h4>NAP</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Neural Acquisition Protocol</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neural Acquisition Protocol</p>
                 <p style="font-size:.9rem;">定义采集规范、设备接口、元数据标准（兼容 BIDS v1.6+）。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L2</span>
                 <h4>SCL</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Signal Calibration Layer</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Signal Calibration Layer</p>
                 <p style="font-size:.9rem;">标准化的信号预处理流程，跨平台（EEGLAB/MNE/FieldTrip）可重现。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L3</span>
                 <h4>NFD</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Neural Feature Definition</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neural Feature Definition</p>
                 <p style="font-size:.9rem;">唯一标识的神经特征库（NFI），可跨实验室复现且具生理学解释。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L4</span>
                 <h4>NFM</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Neuro-Functional Mapping</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neuro-Functional Mapping</p>
                 <p style="font-size:.9rem;">从特征到功能似然的映射模型库，支持线性/非线性/DL模型。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L5</span>
                 <h4>NPL</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Neuro Prior Library</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neuro Prior Library</p>
                 <p style="font-size:.9rem;">生理硬约束与人群统计先验，用于约束或裁剪 L4 输出。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L6</span>
                 <h4>RTE</h4>
-                <p style="font-size:.85rem;color:#3B6FB5;margin-bottom:.3rem;">Real-time Engine</p>
+                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Real-time Engine</p>
                 <p style="font-size:.9rem;">低延迟推理（Infer）+ 异步个体化校准（Cal），输出实时神经似然。</p>
             </div>
         </div>
@@ -311,7 +265,7 @@
 
         <div class="grid-2">
             <div class="card">
-                <h4><i class="fas fa-tachometer-alt" style="color:#3B6FB5;"></i> RTE-Infer</h4>
+                <h4><i class="fas fa-tachometer-alt" style="color:var(--color-navy-400);"></i> RTE-Infer</h4>
                 <p><strong>实时推理引擎</strong>— 无状态、低延迟、确定性计算。</p>
                 <ul style="margin-left:1.2rem;margin-top:.5rem;">
                     <li>管线：L2 数据流 → L3 特征计算 → L4 模型 → p(yₙ|Ψ)</li>
@@ -319,7 +273,7 @@
                 </ul>
             </div>
             <div class="card">
-                <h4><i class="fas fa-sliders-h" style="color:#3B6FB5;"></i> RTE-Cal</h4>
+                <h4><i class="fas fa-sliders-h" style="color:var(--color-navy-400);"></i> RTE-Cal</h4>
                 <p><strong>异步校准引擎</strong>— 有状态、精度优先、不阻塞推理快路径。</p>
                 <ul style="margin-left:1.2rem;margin-top:.5rem;">
                     <li>接收 RTE-Infer 输出 + PSE 状态估计</li>
@@ -371,15 +325,16 @@
 
     <footer>
         <div class="footer-brand">INTRE</div>
-        <p style="font-size:0.88rem;">心理学功能层工程框架 · 开放知识入口</p>
+        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank"><i class="fas fa-file-alt"></i> PSE</a>
-            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank"><i class="fas fa-file-alt"></i> UPLS</a>
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank"><i class="fas fa-file-alt"></i> REVER</a>
-            <a href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank"><i class="fas fa-file-alt"></i> UBMS</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
         </div>
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</div>
+        <div class="footer-meta">
+            <p>版本 v2.1 (2026-06-10) · CC0 1.0</p>
+        </div>
     </footer>
 </body>
 </html>

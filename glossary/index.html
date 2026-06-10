@@ -4,94 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTRE · 术语表</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../shared/brand.css">
+    <link rel="stylesheet" href="../shared/components.css">
     <style>
-        :root {
-            --accent: #1F4880;
-            --accent-light: #3B6FB5;
-            --bg: #ffffff;
-            --bg-secondary: #f7f8fa;
-            --text: #1d1d1f;
-            --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
-            --border: #e5e7eb;
-            --border-light: #f0f0f0;
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* NAV */
-        nav {
-            background: var(--accent);
-            color: white;
-            padding: 0 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 0.5px solid rgba(255,255,255,0.08);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 3.2rem;
-        }
-
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.15rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.82rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            transition: all 0.15s ease;
-        }
-
-        .nav-links a:hover {
-            color: white;
-            background: rgba(255,255,255,0.08);
-        }
-
-        .nav-links a.active {
-            color: var(--accent);
-            background: white;
-            font-weight: 600;
-        }
 
         /* PAGE HEADER */
         .page-header {
-            background: var(--bg-secondary);
-            border-bottom: 0.5px solid var(--border-light);
+            background: var(--color-slate-100);
+            border-bottom: 0.5px solid var(--color-slate-100);
         }
 
         .page-header-inner {
@@ -104,14 +27,14 @@
         .page-header h1 {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--color-slate-900);
             letter-spacing: -0.03em;
             margin-bottom: 0.4rem;
         }
 
         .page-header .sub {
             font-size: 1rem;
-            color: var(--text-secondary);
+            color: var(--color-slate-500);
             font-weight: 400;
         }
 
@@ -121,7 +44,7 @@
             gap: 1.5rem;
             margin-top: 1.2rem;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--color-slate-400);
         }
 
         .page-header .stats i {
@@ -138,17 +61,17 @@
         .section-heading {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--color-navy-600);
             margin: 2.5rem 0 0.8rem;
             padding-bottom: 0.5rem;
-            border-bottom: 0.5px solid var(--accent-light);
+            border-bottom: 0.5px solid var(--color-navy-400);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .section-heading i {
-            color: var(--accent-light);
+            color: var(--color-navy-400);
             font-size: 1rem;
         }
 
@@ -162,63 +85,46 @@
         .term-item {
             padding: 0.7rem 0.9rem;
             border-radius: 6px;
-            border: 0.5px solid var(--border-light);
+            border: 0.5px solid var(--color-slate-100);
             transition: background 0.15s ease;
             font-size: 0.9rem;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--color-slate-900);
         }
 
         .term-item:hover {
-            background: var(--bg-secondary);
+            background: var(--color-slate-100);
         }
 
         .term-item strong {
             font-weight: 600;
-            color: var(--accent);
+            color: var(--color-navy-600);
             margin-right: 0.3rem;
         }
 
         .term-item .sep {
-            color: var(--text-muted);
+            color: var(--color-slate-400);
             margin: 0 0.2rem;
         }
 
         .term-item .def {
-            color: var(--text-secondary);
+            color: var(--color-slate-500);
         }
 
         .glossary-note {
-            background: var(--bg-secondary);
+            background: var(--color-slate-100);
             border-radius: 8px;
             padding: 1rem 1.2rem;
             margin: 2rem 0;
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            border-left: 3px solid var(--accent-light);
+            color: var(--color-slate-500);
+            border-left: 3px solid var(--color-navy-400);
         }
 
         .glossary-note i {
             margin-right: 0.4rem;
-            color: var(--accent-light);
+            color: var(--color-navy-400);
         }
-
-        /* FOOTER */
-        footer {
-            background: var(--accent);
-            color: rgba(255,255,255,0.65);
-            text-align: center;
-            padding: 1.8rem 1.5rem;
-            margin-top: 3rem;
-            font-size: 0.82rem;
-        }
-
-        footer .footer-brand { font-size: 1.2rem; font-weight: 700; color: white; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-        footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.2s; }
-        footer a:hover { color: white; }
-        .footer-links { margin: 0.8rem 0; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
-        .footer-links a { padding: 0.3rem 0.8rem; border-radius: 20px; background: rgba(255,255,255,0.04); font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.04); }
-        .footer-links a:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.10); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -226,9 +132,6 @@
             .page-header-inner { padding: 2rem 1.2rem 1.5rem; }
             .glossary-content { padding: 1.5rem 1.2rem 2rem; }
             .term-grid { grid-template-columns: 1fr; }
-            .nav-links { gap: 0.1rem; }
-            .nav-links a { font-size: 0.75rem; padding: 0.25rem 0.5rem; }
-            .logo a { font-size: 1.2rem; }
         }
 
         /* === GLOSSARY POLISH === */
@@ -240,7 +143,7 @@
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .term-item:hover {
-            background: var(--bg-secondary);
+            background: var(--color-slate-100);
             transform: translateX(3px);
             border-color: rgba(31,72,128,0.12);
         }
@@ -267,7 +170,7 @@
         
         /* Page header gradient accent */
         .page-header {
-            background: linear-gradient(180deg, #f7f8fa 0%, #ffffff 100%);
+            background: linear-gradient(180deg, var(--color-slate-100) 0%, #ffffff 100%);
             position: relative;
         }
         .page-header::before {
@@ -277,7 +180,7 @@
             left: 0;
             right: 0;
             height: 2.5px;
-            background: linear-gradient(90deg, transparent, #3B6FB5, #1F4880, #3B6FB5, transparent);
+            background: linear-gradient(90deg, transparent, var(--color-navy-400), var(--color-navy-600), var(--color-navy-400), transparent);
         }
         
         /* h1 accent underline */
@@ -293,35 +196,34 @@
             transform: translateX(-50%);
             width: 50px;
             height: 2.5px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
         
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-track { background: var(--color-slate-100); }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
-        ::selection { background: rgba(31,72,128,0.15); color: #111827; }
+        ::selection { background: rgba(31,72,128,0.15); color: var(--color-slate-900); }
         
         /* Glossary note refinement */
         .glossary-note {
-            border-left: 3px solid var(--accent-light);
-            background: linear-gradient(135deg, #f7f8fa 0%, #f0f4f9 100%);
+            border-left: 3px solid var(--color-navy-400);
+            background: linear-gradient(135deg, var(--color-slate-100) 0%, #f0f4f9 100%);
         }
 
     </style>
 </head>
-<body>
+<body lang="zh">
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <a href="/INTRE/">
-                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
-                    INTRE
-                </a>
-            </div>
+            <a href="/INTRE/" class="nav-logo">
+                <img src="../assets/logo-dark.svg" alt="INTRE" onerror="this.style.display='none'">
+                <span class="logo-text">INTRE</span>
+            </a>
+            <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
@@ -329,7 +231,7 @@
                 <a href="/INTRE/ubms/">UBMS</a>
                 <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/">📖教材</a>
+                <a href="/INTRE/textbook/">教材</a>
                 <a href="/INTRE/glossary/" class="active">术语表</a>
             </div>
         </div>
@@ -485,14 +387,16 @@
 
     <footer>
         <div class="footer-brand">INTRE</div>
-        <p style="font-size:0.88rem;">心理学功能层工程框架 · 开放知识入口</p>
+        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank"><i class="fas fa-file-alt"></i> PSE</a>
-            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank"><i class="fas fa-file-alt"></i> UPLS</a>
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank"><i class="fas fa-file-alt"></i> REVER</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
         </div>
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</div>
+        <div class="footer-meta">
+            <p>版本 v2.1 (2026-06-10) · CC0 1.0</p>
+        </div>
     </footer>
 </body>
 </html>

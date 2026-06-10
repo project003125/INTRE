@@ -4,94 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTRE · REVER 结构化伦理引擎</title>
-    <!-- Google Fonts Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../shared/brand.css">
+    <link rel="stylesheet" href="../shared/components.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #111827;
-            line-height: 1.6;
-        }
-
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
             padding: 2rem 2rem;
-        }
-
-        /* 导航栏 */
-        nav {
-            background-color: #1F4880;
-            color: white;
-            padding: 0 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 0.5px solid rgba(255,255,255,0.08);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 3.2rem;
-        }
-
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.15rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.82rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            transition: all 0.15s ease;
-        }
-
-        .nav-links a:hover {
-            color: white;
-            background: rgba(255,255,255,0.08);
-        }
-
-        .nav-links a.active {
-            color: #1F4880;
-            background: white;
-            font-weight: 600;
         }
 
         /* 页面标题 */
         h1 {
             font-size: 2rem;
             font-weight: 700;
-            color: #111827;
+            color: var(--color-slate-900);
             margin: 1.5rem 0 0.4rem;
             letter-spacing: -0.03em;
         }
@@ -99,7 +28,7 @@
         .subhead {
             font-size: 1.3rem;
             font-weight: 400;
-            color: #6B7280;
+            color: var(--color-slate-500);
             margin-bottom: 2rem;
             max-width: 900px;
         }
@@ -107,7 +36,7 @@
         .section-label {
             font-size: 1rem;
             font-weight: 600;
-            color: #374151;
+            color: var(--color-slate-700);
             margin: 2.5rem 0 1rem;
             border-bottom: 0.5px solid #F0F0F2;
             padding-bottom: 0.4rem;
@@ -118,7 +47,7 @@
         }
 
         .section-label i {
-            color: #3B6FB5;
+            color: var(--color-navy-400);
             font-size: 1.5rem;
             width: 1.5rem;
         }
@@ -126,7 +55,7 @@
         h3 {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #1e293b;
+            color: var(--color-slate-900);
             margin: 1.8rem 0 1rem;
             padding-bottom: 0.3rem;
             border-bottom: 0.5px solid #e2e8f0;
@@ -135,21 +64,21 @@
         h4 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #3B6FB5;
+            color: var(--color-navy-400);
             margin: 1.5rem 0 0.8rem;
         }
 
         .card {
             background-color: white;
             border-radius: 0.75rem;
-            border: 0.5px solid #E5E7EB;
+            border: 0.5px solid var(--color-slate-200);
             padding: 1.5rem;
             margin-bottom: 2rem;
             transition: background 0.15s ease;
         }
 
         .card:hover {
-            background: #F8F9FA;
+            background: var(--color-slate-100);
         }
 
         /* 表格样式 */
@@ -168,7 +97,7 @@
         }
 
         .table th {
-            background-color: #1F4880;
+            background-color: var(--color-navy-600);
             color: white;
             font-weight: 600;
             padding: 0.9rem 1rem;
@@ -217,19 +146,16 @@
             .grid-2, .grid-3, .grid-4 {
                 grid-template-columns: 1fr;
             }
-            .nav-links { gap: 0.15rem; }
-            .nav-links a { font-size: 0.78rem; padding: 0.3rem 0.6rem; }
             .container { padding: 1.5rem; }
             h1 { font-size: 2rem; }
             .subhead { font-size: 1.1rem; }
         }
         @media (max-width: 480px) {
-            .nav-links a { font-size: 0.7rem; padding: 0.2rem 0.45rem; }
             h1 { font-size: 1.8rem; }
         }
 
         .info-box {
-            background-color: #F8F9FA;
+            background-color: var(--color-slate-100);
             border-radius: 0.75rem;
             padding: 1.5rem;
             border: 0.5px solid #F0F0F2;
@@ -237,7 +163,7 @@
         }
 
         .code-block {
-            background-color: #1e293b;
+            background-color: var(--color-slate-900);
             color: #e2e8f0;
             padding: 1rem 1.5rem;
             border-radius: 0.8rem;
@@ -248,7 +174,7 @@
         }
 
         .badge {
-            background-color: #3B6FB5;
+            background-color: var(--color-navy-400);
             color: white;
             font-size: 0.75rem;
             font-weight: 600;
@@ -260,7 +186,7 @@
 
         .phase-tag {
             display: inline-block;
-            background-color: #1F4880;
+            background-color: var(--color-navy-600);
             color: white;
             padding: 0.3rem 1rem;
             border-radius: 30px;
@@ -271,8 +197,8 @@
         }
 
         .love-definition {
-            background: #F8F9FA;
-            border: 0.5px solid #E5E7EB;
+            background: var(--color-slate-100);
+            border: 0.5px solid var(--color-slate-200);
             border-radius: 0.75rem;
             padding: 2rem;
             margin: 2rem 0;
@@ -282,7 +208,7 @@
         }
 
         .love-definition i {
-            color: #3B6FB5;
+            color: var(--color-navy-400);
             font-size: 2rem;
             margin-bottom: 1rem;
         }
@@ -292,59 +218,10 @@
             margin: 0 auto;
         }
 
-        /* 页脚 */
-        footer {
-            background-color: #1F4880;
-            color: rgba(255,255,255,0.65);
-            text-align: center;
-            padding: 1.8rem 1.5rem;
-            margin-top: 3rem;
-            font-size: 0.82rem;
-        }
-
-        footer .footer-brand {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.4rem;
-        }
-
-        footer a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        .footer-links {
-            margin: 1rem 0;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.04);
-            font-size: 0.85rem;
-            border: 1px solid rgba(255,255,255,0.04);
-        }
-
-        .footer-links a:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.10);
-        }
-
         /* 引用块 */
         .quote {
             font-style: italic;
-            border-left: 3px solid #3B6FB5;
+            border-left: 3px solid var(--color-navy-400);
             padding-left: 1.5rem;
             margin: 1.5rem 0;
             color: #334155;
@@ -372,7 +249,7 @@
         
         /* Info-box left accent */
         .info-box {
-            border-left: 3px solid #3B6FB5;
+            border-left: 3px solid var(--color-navy-400);
             background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f9 100%);
         }
         
@@ -404,7 +281,7 @@
             content: '';
             display: block;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5, #6DA3D4, #3B6FB5, #1F4880);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400), #6DA3D4, var(--color-navy-400), var(--color-navy-600));
             border-radius: 0 0 3px 3px;
             margin-bottom: 0;
             opacity: 0;
@@ -422,7 +299,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
         
@@ -440,7 +317,7 @@
             top: 0.15rem;
             bottom: 0.15rem;
             width: 3px;
-            background: linear-gradient(180deg, #1F4880, #3B6FB5);
+            background: linear-gradient(180deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
         
@@ -456,14 +333,14 @@
         
         /* Better scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-track { background: var(--color-slate-100); }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
         /* Selection color */
         ::selection {
             background: rgba(31,72,128,0.15);
-            color: #111827;
+            color: var(--color-slate-900);
         }
     
         /* Sub-page header gradient accent */
@@ -478,7 +355,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #3B6FB5, #1F4880, #3B6FB5, transparent);
+            background: linear-gradient(90deg, transparent, var(--color-navy-400), var(--color-navy-600), var(--color-navy-400), transparent);
             border-radius: 2px;
         }
         
@@ -494,20 +371,19 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #1F4880, #3B6FB5);
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400));
             border-radius: 2px;
         }
     </style>
 </head>
-<body>
+<body lang="zh">
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <a href="/INTRE/">
-                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
-                    INTRE
-                </a>
-            </div>
+            <a href="/INTRE/" class="nav-logo">
+                <img src="../assets/logo-dark.svg" alt="INTRE" onerror="this.style.display='none'">
+                <span class="logo-text">INTRE</span>
+            </a>
+            <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>
@@ -515,7 +391,7 @@
                 <a href="/INTRE/ubms/">UBMS</a>
                 <a href="/INTRE/pse/">PSE</a>
                 <a href="/INTRE/rever/" class="active">REVER</a>
-                <a href="/INTRE/textbook/">📖教材</a>
+                <a href="/INTRE/textbook/">教材</a>
                 <a href="/INTRE/glossary/">术语表</a>
             </div>
         </div>
@@ -532,7 +408,7 @@
         </div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" style="color: #1F4880; opacity: 0.6; margin-right: 0.5rem;"></i>
+            <i class="fas fa-quote-left" style="color: var(--color-navy-600); opacity: 0.6; margin-right: 0.5rem;"></i>
             REVER 提供一个四层架构，使AI系统能够通过<strong>优先级分配</strong>而非<strong>情感模拟</strong>来展现类爱行为，同时防止病理性依赖。它是任何基于UPLS实施心理干预的AI系统的<strong>强制性伦理约束层</strong>。
         </div>
 
@@ -633,25 +509,25 @@
 
         <div class="grid-4">
             <div class="card">
-                <h4 style="color:#1F4880;">Gate 1</h4>
+                <h4 style="color:var(--color-navy-600);">Gate 1</h4>
                 <p><strong>输入伦理</strong> (编译前)</p>
                 <p>筛查原始输入的伦理风险：危机关键词、医疗边界、隐私侵犯、超能力请求。</p>
                 <p><span class="badge">紧急协议</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#1F4880;">Gate 2</h4>
+                <h4 style="color:var(--color-navy-600);">Gate 2</h4>
                 <p><strong>诊断伦理</strong> (SID-P后)</p>
                 <p>基于UPLS状态向量评估伦理风险：O_i, G_system, M1-RES-D, M4-DSP-B, ELI。</p>
                 <p><span class="badge">风险等级: 绿/黄/橙/红/黑</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#1F4880;">Gate 3</h4>
+                <h4 style="color:var(--color-navy-600);">Gate 3</h4>
                 <p><strong>依赖伦理</strong> (MMD-P后)</p>
                 <p>评估当前依赖分数，调整干预参数：主体性目标、强度、透明度频率。</p>
                 <p><span class="badge">依赖缓解协议</span></p>
             </div>
             <div class="card">
-                <h4 style="color:#1F4880;">Gate 4</h4>
+                <h4 style="color:var(--color-navy-600);">Gate 4</h4>
                 <p><strong>输出伦理</strong> (STO-P后)</p>
                 <p>验证最终输出的伦理合规性：拟人化、虚假承诺、依赖触发、边界跨越。</p>
                 <p><span class="badge">透明度注入</span></p>
@@ -789,15 +665,16 @@
 
     <footer>
         <div class="footer-brand">INTRE</div>
-        <p style="font-size:0.88rem;">心理学功能层工程框架 · 开放知识入口</p>
+        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">心理学功能层工程框架 · 开放知识入口</p>
         <div class="footer-links">
-            <a href="https://github.com/project003125/INTRE" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank"><i class="fas fa-file-alt"></i> PSE</a>
-            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank"><i class="fas fa-file-alt"></i> UPLS</a>
-            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank"><i class="fas fa-file-alt"></i> REVER</a>
-            <a href="https://doi.org/10.5281/zenodo.XXXXXXX" target="_blank"><i class="fas fa-file-alt"></i> UBMS</a>
+            <a href="https://github.com/project003125/INTRE" target="_blank">GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank">PSE</a>
+            <a href="https://doi.org/10.5281/zenodo.18818307" target="_blank">UPLS</a>
+            <a href="https://doi.org/10.5281/zenodo.18820091" target="_blank">REVER</a>
         </div>
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:1rem;">版本 v2.0 (2026-06-09) · CC0 1.0 · 保留部分权利</div>
+        <div class="footer-meta">
+            <p>版本 v2.1 (2026-06-10) · CC0 1.0</p>
+        </div>
     </footer>
 </body>
 </html>
