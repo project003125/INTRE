@@ -499,7 +499,7 @@ body {
     display: none;
     position: fixed;
     bottom: 1.2rem; right: 1.2rem;
-    z-index: 45;
+    z-index: 55;
     background: var(--color-navy-600);
     color: white;
     border: none;
@@ -509,11 +509,17 @@ body {
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 2px 12px rgba(31,72,128,0.2);
-    transition: box-shadow 0.15s, transform 0.1s;
+    transition: box-shadow 0.15s, transform 0.1s, bottom 0.25s cubic-bezier(0.16,1,0.3,1), background 0.15s;
     align-items: center; gap: 0.3rem;
 }
 .toc-toggle-btn:hover { box-shadow: 0 4px 20px rgba(31,72,128,0.28); }
 .toc-toggle-btn:active { transform: scale(0.97); }
+/* When sidebar is open, move button above the bottom sheet */
+.toc-toggle-btn.is-open {
+    bottom: calc(40vh + 0.5rem);
+    background: var(--color-slate-600);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
 
 .toc-overlay {
     display: none;

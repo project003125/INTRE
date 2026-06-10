@@ -527,15 +527,16 @@ kappa = cohen_kappa_score(coder1, coder2)  # 预期约0.85</code></pre>
             e.preventDefault();
             document.getElementById(id).scrollIntoView({behavior:'smooth'});
             if (!isDesktop()) {
-                sidebar.classList.remove('open');
-                if (overlay) overlay.classList.remove('show');
+                
+                close();
             }
         };
         list.appendChild(link);
     });
 
-    function open() { sidebar.classList.add('open'); if (overlay) overlay.classList.add('show'); }
-    function close() { sidebar.classList.remove('open'); if (overlay) overlay.classList.remove('show'); }
+    function open() { sidebar.classList.add('open'); if (overlay) overlay.classList.add('show'); if (toggleBtn) { toggleBtn.classList.add('is-open'); toggleBtn.innerHTML = '<i class="fas fa-times"></i> 关闭'; } }
+    function close() { 
+                close(); if (overlay) overlay.classList.remove('show'); if (toggleBtn) { toggleBtn.classList.remove('is-open'); toggleBtn.innerHTML = '<i class="fas fa-list"></i> 目录'; } }
 
     if (toggleBtn) toggleBtn.onclick = function(){ if(sidebar.classList.contains('open'))close();else open();};
     if (closeBtn) closeBtn.onclick = close;
