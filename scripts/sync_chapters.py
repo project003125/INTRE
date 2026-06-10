@@ -378,7 +378,12 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
 
 <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/INTRE/">INTRE</a></div>
+            <div class="logo">
+                <a href="/INTRE/">
+                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
+                    INTRE
+                </a>
+            </div>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>

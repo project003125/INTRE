@@ -19,6 +19,7 @@
         .nav-links { display:flex; gap:0.15rem; align-items:center; }
         .nav-links a { color:rgba(255,255,255,.75); text-decoration:none; font-weight:500; font-size:.82rem; padding:.3rem .7rem; border-radius:6px; transition:all .15s; border-bottom:none; }
         .nav-links a:hover { color:white; background:rgba(255,255,255,.08); }
+        .nav-links a.active { color:#1F4880; background:white; font-weight:600; }
         h1 { font-size:2rem; font-weight:700; color:#111827; margin:1.5rem 0 .4rem; letter-spacing:-0.03em; }
         .subhead { font-size:1.3rem; font-weight:400; color:#6B7280; margin-bottom:2rem; max-width:900px; }
         .section-label { font-size:1rem; font-weight:600; color:#374151; margin:2.5rem 0 1rem; border-bottom:0.5px solid #F0F0F2; padding-bottom:0.4rem; padding-left:0; display:flex; align-items:center; gap:.5rem; }
@@ -202,7 +203,12 @@
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/INTRE/">INTRE</a></div>
+            <div class="logo">
+                <a href="/INTRE/">
+                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
+                    INTRE
+                </a>
+            </div>
             <div class="nav-links">
                 <a href="/INTRE/">首页</a>
                 <a href="/INTRE/upls/">UPLS</a>

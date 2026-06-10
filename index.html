@@ -85,8 +85,15 @@
             font-size: 1.3rem;
             font-weight: 600;
             letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .logo a:hover { opacity: 0.9; }
+        .logo img, .logo svg {
+            height: 1.6rem;
+            width: auto;
+        }
 
         .nav-links {
             display: flex;
@@ -840,7 +847,10 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <a href="/INTRE/">INTRE</a>
+                <a href="/INTRE/">
+                    <img src="assets/logo-dark.svg" alt="INTRE" class="nav-logo" onerror="this.style.display='none'">
+                    INTRE
+                </a>
             </div>
             <div class="nav-links">
                 <a href="/INTRE/" class="active">首页</a>

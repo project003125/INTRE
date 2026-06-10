@@ -61,6 +61,14 @@ nav {
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img, .logo svg {
+    height: 1.6rem;
+    width: auto;
 }
 
 .nav-links { display: flex; gap: 0.15rem; align-items: center; }
