@@ -530,7 +530,7 @@ def build_chapters_js():
     for _, html_name, section, label, _ in CHAPTER_MAP:
         escaped_section = section.replace("'", "\\'")
         escaped_label = label.replace("'", "\\'")
-        entries.append(f"('{escaped_section}', '{html_name}', '{escaped_label}')")
+        entries.append(f"['{escaped_section}', '{html_name}', '{escaped_label}']")
     return ', '.join(entries)
 
 
