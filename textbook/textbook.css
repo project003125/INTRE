@@ -435,9 +435,20 @@ footer p { margin: 0; }
 
 /* =============================================
    CHAPTER NAV SIDEBAR (left panel)
+   Self-contained — does NOT use .toc-sidebar base class
    ============================================= */
 .toc-sidebar--left {
     display: none;
+    position: fixed;
+    top: 3.2rem;
+    left: 0;
+    width: 180px;
+    height: calc(100vh - 3.2rem);
+    background: var(--bg-sidebar);
+    border-right: 0.5px solid var(--border-light);
+    padding: 0.8rem 0.3rem 1rem;
+    overflow-y: auto;
+    z-index: 50;
 }
 
 .chapter-nav-list { padding: 0; }
@@ -583,29 +594,77 @@ footer p { margin: 0; }
 }
 .toc-overlay.show { display: block; }
 
-/* ===== Desktop: dual sidebar (left=chapters, right=page TOC) ===== */
-@media (min-width: 1400px) {
-    .toc-sidebar--left {
-        display: block;
+/* ===== Tablet: right sidebar as fixed panel ===== */
+@media (min-width: 960px) and (max-width: 1199px) {
+    .toc-sidebar {
+        position: fixed;
         top: 3.2rem;
         bottom: auto;
-        left: 0;
-        right: auto;
-        width: 180px;
+        left: auto;
+        right: 0;
+        width: 190px;
         height: calc(100vh - 3.2rem);
         max-height: none;
         border-radius: 0;
         background: var(--bg-sidebar);
-        border-right: 0.5px solid var(--border-light);
-        border-left: none;
+        border-left: 0.5px solid var(--border-light);
+        border-right: none;
         border-top: none;
-        padding: 0.8rem 0.3rem 1rem;
+        border-bottom: none;
+        padding: 1rem 0.4rem;
+        transform: none !important;
+        transition: none;
+        box-shadow: none;
         overflow-y: auto;
-        position: fixed;
-        z-index: 50;
+    }
+
+    .toc-sidebar::before { display: none; }
+    .toc-sidebar-header { display: none !important; }
+    .toc-sidebar.open { transform: none !important; }
+
+    .toc-sidebar-list { padding: 0; }
+
+    .toc-sidebar-list .toc-item {
+        padding: 0.28rem 0.6rem;
+        font-size: 0.76rem;
+        margin: 1px 0.25rem;
+        border-bottom: none;
+    }
+
+    .toc-sidebar-list .toc-item.toc-h2 {
+        font-weight: 600;
+        font-size: 0.78rem;
+        color: var(--text);
+        padding: 0.35rem 0.6rem;
+        margin-top: 2px;
+    }
+
+    .toc-toggle-btn { display: none !important; }
+    .toc-overlay, .toc-overlay.show { display: none !important; }
+
+    /* Offset content for right sidebar */
+    .page-header-inner {
+        margin-right: 190px;
+        max-width: 740px;
+    }
+    .textbook-content {
+        margin-right: 190px;
+        max-width: 740px;
+    }
+    .page-footer-nav {
+        margin-right: 190px;
+        max-width: 740px;
+    }
+}
+
+/* ===== Desktop: dual sidebar (left=chapters, right=page TOC) ===== */
+@media (min-width: 1200px) {
+    .toc-sidebar--left {
+        display: block;
     }
 
     .toc-sidebar {
+        position: fixed;
         top: 3.2rem;
         bottom: auto;
         left: auto;
@@ -618,10 +677,12 @@ footer p { margin: 0; }
         border-left: 0.5px solid var(--border-light);
         border-right: none;
         border-top: none;
+        border-bottom: none;
         padding: 1.2rem 0.5rem 1rem;
         transform: none !important;
         transition: none;
         box-shadow: none;
+        overflow-y: auto;
     }
 
     .toc-sidebar::before { display: none; }
@@ -649,20 +710,28 @@ footer p { margin: 0; }
     .toc-toggle-btn { display: none !important; }
     .toc-overlay, .toc-overlay.show { display: none !important; }
 
-    .textbook-content,
-    .page-footer-nav {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    /* Center content between sidebars
+       Formula: left_offset = 180px + (viewport - 380px - 740px) / 2
+       380px = left sidebar(180) + right sidebar(200) */
     .page-header-inner {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        margin-left: calc(180px + (100vw - 1120px) / 2);
+        margin-right: auto;
+        max-width: 740px;
+    }
+    .textbook-content {
+        margin-left: calc(180px + (100vw - 1120px) / 2);
+        margin-right: auto;
+        max-width: 740px;
+    }
+    .page-footer-nav {
+        margin-left: calc(180px + (100vw - 1120px) / 2);
+        margin-right: auto;
+        max-width: 740px;
     }
 }
 
-/* Mobile/tablet: show toggle button */
-@media (max-width: 1399px) {
+/* Mobile: show toggle button for bottom-sheet TOC */
+@media (max-width: 959px) {
     .toc-toggle-btn { display: flex; }
 }
 
