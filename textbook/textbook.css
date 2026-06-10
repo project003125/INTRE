@@ -379,7 +379,7 @@ body {
     position: fixed;
     top: 3.2rem;
     left: 0;
-    width: 210px;
+    width: 240px;
     height: calc(100vh - 3.2rem);
     background: var(--color-slate-100);
     border-right: var(--stroke-hairline) solid var(--color-slate-200);
@@ -612,7 +612,7 @@ body {
         bottom: auto;
         left: auto;
         right: 0;
-        width: 230px;
+        width: 240px;
         height: calc(100vh - 3.2rem);
         max-height: none;
         border-radius: 0;
@@ -654,20 +654,20 @@ body {
     .toc-overlay, .toc-overlay.show { display: none !important; }
 
     /* Center content between sidebars
-       Formula: left_offset = 210px + (viewport - 440px - 740px) / 2
-       440px = left sidebar(210) + right sidebar(230) */
+       Formula: left_offset = 240px + (viewport - 480px - 740px) / 2
+       480px = left sidebar(240) + right sidebar(240) */
     .page-header-inner {
-        margin-left: calc(210px + (100vw - 1180px) / 2);
+        margin-left: calc(240px + (100vw - 1220px) / 2);
         margin-right: auto;
         max-width: 740px;
     }
     .textbook-content {
-        margin-left: calc(210px + (100vw - 1180px) / 2);
+        margin-left: calc(240px + (100vw - 1220px) / 2);
         margin-right: auto;
         max-width: 740px;
     }
     .page-footer-nav {
-        margin-left: calc(210px + (100vw - 1180px) / 2);
+        margin-left: calc(240px + (100vw - 1220px) / 2);
         margin-right: auto;
         max-width: 740px;
     }
