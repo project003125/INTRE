@@ -56,7 +56,7 @@ body {
     background: var(--bg);
     padding: 0.12rem 0.55rem;
     border-radius: 4px;
-    border: 0.5px solid var(--border);
+    border: var(--stroke-hairline) solid var(--border);
 }
 
 /* ========== MAIN CONTENT ========== */
@@ -134,7 +134,7 @@ body {
     border-left: none;
     background: var(--color-slate-100);
     border-radius: 8px;
-    border: 0.5px solid var(--color-slate-200);
+    border: var(--stroke-hairline) solid var(--color-slate-200);
 }
 
 .textbook-content blockquote p {
@@ -188,7 +188,7 @@ body {
     font-weight: 600;
     text-align: left;
     padding: 0.6rem 0.8rem;
-    border-bottom: 0.5px solid var(--border);
+    border-bottom: var(--stroke-hairline) solid var(--border);
     color: var(--text);
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -198,7 +198,7 @@ body {
 
 .textbook-content td {
     padding: 0.55rem 0.8rem;
-    border-bottom: 0.5px solid var(--color-slate-200);
+    border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
     color: var(--color-slate-700);
 }
 
@@ -233,7 +233,7 @@ body {
     justify-content: space-between;
     gap: 0.5rem;
     padding-top: 1.5rem;
-    border-top: 0.5px solid var(--color-slate-200);
+    border-top: var(--stroke-hairline) solid var(--color-slate-200);
 }
 
 .nav-link {
@@ -300,7 +300,7 @@ body {
     letter-spacing: 0.06em;
     margin: 2rem 0 0.7rem;
     padding-bottom: 0.4rem;
-    border-bottom: 0.5px solid var(--color-slate-200);
+    border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
 }
 .toc-section-title:first-child { margin-top: 0; }
 
@@ -313,7 +313,7 @@ body {
     text-decoration: none;
     color: var(--text);
     transition: background 0.12s ease;
-    border-bottom: 0.5px solid var(--color-slate-200);
+    border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
 }
 .toc-item:hover { background: var(--color-slate-100); }
 
@@ -348,7 +348,7 @@ body {
     color: var(--color-slate-700);
     font-size: 0.88rem;
     transition: background 0.12s ease;
-    border-bottom: 0.5px solid var(--color-slate-200);
+    border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
 }
 .appendix-item:hover { background: var(--color-slate-100); color: var(--color-navy-600); }
 .appendix-item strong { color: var(--color-navy-600-light); margin-right: 0.3rem; }
@@ -376,7 +376,7 @@ body {
     width: 210px;
     height: calc(100vh - 3.2rem);
     background: var(--color-slate-100);
-    border-right: 0.5px solid var(--color-slate-200);
+    border-right: var(--stroke-hairline) solid var(--color-slate-200);
     padding: 0.8rem 0.5rem 1rem;
     overflow-y: auto;
     z-index: 50;
@@ -538,7 +538,7 @@ body {
         max-height: none;
         border-radius: 0;
         background: var(--color-slate-100);
-        border-left: 0.5px solid var(--color-slate-200);
+        border-left: var(--stroke-hairline) solid var(--color-slate-200);
         border-right: none;
         border-top: none;
         border-bottom: none;
@@ -605,7 +605,7 @@ body {
         max-height: none;
         border-radius: 0;
         background: var(--color-slate-100);
-        border-left: 0.5px solid var(--color-slate-200);
+        border-left: var(--stroke-hairline) solid var(--color-slate-200);
         border-right: none;
         border-top: none;
         border-bottom: none;
