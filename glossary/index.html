@@ -391,12 +391,12 @@
             <div class="term-item"><strong>MPT</strong> <span class="sep">|</span> Mental Plasticity Theory <span class="sep">—</span> <span class="def">心智可塑性理论：结构改变机制</span></div>
             <div class="term-item"><strong>MET</strong> <span class="sep">|</span> Mental Ecology Theory <span class="sep">—</span> <span class="def">心智生态理论：环境–系统耦合</span></div>
             <div class="term-item"><strong>心智六论</strong> <span class="sep">—</span> <span class="def">PSE 的六个理论模块：MCT + MTT + MKT + MDT + MPT + MET</span></div>
-            <div class="term-item"><strong>VTS-P</strong> <span class="sep">|</span> Variable-to-Structure <span class="sep">—</span> <span class="def">变量到结构协议</span></div>
-            <div class="term-item"><strong>ETS-P</strong> <span class="sep">|</span> Environment-to-Structure <span class="sep">—</span> <span class="def">环境到结构协议</span></div>
-            <div class="term-item"><strong>SID-P</strong> <span class="sep">|</span> System Integrated Diagnosis <span class="sep">—</span> <span class="def">系统集成诊断协议</span></div>
-            <div class="term-item"><strong>MMD-P</strong> <span class="sep">|</span> Multi-Dimensional Meta-Dispatch <span class="sep">—</span> <span class="def">多维元调度协议</span></div>
-            <div class="term-item"><strong>STO-P</strong> <span class="sep">|</span> Structure-to-Operation <span class="sep">—</span> <span class="def">结构到操作协议</span></div>
-            <div class="term-item"><strong>PSE-I/M/P/C</strong> <span class="sep">—</span> <span class="def">PSE 四阶段：理论注入 → 蒙特卡罗仿真 → 先验提取 → 真实世界校准</span></div>
+            <div class="term-item"><strong>VTS-P</strong> <span class="sep">|</span> Variable-to-Structure Protocol <span class="sep">—</span> <span class="def">变量到结构协议</span></div>
+            <div class="term-item"><strong>ETS-P</strong> <span class="sep">|</span> Environment-to-Structure Protocol <span class="sep">—</span> <span class="def">环境到结构协议</span></div>
+            <div class="term-item"><strong>SID-P</strong> <span class="sep">|</span> System Integrated Diagnosis Protocol <span class="sep">—</span> <span class="def">系统集成诊断协议</span></div>
+            <div class="term-item"><strong>MMD-P</strong> <span class="sep">|</span> Multi-Dimensional Meta-Dispatch Protocol <span class="sep">—</span> <span class="def">多维元调度协议</span></div>
+            <div class="term-item"><strong>STO-P</strong> <span class="sep">|</span> Structure-to-Operation Protocol <span class="sep">—</span> <span class="def">结构到操作协议</span></div>
+            <div class="term-item"><strong>PSE-I/M/P/C</strong> <span class="sep">—</span> <span class="def">PSE 四阶段：I 理论注入 → M 蒙特卡罗仿真 → P 先验提取 → C 真实世界校准</span></div>
         </div>
 
         <div class="section-heading"><i class="fas fa-language"></i> 知识基础设施 (UPLS)</div>
@@ -424,6 +424,25 @@
             <div class="term-item"><strong>仲裁合约</strong> <span class="sep">—</span> <span class="def">UNIS ↔ PSE 双向通信接口：/func_likelihood（前向）+ /calibration_feedback（反向）</span></div>
             <div class="term-item"><strong>通道分歧</strong> <span class="sep">—</span> <span class="def">行为/语义/神经三通道对同子单元估计出现系统性分歧时的诊断信号</span></div>
         </div>
+        <div class="section-heading"><i class="fas fa-ruler"></i> 行为测量系统 (UBMS)</div>
+        <div class="term-grid">
+            <div class="term-item"><strong>UBMS</strong> <span class="sep">|</span> Unified Behavioral Measurement System <span class="sep">—</span> <span class="def">统一行为测量系统：FLP 行为通道基础设施，将结构化行为观测转化为行为似然</span></div>
+            <div class="term-item"><strong>BHI 标识符</strong> <span class="sep">|</span> Behavioral Health Indicator <span class="sep">—</span> <span class="def">行为健康指标标识符，格式 BHI.[DOMAIN].v[VER].[SEQ]，如 BHI.DEPRESSION.v2.003</span></div>
+            <div class="term-item"><strong>BHI 条目</strong> <span class="sep">—</span> <span class="def">UBMS L1 注册库中 BHI 标识符对应的完整记录（含观测函数、信效度、桥接参数等）</span></div>
+            <div class="term-item"><strong>BHI 注册库</strong> <span class="sep">—</span> <span class="def">UBMS L1 中所有 BHI 条目的集合</span></div>
+            <div class="term-item"><strong>UBMS L1</strong> <span class="sep">|</span> Behavioral Measurement Registry <span class="sep">—</span> <span class="def">行为测量注册库：存储观测函数、信效度矩阵、桥接参数、数字表型协议</span></div>
+            <div class="term-item"><strong>UBMS L2</strong> <span class="sep">|</span> Calibration & Linking Engine <span class="sep">—</span> <span class="def">校准与桥接引擎：IRT 跨工具等价转换 + 贝叶斯个体化校准 + 漂移检测</span></div>
+            <div class="term-item"><strong>BLA</strong> <span class="sep">|</span> Behavioral Likelihood API <span class="sep">—</span> <span class="def">行为似然 API（UBMS L3）：JSON-RPC 端点 /behavioral_likelihood 和 /calibration_feedback</span></div>
+            <div class="term-item"><strong>UBMS 观测函数</strong> <span class="sep">|</span> h_b(x) <span class="sep">—</span> <span class="def">行为通道观测函数：将测量分数 x 映射到功能状态子维度似然（方向：x→y_b）</span></div>
+            <div class="term-item"><strong>行为似然</strong> <span class="sep">—</span> <span class="def">BLA 标准化输出 p(y_b|Ψ_t)，必须经 UBMS L3 端点获取，参与 PSE 三通道融合</span></div>
+            <div class="term-item"><strong>UPLS 语义对齐前置</strong> <span class="sep">—</span> <span class="def">UBMS 核心约束：两个 BHI 条目须经 UPLS 确认同一 M-R-D-S 组件后方可进行 IRT 桥接</span></div>
+            <div class="term-item"><strong>工具桥接</strong> <span class="sep">|</span> Instrument Linking <span class="sep">—</span> <span class="def">不同 BHI 条目对同一 M-R-D-S 组件的分数等价转换，由 UBMS L2 执行</span></div>
+            <div class="term-item"><strong>数字表型协议</strong> <span class="sep">|</span> Digital Phenotype Protocol <span class="sep">—</span> <span class="def">UBMS L1 可选字段：从原始传感器数据到数字表型特征的完整处理链定义</span></div>
+            <div class="term-item"><strong>IRT</strong> <span class="sep">|</span> Item Response Theory <span class="sep">—</span> <span class="def">项目反应理论：UBMS L2 跨工具等价转换的方法论基础</span></div>
+            <div class="term-item"><strong>CTT</strong> <span class="sep">|</span> Classical Test Theory <span class="sep">—</span> <span class="def">经典测量理论：UBMS L1 信度指标的方法论基础</span></div>
+            <div class="term-item"><strong>PSE-M 内嵌子层</strong> <span class="sep">—</span> <span class="def">UBMS 前身：行为测量作为 PSE-M 蒙特卡罗仿真阶段内部子模块的历史形态</span></div>
+        </div>
+
 
         <div class="section-heading"><i class="fas fa-flask"></i> FLP 学科体系</div>
         <div class="term-grid">
