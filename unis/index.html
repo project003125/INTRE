@@ -14,7 +14,7 @@
         html { scroll-behavior: smooth; }
         .container { margin:0 auto; padding:2rem; }
         .subhead { font-size:1.3rem; font-weight:400; color:var(--color-slate-500); margin-bottom:2rem; max-width:900px; }
-        .section-label { font-size:1rem; font-weight:600; color:var(--color-slate-700); margin:2.5rem 0 1rem; border-bottom:0.5px solid #F0F0F2; padding-bottom:0.4rem; padding-left:0; display:flex; align-items:center; gap:.5rem; }
+        .section-label { font-size:1rem; font-weight:600; color:var(--color-slate-700); margin:2.5rem 0 1rem; border-bottom:var(--stroke-hairline) solid var(--color-slate-200); padding-bottom:0.4rem; padding-left:0; display:flex; align-items:center; gap:.5rem; }
         .section-label i { color:var(--color-navy-400); font-size:1.5rem; width:1.5rem; }
         h4 { font-size:1.2rem; font-weight:600; color:var(--color-navy-400); margin:1.2rem 0 .6rem; }
         .card { background:white; border-radius:0.75rem; border:0.5px solid var(--color-slate-200); padding:1.5rem; margin-bottom:2rem; transition:background 0.15s ease; }
@@ -28,8 +28,8 @@
         .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin:2rem 0; }
         .grid-6 { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
         @media (max-width:768px) { .grid-2,.grid-3,.grid-6{grid-template-columns:1fr} .container{padding:1.5rem} h1{font-size:2rem} }
-        .info-box { background:var(--color-slate-100); border-radius:0.75rem; padding:1.5rem; border:0.5px solid #F0F0F2; margin:1.5rem 0; }
-        .code-block { background:var(--color-slate-900); color:var(--color-slate-200); padding:1rem 1.5rem; border-radius:.8rem; font-family:'Courier New',monospace; font-size:.9rem; overflow-x:auto; margin:1rem 0; }
+        .info-box { background:var(--color-slate-100); border-radius:0.75rem; padding:1.5rem; border:var(--stroke-hairline) solid var(--color-slate-200); margin:1.5rem 0; }
+        .code-block { background:var(--color-slate-900); color:var(--color-slate-200); padding:1rem 1.5rem; border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.85rem; line-height:1.65; overflow-x:auto; margin:1rem 0; border:var(--stroke-hairline) solid rgba(255,255,255,0.05); }
         .badge { background:var(--color-navy-400); color:white; font-size:.75rem; font-weight:600; padding:.2rem .6rem; border-radius:20px; margin-left:.5rem; display:inline-block; }
         .layer-card { background:white; border-radius:0.75rem; border:0.5px solid var(--color-slate-200); padding:1.5rem; }
         .layer-card h4 { color:var(--color-navy-600); font-size:1.2rem; }
@@ -40,25 +40,16 @@
         
         /* Table zebra striping */
         .table tbody tr:nth-child(even) td {
-            background-color: #f8fafc;
+            background-color: var(--color-slate-100);
         }
         .table tbody tr:hover td {
-            background-color: #f0f5fb !important;
-        }
-        
-        /* Code block improvements */
-        .code-block {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.65;
-            position: relative;
-            border: 0.5px solid rgba(255,255,255,0.05);
+            background-color: var(--color-navy-50) !important;
         }
         
         /* Info-box left accent */
         .info-box {
             border-left: 3px solid var(--color-navy-400);
-            background: linear-gradient(135deg, var(--color-slate-100) 0%, #f0f4f9 100%);
+            background: linear-gradient(135deg, var(--color-slate-100) 0%, var(--color-navy-50) 100%);
         }
         
         /* Card hover micro-interaction */
@@ -89,7 +80,7 @@
             content: '';
             display: block;
             height: 3px;
-            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400), #6DA3D4, var(--color-navy-400), var(--color-navy-600));
+            background: linear-gradient(90deg, var(--color-navy-600), var(--color-navy-400), var(--color-navy-300), var(--color-navy-400), var(--color-navy-600));
             border-radius: 0 0 3px 3px;
             margin-bottom: 0;
             opacity: 0;
