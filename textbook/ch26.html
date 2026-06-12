@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="../shared/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-    <link rel="apple-touch-icon" href="../assets/favicon-512.png">
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 </head>
 <body lang="zh">
 
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <main class="textbook-content">
+    <main class="textbook-content" id="main-content">
         <h1 class="chapter-title">第26章 心理AI：功能层驱动的智能交互</h1>
 <blockquote><p><strong>学习目标</strong>：完成本章后你应能够：(1)描述心理AI的三层架构（PSE内核+REVER伦理层+LLM界面）；(2)理解心理AI与传统聊天机器人的本质区别；(3)列举心理AI在教育、老年照护、企业EAP、心理健康聊天机器人四个场景中的应用方式；(4)识别心理AI的伦理承诺和局限性；(5)了解UNIS作为神经输入前端在心理AI中的角色。</p></blockquote>
 <blockquote><p><strong>⚠️ 重要声明</strong>：心理AI当前阶段应被定位为<strong>辅助工具</strong>，而非替代人类治疗师。对于自杀危机、严重精神障碍，必须有人类专业人员的监督和介入。</p></blockquote>
@@ -355,87 +355,7 @@
         onload="renderMathInElement(document.querySelector('.textbook-content') || document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 
 
-<script>
-(function() {
-    var chapters = [['上篇 导论', 'ch01.html', '1 范式演变'], ['上篇 导论', 'ch02.html', '2 层次定位'], ['上篇 导论', 'ch03.html', '3 框架总览'], ['上篇 导论', 'ch04.html', '4 范式批判'], ['上篇 导论', 'ch05.html', '5 架构推导'], ['上篇 导论', 'ch06.html', '6 状态维度'], ['上篇 导论', 'ch07.html', '7 功能模块'], ['上篇 导论', 'ch08.html', '8 状态向量'], ['上篇 导论', 'ch09.html', '9 测量方法'], ['中篇 PSE六论', 'ch10.html', '10 原子操作'], ['中篇 PSE六论', 'ch11.html', '11 干预序列'], ['中篇 PSE六论', 'ch12.html', '12 流派分解'], ['中篇 PSE六论', 'ch13.html', '13 流派生成'], ['中篇 PSE六论', 'ch14.html', '14 概念标识'], ['中篇 PSE六论', 'ch15.html', '15 语义架构'], ['中篇 PSE六论', 'ch16.html', '16 共识工程'], ['中篇 PSE六论', 'ch17.html', '17 逻辑指纹'], ['中篇 PSE六论', 'ch18.html', '18 PSE架构'], ['下篇 应用', 'ch19.html', '19 系统动力学'], ['下篇 应用', 'ch20.html', '20 仿真校准'], ['下篇 应用', 'ch21.html', '21 临床案例'], ['下篇 应用', 'ch22.html', '22 神经对接'], ['下篇 应用', 'ch23.html', '23 双向约束'], ['下篇 应用', 'ch24.html', '24 边界修订'], ['下篇 应用', 'ch25.html', '25 REVER'], ['下篇 应用', 'ch26.html', '26 心理AI'], ['下篇 应用', 'ch27.html', '27 跨学科接口'], ['下篇 应用', 'ch28.html', '28 研究方法'], ['下篇 应用', 'ch29.html', '29 未来方向'], ['附录', 'app-a.html', 'A 42子维度'], ['附录', 'app-b.html', 'B GMAR速查'], ['附录', 'app-c.html', 'C PSE入门'], ['附录', 'app-d.html', 'D REVER审计'], ['附录', 'app-e.html', 'E 流派映射'], ['附录', 'app-f.html', 'F 逻辑指纹'], ['附录', 'app-g.html', 'G 术语对照'], ['附录', 'app-h.html', 'H 形式审查'], ['附录', 'app-i.html', 'I 家教案例'], ['附录', 'app-j.html', 'J PCUI规范'], ['附录', 'app-k.html', 'K PSA依赖'], ['附录', 'app-l.html', 'L 架构速查'], ['附录', 'app-m.html', 'M 数学速成'], ['附录', 'app-n.html', 'N 概念速查']];
-    var currentPage = window.location.pathname.split('/').pop() || 'ch26.html';
-
-    // === BUILD LEFT SIDEBAR: chapter navigation ===
-    var chapterNav = document.createElement('nav');
-    chapterNav.className = 'toc-sidebar--left';
-    chapterNav.id = 'chapterNav';
-    var navList = document.createElement('div');
-    navList.className = 'chapter-nav-list';
-
-    var lastSection = '';
-    chapters.forEach(function(c) {
-        if (c[0] !== lastSection) {
-            lastSection = c[0];
-            var sec = document.createElement('div');
-            sec.className = 'chapter-nav-section';
-            sec.textContent = lastSection;
-            navList.appendChild(sec);
-        }
-        var a = document.createElement('a');
-        a.className = 'chapter-nav-link';
-        if (c[1] === currentPage) a.classList.add('active');
-        a.href = c[1];
-        a.textContent = c[2];
-        navList.appendChild(a);
-    });
-    chapterNav.appendChild(navList);
-    document.body.insertBefore(chapterNav, document.body.firstChild);
-
-    // === BUILD RIGHT SIDEBAR: current page H2+H3 TOC ===
-    var sidebar = document.getElementById('tocSidebar');
-    var toggleBtn = document.getElementById('tocToggleBtn');
-    var closeBtn = document.getElementById('tocCloseBtn');
-    var overlay = document.getElementById('tocOverlay');
-    var list = document.getElementById('tocSidebarList');
-
-    if (!sidebar) return;
-
-    function isDesktop() { return window.innerWidth >= 1200; }
-
-    var headings = document.querySelectorAll('.textbook-content h2, .textbook-content h3');
-    var hIdx = 0, h2Idx = 0;
-    headings.forEach(function(h, i) {
-        var id = 's' + i;
-        h.id = id;
-        var link = document.createElement('a');
-        link.href = '#' + id;
-        link.className = 'toc-item';
-        if (h.tagName === 'H2') { link.classList.add('toc-h2'); }
-        link.textContent = h.textContent;
-        link.onclick = function(e) {
-            e.preventDefault();
-            document.getElementById(id).scrollIntoView({behavior:'smooth'});
-            if (!isDesktop()) {
-                close();
-            }
-        };
-        list.appendChild(link);
-    });
-
-    function open() { sidebar.classList.add('open'); if (overlay) overlay.classList.add('show'); document.body.classList.add('toc-open'); if (toggleBtn) { toggleBtn.classList.add('is-open'); toggleBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i> 关闭'; } }
-    function close() { sidebar.classList.remove('open'); if (overlay) overlay.classList.remove('show'); document.body.classList.remove('toc-open'); if (toggleBtn) { toggleBtn.classList.remove('is-open'); toggleBtn.innerHTML = '<i class="fas fa-list" aria-hidden="true"></i> 目录'; } }
-
-    if (toggleBtn) toggleBtn.onclick = function(){ if(sidebar.classList.contains('open'))close();else open();};
-    if (closeBtn) closeBtn.onclick = close;
-    if (overlay) overlay.onclick = close;
-
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                list.querySelectorAll('.toc-item').forEach(function(el) { el.classList.remove('active'); });
-                var active = list.querySelector('.toc-item[href="#' + entry.target.id + '"]');
-                if (active) active.classList.add('active');
-            }
-        });
-    }, {rootMargin: '-80px 0px -60% 0px'});
-    headings.forEach(function(h) { observer.observe(h); });
-})();
-</script>
+    <script src="../shared/sidebar.js"></script>
 
     <script src="../shared/nav-toggle.js"></script>
 </body>
