@@ -340,15 +340,22 @@
     function openToc() {
       sidebar.classList.add('open');
       if (overlay) overlay.classList.add('show');
+      document.body.classList.add('toc-open');
       if (toggleBtn) {
         toggleBtn.classList.add('is-open');
         toggleBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i> 关闭';
+      }
+      // Scroll active link into view
+      var activeLink = sidebar.querySelector('.toc-item.active');
+      if (activeLink) {
+        setTimeout(function() { activeLink.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 100);
       }
     }
 
     function closeToc() {
       sidebar.classList.remove('open');
       if (overlay) overlay.classList.remove('show');
+      document.body.classList.remove('toc-open');
       if (toggleBtn) {
         toggleBtn.classList.remove('is-open');
         toggleBtn.innerHTML = '<i class="fas fa-list" aria-hidden="true"></i> 目录';
@@ -360,6 +367,37 @@
     };
     if (closeBtn) closeBtn.onclick = closeToc;
     if (overlay) overlay.onclick = closeToc;
+
+    // Swipe down to close on mobile
+    var touchStartY = 0;
+    var touchCurrentY = 0;
+    sidebar.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    sidebar.addEventListener('touchmove', function(e) {
+      touchCurrentY = e.touches[0].clientY;
+      var diff = touchCurrentY - touchStartY;
+      if (diff > 0) {
+        sidebar.style.transform = 'translateY(' + diff + 'px)';
+      }
+    }, { passive: true });
+    sidebar.addEventListener('touchend', function() {
+      var diff = touchCurrentY - touchStartY;
+      if (diff > 80) {
+        closeToc();
+      }
+      sidebar.style.transform = '';
+      touchStartY = 0;
+      touchCurrentY = 0;
+    }, { passive: true });
+
+    // Escape key to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        closeToc();
+        if (toggleBtn) toggleBtn.focus();
+      }
+    });
 
     // Scroll spy
     if (headings.length > 0) {

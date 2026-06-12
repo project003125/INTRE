@@ -472,14 +472,20 @@ body {
     background: var(--bg);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     padding: 0.5rem 0 calc(1.2rem + env(safe-area-inset-bottom, 0px));
-    z-index: 50;
+    z-index: 200;
     transform: translateY(100%);
-    transition: transform var(--duration-slow) var(--ease-smooth);
-    box-shadow: var(--shadow-sheet);
+    visibility: hidden;
+    transition: transform var(--duration-slow) var(--ease-smooth), visibility 0s linear var(--duration-slow);
+    box-shadow: none;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-.toc-sidebar.open { transform: translateY(0); }
+.toc-sidebar.open {
+    transform: translateY(0);
+    visibility: visible;
+    box-shadow: var(--shadow-sheet);
+    transition: transform var(--duration-slow) var(--ease-smooth), visibility 0s;
+}
 
 .toc-sidebar::before {
     content: '';
@@ -570,7 +576,7 @@ body {
     display: none;
     position: fixed;
     bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); right: 1.2rem;
-    z-index: 55;
+    z-index: 205;
     background: var(--color-navy-600);
     color: var(--color-white);
     border: none;
@@ -600,10 +606,17 @@ body {
     position: fixed;
     inset: 0;
     background: var(--color-overlay);
-    z-index: 49;
+    z-index: 199;
     -webkit-tap-highlight-color: transparent;
 }
 .toc-overlay.show { display: block; }
+
+/* Body scroll lock when TOC is open */
+body.toc-open {
+    overflow: hidden;
+    touch-action: none;
+    -webkit-overflow-scrolling: auto;
+}
 
 /* ===== Tablet: right sidebar as fixed panel ===== */
 @media (min-width: 960px) and (max-width: 1199px) {
