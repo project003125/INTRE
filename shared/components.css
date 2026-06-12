@@ -116,6 +116,12 @@ nav.light .nav-toggle {
   color: var(--color-slate-900);
 }
 
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
