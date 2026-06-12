@@ -63,53 +63,53 @@
     </nav>
     <main id="main-content" class="container">
         <h1>UNIS</h1>
-        <div class="subhead">统一神经接口系统 · 生理信号→功能层似然的标准化管道 <span style="background:var(--color-navy-400);color:white;padding:.2rem .8rem;border-radius:20px;font-size:.85rem;margin-left:.5rem;">神经通道</span></div>
+        <div class="subhead">统一神经接口系统 · 生理信号→功能层似然的标准化管道 <span class="channel-badge unis">神经通道</span></div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" aria-hidden="true" style="color:var(--color-navy-600);opacity:.6;margin-right:.5rem;"></i>
+            <i class="fas fa-quote-left" aria-hidden="true" ></i>
             UNIS 将原始神经信号（EEG、fNIRS、PPG、HRV 等）转换为神经似然 p(yₙ|Ψ) — 六层递进架构，每层回答一个独立问题，层间通过标准化协议通信。
         </div>
 
         <!-- 一、六层架构 -->
         <h2 class="section-label"><i class="fas fa-layer-group" aria-hidden="true"></i> 一、六层架构</h2>
-        <p style="margin-bottom:1.5rem;">UNIS 的六个层次从原始信号到功能似然逐级递进，每个层次对应一个不可还原的独立问题。</p>
+        <p class="section-intro">UNIS 的六个层次从原始信号到功能似然逐级递进，每个层次对应一个不可还原的独立问题。</p>
 
         <div class="grid-6">
             <div class="layer-card">
                 <span class="layer-num">L1</span>
                 <h4>NAP</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neural Acquisition Protocol</p>
-                <p style="font-size:.9rem;">定义采集规范、设备接口、元数据标准（兼容 BIDS v1.6+）。</p>
+                <p class="layer-desc">Neural Acquisition Protocol</p>
+                <p class="layer-detail">定义采集规范、设备接口、元数据标准（兼容 BIDS v1.6+）。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L2</span>
                 <h4>SCL</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Signal Calibration Layer</p>
-                <p style="font-size:.9rem;">标准化的信号预处理流程，跨平台（EEGLAB/MNE/FieldTrip）可重现。</p>
+                <p class="layer-desc">Signal Calibration Layer</p>
+                <p class="layer-detail">标准化的信号预处理流程，跨平台（EEGLAB/MNE/FieldTrip）可重现。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L3</span>
                 <h4>NFD</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neural Feature Definition</p>
-                <p style="font-size:.9rem;">唯一标识的神经特征库（NFI），可跨实验室复现且具生理学解释。</p>
+                <p class="layer-desc">Neural Feature Definition</p>
+                <p class="layer-detail">唯一标识的神经特征库（NFI），可跨实验室复现且具生理学解释。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L4</span>
                 <h4>NFM</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neuro-Functional Mapping</p>
-                <p style="font-size:.9rem;">从特征到功能似然的映射模型库，支持线性/非线性/DL模型。</p>
+                <p class="layer-desc">Neuro-Functional Mapping</p>
+                <p class="layer-detail">从特征到功能似然的映射模型库，支持线性/非线性/DL模型。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L5</span>
                 <h4>NPL</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Neuro Prior Library</p>
-                <p style="font-size:.9rem;">生理硬约束与人群统计先验，用于约束或裁剪 L4 输出。</p>
+                <p class="layer-desc">Neuro Prior Library</p>
+                <p class="layer-detail">生理硬约束与人群统计先验，用于约束或裁剪 L4 输出。</p>
             </div>
             <div class="layer-card">
                 <span class="layer-num">L6</span>
                 <h4>RTE</h4>
-                <p style="font-size:.85rem;color:var(--color-navy-400);margin-bottom:.3rem;">Real-time Engine</p>
-                <p style="font-size:.9rem;">低延迟推理（Infer）+ 异步个体化校准（Cal），输出实时神经似然。</p>
+                <p class="layer-desc">Real-time Engine</p>
+                <p class="layer-detail">低延迟推理（Infer）+ 异步个体化校准（Cal），输出实时神经似然。</p>
             </div>
         </div>
 
@@ -122,17 +122,17 @@
 
         <div class="grid-2">
             <div class="card">
-                <h4><i class="fas fa-tachometer-alt" aria-hidden="true" style="color:var(--color-navy-400);"></i> RTE-Infer</h4>
+                <h4><i class="fas fa-tachometer-alt" aria-hidden="true"></i> RTE-Infer</h4>
                 <p><strong>实时推理引擎</strong>— 无状态、低延迟、确定性计算。</p>
-                <ul style="margin-left:1.2rem;margin-top:.5rem;">
+                <ul class="list-indent" class="desc-spacing">
                     <li>管线：L2 数据流 → L3 特征计算 → L4 模型 → p(yₙ|Ψ)</li>
                     <li>分层延迟目标（95分位）：简单特征&thinsp;<30ms，中等&thinsp;<50ms，复杂&thinsp;<100ms</li>
                 </ul>
             </div>
             <div class="card">
-                <h4><i class="fas fa-sliders-h" aria-hidden="true" style="color:var(--color-navy-400);"></i> RTE-Cal</h4>
+                <h4><i class="fas fa-sliders-h" aria-hidden="true"></i> RTE-Cal</h4>
                 <p><strong>异步校准引擎</strong>— 有状态、精度优先、不阻塞推理快路径。</p>
-                <ul style="margin-left:1.2rem;margin-top:.5rem;">
+                <ul class="list-indent" class="desc-spacing">
                     <li>接收 RTE-Infer 输出 + PSE 状态估计</li>
                     <li>递归贝叶斯更新（卡尔曼/粒子滤波），个体化 L4 参数</li>
                     <li>校准目标：2分钟后 log-likelihood 损失降低 ≥10%</li>
@@ -182,7 +182,7 @@
 
     <footer>
         <div class="footer-brand">INTRE</div>
-        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">功能层心理学 (FLP) · 开放知识入口</p>
+        <p class="footer-watermark">功能层心理学 (FLP) · 开放知识入口</p>
         <div class="footer-links">
             <a href="https://github.com/project003125/INTRE" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank" rel="noopener noreferrer">PSE</a>

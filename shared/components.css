@@ -673,3 +673,150 @@ hr {
   background: rgba(31, 72, 128, 0.15);
   color: var(--color-slate-900);
 }
+
+/* === Inline Style Replacements === */
+
+/* Footer watermark — replaces style="font-size:0.88rem; opacity:0.6; ..." */
+.footer-watermark {
+  font-size: 0.88rem;
+  opacity: 0.6;
+  margin: 0.3rem 0 1rem;
+}
+
+/* Channel badge — replaces inline style on subhead span */
+.channel-badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  color: white;
+}
+.channel-badge.upls   { background: var(--color-upls); }
+.channel-badge.unis   { background: var(--color-navy-400); }
+.channel-badge.ubms   { background: var(--color-ubms); }
+.channel-badge.pse    { background: var(--color-pse); }
+.channel-badge.rever  { background: var(--color-rever); }
+
+/* Icon accent — replaces style="color:var(--color-navy-400)" on FA icons */
+.icon-accent {
+  color: var(--color-navy-400);
+}
+
+/* Icon navy-600 — replaces style="color:var(--color-navy-600)" on FA icons */
+.icon-navy {
+  color: var(--color-navy-600);
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+/* Quote-left icon in info-box */
+.info-box > .icon-navy {
+  color: var(--color-navy-600);
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+/* Gate heading — replaces style="color:var(--color-navy-600)" on h4 */
+.gate-heading {
+  color: var(--color-navy-600);
+}
+
+/* Small code-block — replaces style="font-size:0.8rem" on .code-block */
+.code-block-sm {
+  font-size: 0.8rem;
+}
+
+/* Section spacing — replaces style="margin-bottom:1.5rem" on p */
+.section-intro {
+  margin-bottom: 1.5rem;
+}
+
+/* Subsection spacing — replaces style="margin-top:1.5rem" on h3 */
+.subsection-top {
+  margin-top: 1.5rem;
+}
+
+/* Acknowledgment spacing — replaces style="margin-top:1rem" on p */
+.ack-item {
+  margin-top: 1rem;
+}
+
+/* List indent — replaces style="margin-left:1.2rem" on ul */
+.list-indent {
+  margin-left: 1.2rem;
+}
+
+/* List indent wide — replaces style="margin-left:2rem" on ul */
+.list-indent-wide {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* UNIS layer-card descriptions */
+.layer-desc {
+  font-size: 0.85rem;
+  color: var(--color-navy-400);
+  margin-bottom: 0.3rem;
+}
+.layer-detail {
+  font-size: 0.9rem;
+}
+
+/* REVER love-definition English text */
+.love-en {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Info-box spacing */
+.info-box-spaced {
+  margin-top: 1rem;
+}
+
+/* Index.html icon colors */
+.icon-rever { color: var(--color-rever); }
+.icon-blue  { color: var(--color-navy-600); }
+
+/* Index.html fusion-item channel colors */
+.fusion-item.upls   { border-left-color: var(--color-navy-400); }
+.fusion-item.ubms   { border-left-color: var(--color-navy-400); }
+.fusion-item.pse    { border-left-color: var(--color-navy-600); }
+
+/* Index.html channel dots */
+.ch-dot.upls  { background: var(--color-navy-600); }
+.ch-dot.unis  { background: var(--color-navy-400); }
+.ch-dot.ubms  { background: var(--color-navy-400); }
+
+/* Table full width */
+.table-full {
+  width: 100%;
+}
+
+/* Textbook index description spacing */
+.desc-spacing {
+  margin-top: 0.5rem;
+}
+
+/* Card h4 icons — accent color */
+.card h4 i.fas,
+.grid-2 .card h4 i.fas,
+.grid-3 .card h4 i.fas,
+.grid-4 .card h4 i.fas {
+  color: var(--color-navy-400);
+}
+/* Card center text */
+.card-center { text-align: center; }
+
+/* REVER heart icon */
+.icon-heart-rever { color: var(--color-rever); }
+
+/* Code block small variant */
+.code-block-xs { font-size: 0.82rem; }
+
+/* UBMS feature list */
+.feature-list {
+  margin: 0.5rem 0 0 1.2rem;
+  color: var(--color-slate-700);
+  font-size: 0.9rem;
+}

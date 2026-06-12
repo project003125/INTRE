@@ -236,10 +236,10 @@
 
     <main id="main-content" class="container">
         <h1>PSE</h1>
-        <div class="subhead">心理系统工程引擎 · 基于心智六论的大规模仿真引擎 <span style="background:var(--color-pse);color:white;padding:.2rem .8rem;border-radius:20px;font-size:.85rem;margin-left:.5rem;">计算引擎</span></div>
+        <div class="subhead">心理系统工程引擎 · 基于心智六论的大规模仿真引擎 <span class="channel-badge pse">计算引擎</span></div>
 
         <div class="info-box">
-            <i class="fas fa-quote-left" aria-hidden="true" style="color: var(--color-navy-600); opacity: 0.6; margin-right: 0.5rem;"></i>
+            <i class="fas fa-quote-left" aria-hidden="true" ></i>
             PSE 将形式化描述转化为可计算的动力学系统 — 基于<strong>心智六论</strong>，通过 PSE‑M（蒙特卡罗仿真）与 PSE‑C（真实世界校准）预测心理状态演化。
         </div>
 
@@ -248,40 +248,40 @@
 
         <div class="grid-3">
             <div class="card">
-                <h4><i class="fas fa-compass" aria-hidden="true" style="color: var(--color-navy-400);"></i> MCT · 心智编译理论</h4>
+                <h4><i class="fas fa-compass" aria-hidden="true"></i> MCT · 心智编译理论</h4>
                 <p><strong>Mental Compilation Theory</strong></p>
                 <p>将临床观测（主诉、量表）编译为 M-R-D-S 状态向量。解决“现象→形式化”的映射问题。</p>
-                <div class="code-block" style="font-size:0.8rem;">主诉“疲惫不堪”→ M1-RES-D↓</div>
+                <div class="code-block code-block-sm">主诉“疲惫不堪”→ M1-RES-D↓</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-project-diagram" aria-hidden="true" style="color: var(--color-navy-400);"></i> MTT · 心智拓扑理论</h4>
+                <h4><i class="fas fa-project-diagram" aria-hidden="true"></i> MTT · 心智拓扑理论</h4>
                 <p><strong>Mental Topology Theory</strong></p>
                 <p>描述 M-R-D-S 组件间的连接结构与因果网络。定义依赖强度矩阵 w_base。</p>
-                <div class="code-block" style="font-size:0.8rem;">M1-RES-D → M3-RES-D: 0.8</div>
+                <div class="code-block code-block-sm">M1-RES-D → M3-RES-D: 0.8</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-chart-line" aria-hidden="true" style="color: var(--color-navy-400);"></i> MKT · 心智动力理论</h4>
+                <h4><i class="fas fa-chart-line" aria-hidden="true"></i> MKT · 心智动力理论</h4>
                 <p><strong>Mental Kinetics Theory</strong></p>
                 <p>资源与状态的演化方程，包含存量-流量-结构动力学。定义速率常数 k。</p>
-                <div class="code-block" style="font-size:0.8rem;">d(RES-D)/dt = k_rec - k_cons</div>
+                <div class="code-block code-block-sm">d(RES-D)/dt = k_rec - k_cons</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-sliders-h" aria-hidden="true" style="color: var(--color-navy-400);"></i> MDT · 心智调度理论</h4>
+                <h4><i class="fas fa-sliders-h" aria-hidden="true"></i> MDT · 心智调度理论</h4>
                 <p><strong>Mental Dispatch Theory</strong></p>
                 <p>干预优化的决策理论，将 G-M-A-R 操作映射为控制信号。优化干预序列。</p>
-                <div class="code-block" style="font-size:0.8rem;">选择 MODULATE+ 时机</div>
+                <div class="code-block code-block-sm">选择 MODULATE+ 时机</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-dna" aria-hidden="true" style="color: var(--color-navy-400);"></i> MPT · 心智塑性理论</h4>
+                <h4><i class="fas fa-dna" aria-hidden="true"></i> MPT · 心智塑性理论</h4>
                 <p><strong>Mental Plasticity Theory</strong></p>
                 <p>结构层（STR）的改变机制，描述学习与习惯化的速率。</p>
-                <div class="code-block" style="font-size:0.8rem;">d(STR-R)/dt = η·Δ</div>
+                <div class="code-block code-block-sm">d(STR-R)/dt = η·Δ</div>
             </div>
             <div class="card">
-                <h4><i class="fas fa-globe-asia" aria-hidden="true" style="color: var(--color-navy-400);"></i> MET · 心智生态理论</h4>
+                <h4><i class="fas fa-globe-asia" aria-hidden="true"></i> MET · 心智生态理论</h4>
                 <p><strong>Mental Ecology Theory</strong></p>
                 <p>环境-系统耦合模型，描述 S-P 外感架构如何影响内感状态。</p>
-                <div class="code-block" style="font-size:0.8rem;">P-M1-RES-D+ 来自社会支持</div>
+                <div class="code-block code-block-sm">P-M1-RES-D+ 来自社会支持</div>
             </div>
         </div>
 
@@ -289,22 +289,22 @@
         <h2 class="section-label"><i class="fas fa-sync-alt" aria-hidden="true"></i> 二、PSE 四阶段 · 从理论到临床</h2>
 
         <div class="grid-4">
-            <div class="card" style="text-align: center;">
+            <div class="card card-center">
                 <div class="phase-tag">PSE-I</div>
                 <h4>理论注入</h4>
                 <p>将心智六论作为约束条件植入仿真引擎，定义状态空间与动力学方程。</p>
             </div>
-            <div class="card" style="text-align: center;">
+            <div class="card card-center">
                 <div class="phase-tag">PSE-M</div>
                 <h4>蒙特卡罗仿真</h4>
                 <p>运行千万级虚拟个体，遍历参数空间，生成心理状态演化的先验分布。</p>
             </div>
-            <div class="card" style="text-align: center;">
+            <div class="card card-center">
                 <div class="phase-tag">PSE-P</div>
                 <h4>先验提取</h4>
                 <p>从仿真结果中提取参数分布、典型轨迹、临界点特征，构建先验知识库。</p>
             </div>
-            <div class="card" style="text-align: center;">
+            <div class="card card-center">
                 <div class="phase-tag">PSE-C</div>
                 <h4>真实锚定</h4>
                 <p>用临床真实数据（量表、EMA）进行贝叶斯校准，更新后验参数。</p>
@@ -336,7 +336,7 @@
             </div>
             <div class="card">
                 <h4>关键参数</h4>
-                <table style="width:100%; border-collapse: collapse;">
+                <table class="table-full">
                     <tr><td>k_recovery</td><td>0.1–0.3 /h</td><td>资源恢复速率</td></tr>
                     <tr><td>k_consumption</td><td>0.05–0.2 /h</td><td>资源消耗速率</td></tr>
                     <tr><td>τ_D</td><td>2–6 h</td><td>RES-D 时间常数</td></tr>
@@ -370,7 +370,7 @@
 
             <h3>PSE-M 仿真预测</h3>
             <p>运行 10,000 个虚拟"王梅"个体，参数空间采样自先验分布。结果显示：</p>
-            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+            <ul class="list-indent-wide">
                 <li>若不干预，6个月内进入严重抑郁状态的概率：78%</li>
                 <li>临界点：RES-D < 20 持续 3 天 → 级联崩溃风险 +300%</li>
                 <li>杠杆点：M1-RES-D 恢复 → M3-DSP-F ↑ → M2-STR-R 可塑性 ↑</li>
@@ -396,7 +396,7 @@
                 </table>
             </div>
 
-            <div class="info-box" style="margin-top: 1rem;">
+            <div class="info-box info-box-spaced">
                 <p><strong>结果</strong>：16周后，王梅 RES-D 恢复至 75，入睡时间 <30分钟，工作投入度回归正常水平。PSE 预测与真实轨迹相关系数 r=0.82。</p>
             </div>
         </div>
@@ -449,7 +449,7 @@
 
     <footer>
         <div class="footer-brand">INTRE</div>
-        <p style="font-size:0.88rem; opacity:0.6; margin:0.3rem 0 1rem;">功能层心理学 (FLP) · 开放知识入口</p>
+        <p class="footer-watermark">功能层心理学 (FLP) · 开放知识入口</p>
         <div class="footer-links">
             <a href="https://github.com/project003125/INTRE" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://doi.org/10.5281/zenodo.18818607" target="_blank" rel="noopener noreferrer">PSE</a>
