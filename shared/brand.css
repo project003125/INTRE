@@ -254,8 +254,8 @@ code, pre, .mono {
 /* Skip navigation link — accessibility (M5) */
 .skip-nav {
   position: absolute;
-  top: -100%;
   left: 0;
+  top: 0;
   background: var(--color-navy-800);
   color: white;
   padding: 0.5rem 1rem;
@@ -263,7 +263,13 @@ code, pre, .mono {
   font-size: 0.875rem;
   text-decoration: none;
   border-radius: 0 0 var(--radius-sm) 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  overflow: hidden;
 }
 .skip-nav:focus {
-  top: 0;
+  clip: auto;
+  clip-path: none;
+  overflow: visible;
 }
