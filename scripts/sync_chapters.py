@@ -380,20 +380,20 @@ _HTML_TEMPLATE = r'''<!DOCTYPE html>
 
 <nav>
         <div class="nav-container">
-            <a href="/INTRE/" class="nav-logo">
+            <a href="/INTRE-website/" class="nav-logo">
                 <img src="../assets/logo-dark.svg" alt="INTRE" onerror="this.style.display='none'">
                 <span class="logo-text">INTRE</span>
             </a>
             <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
-                <a href="/INTRE/">首页</a>
-                <a href="/INTRE/upls/">UPLS</a>
-                <a href="/INTRE/unis/">UNIS</a>
-                <a href="/INTRE/ubms/">UBMS</a>
-                <a href="/INTRE/pse/">PSE</a>
-                <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/" class="active">教材</a>
-                <a href="/INTRE/glossary/">术语表</a>
+                <a href="/INTRE-website/">首页</a>
+                <a href="/INTRE-website/upls/">UPLS</a>
+                <a href="/INTRE-website/unis/">UNIS</a>
+                <a href="/INTRE-website/ubms/">UBMS</a>
+                <a href="/INTRE-website/pse/">PSE</a>
+                <a href="/INTRE-website/rever/">REVER</a>
+                <a href="/INTRE-website/textbook/" class="active">教材</a>
+                <a href="/INTRE-website/glossary/">术语表</a>
             </div>
         </div>
     </nav>

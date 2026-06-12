@@ -340,15 +340,15 @@ def convert_file(filename, file_id):
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/INTRE/">INTRE</a></div>
+            <div class="logo"><a href="/INTRE-website/">INTRE</a></div>
             <div class="nav-links">
-                <a href="/INTRE/">首页</a>
-                <a href="/INTRE/upls/">UPLS</a>
-                <a href="/INTRE/unis/">UNIS</a>
-                <a href="/INTRE/pse/">PSE</a>
-                <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/" class="active">📖教材</a>
-                <a href="/INTRE/glossary/">术语表</a>
+                <a href="/INTRE-website/">首页</a>
+                <a href="/INTRE-website/upls/">UPLS</a>
+                <a href="/INTRE-website/unis/">UNIS</a>
+                <a href="/INTRE-website/pse/">PSE</a>
+                <a href="/INTRE-website/rever/">REVER</a>
+                <a href="/INTRE-website/textbook/" class="active">📖教材</a>
+                <a href="/INTRE-website/glossary/">术语表</a>
             </div>
         </div>
     </nav>

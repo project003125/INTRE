@@ -31,17 +31,17 @@
 
 <nav>
         <div class="nav-container">
-            <a href="/INTRE/" class="nav-logo">INTRE</a>
+            <a href="/INTRE-website/" class="nav-logo">INTRE</a>
             <button class="nav-toggle" aria-label="菜单" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
             <div class="nav-links">
-                <a href="/INTRE/">首页</a>
-                <a href="/INTRE/upls/">UPLS</a>
-                <a href="/INTRE/unis/">UNIS</a>
-                <a href="/INTRE/ubms/">UBMS</a>
-                <a href="/INTRE/pse/">PSE</a>
-                <a href="/INTRE/rever/">REVER</a>
-                <a href="/INTRE/textbook/" class="active">教材</a>
-                <a href="/INTRE/glossary/">术语表</a>
+                <a href="/INTRE-website/">首页</a>
+                <a href="/INTRE-website/upls/">UPLS</a>
+                <a href="/INTRE-website/unis/">UNIS</a>
+                <a href="/INTRE-website/ubms/">UBMS</a>
+                <a href="/INTRE-website/pse/">PSE</a>
+                <a href="/INTRE-website/rever/">REVER</a>
+                <a href="/INTRE-website/textbook/" class="active">教材</a>
+                <a href="/INTRE-website/glossary/">术语表</a>
             </div>
         </div>
     </nav>
@@ -57,7 +57,7 @@
         <h1 class="chapter-title">附录C：PSE快速入门——代码示例与仿真模板</h1>
 <p>本附录提供PSE（Psychological System Engine）开源引擎的快速上手指南。PSE是用Python实现的仿真框架，用于运行M-R-D-S状态演化、蒙特卡罗智能体仿真和贝叶斯校准。本附录面向有一定Python基础的研究者和开发者，提供从安装、基本状态定义、运行仿真到可视化的最小工作示例。</p>
 <p><strong>环境要求</strong>：Python 3.9+，建议使用Anaconda或Miniconda管理环境。推荐安装以下依赖库： - <code>numpy</code>（数值计算） - <code>scipy</code>（微分方程求解、统计分布） - <code>matplotlib</code>（可视化） - <code>pandas</code>（数据处理） - <code>numba</code>（可选，加速蒙特卡罗仿真） - <code>jax</code>（可选，自动微分与GPU加速）</p>
-<p>完整代码库及文档请访问：<code>https://github.com/INTRE/PSE</code>（示例地址）</p>
+<p>完整代码库及文档请访问：<code>https://github.com/INTRE-website/PSE</code>（示例地址）</p>
 <hr class="section-divider">
 <h2>C.1 安装与环境配置</h2>
 <pre><code class="language-bash"># 创建虚拟环境（推荐）
@@ -383,7 +383,7 @@ t, states = run_intervention_simulation(intervention, params, t_max=72)
 <hr class="section-divider">
 <h2>C.8 在线资源与进一步学习</h2>
 <ol>
-<li><strong>完整文档</strong>：<a href="https://project003125.github.io/INTRE/PSE">https://project003125.github.io/INTRE/PSE</a>（示例地址）</li>
+<li><strong>完整文档</strong>：<a href="https://project003125.github.io/INTRE-website/PSE">https://project003125.github.io/INTRE-website/PSE</a>（示例地址）</li>
 <li><strong>参数库</strong>：生态位先验参数（JSON格式）可从项目仓库下载。</li>
 <li><strong>示例实验</strong>：包含广泛性焦虑、PTSD、抑郁复发三个案例的完整仿真笔记本。</li>
 <li><strong>API参考</strong>：<code>pse.engine</code>, <code>pse.monte_carlo</code>, <code>pse.calibration</code>模块。</li>
