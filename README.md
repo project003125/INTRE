@@ -1,3 +1,12 @@
+---
+title: INTRE 官方网站
+version: 1.0.0
+date: 2026-06-12
+status: active
+document_type: standard
+description: INTRE 项目官方网站源码，基于品牌视觉规范 (06-S-05) 构建的静态站点
+---
+
 # INTRE Website
 
 INTRE 官网静态站点源码。该仓库对应 `project003125/INTRE-website`，线上地址为：
