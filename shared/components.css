@@ -754,6 +754,311 @@ hr {
   color: var(--color-slate-900);
 }
 
+/* ===== Textbook Sidebar ===== */
+
+/* Scroll lock when mobile drawer is open */
+body.sidebar-open { overflow: hidden; }
+
+/* --- Desktop Sidebar (left, chapter navigation) --- */
+.textbook-sidebar {
+  display: none;
+  position: fixed;
+  top: 3.2rem;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 3.2rem);
+  background: var(--color-slate-100);
+  border-right: var(--stroke-hairline) solid var(--color-slate-200);
+  padding: 0.8rem 0.5rem 1rem;
+  overflow-y: auto;
+  z-index: 50;
+  -webkit-overflow-scrolling: touch;
+}
+
+.textbook-sidebar-link {
+  display: block;
+  padding: 0.28rem 0.75rem;
+  margin: 1px 0.35rem;
+  font-size: 0.78rem;
+  color: var(--color-slate-500);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-xfast) ease, color var(--duration-xfast) ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textbook-sidebar-link:hover {
+  color: var(--color-navy-600);
+  background: var(--color-slate-100);
+}
+
+.textbook-sidebar-link.active {
+  color: var(--color-navy-600);
+  font-weight: 500;
+  background: var(--color-navy-600-bg);
+}
+
+/* --- Mobile Drawer (bottom sheet) --- */
+.textbook-sidebar-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 65vh;
+  background: var(--color-white);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 0 0 calc(1.2rem + env(safe-area-inset-bottom, 0px));
+  z-index: 200;
+  transform: translateY(100%);
+  transition: transform var(--duration-slow) var(--ease-smooth);
+  box-shadow: var(--shadow-sheet);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.textbook-sidebar-drawer.open {
+  transform: translateY(0);
+}
+
+.textbook-sidebar-handle {
+  width: 32px;
+  height: 3px;
+  background: var(--color-slate-200);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem auto 0.3rem;
+}
+
+.textbook-sidebar-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1rem 1rem 0.2rem;
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  z-index: 1;
+  border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
+  margin-bottom: 0.3rem;
+}
+
+.textbook-sidebar-drawer-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-slate-900);
+}
+
+.textbook-sidebar-close {
+  background: var(--color-slate-100);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--color-slate-400);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast) ease, background var(--duration-fast) ease;
+}
+
+.textbook-sidebar-close:hover {
+  color: var(--color-slate-700);
+  background: var(--color-slate-200);
+}
+
+.textbook-sidebar-close:active {
+  color: var(--color-slate-900);
+  background: var(--color-slate-200);
+}
+
+.textbook-sidebar-drawer-list {
+  padding: 0.1rem 0;
+}
+
+.textbook-sidebar-drawer-section {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-slate-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1rem 0.25rem;
+}
+
+.textbook-sidebar-drawer-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  color: var(--color-slate-600);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  margin: 1px 0.5rem;
+  transition: background var(--duration-xfast) ease, color var(--duration-xfast) ease;
+}
+
+.textbook-sidebar-drawer-link:hover {
+  color: var(--color-navy-600);
+  background: var(--color-slate-100);
+}
+
+.textbook-sidebar-drawer-link:active {
+  color: var(--color-navy-600);
+  background: var(--color-navy-50);
+}
+
+.textbook-sidebar-drawer-link.active {
+  color: var(--color-navy-600);
+  font-weight: 500;
+  background: var(--color-navy-600-bg);
+}
+
+/* --- Mobile FAB Toggle Button --- */
+.textbook-sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
+  right: 1.2rem;
+  z-index: 205;
+  background: var(--color-navy-600);
+  color: var(--color-white);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: var(--shadow-navy-sm);
+  transition: box-shadow var(--duration-fast), transform 0.1s, background var(--duration-fast);
+  align-items: center;
+  justify-content: center;
+}
+
+.textbook-sidebar-toggle:hover {
+  box-shadow: var(--shadow-navy-md);
+}
+
+.textbook-sidebar-toggle:active {
+  transform: scale(0.95);
+}
+
+/* --- Mobile Overlay --- */
+.textbook-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 199;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.textbook-sidebar-overlay.show {
+  display: block;
+}
+
+/* --- Breadcrumb Navigation --- */
+.breadcrumb {
+  background: var(--color-slate-50);
+  border-bottom: var(--stroke-hairline) solid var(--color-slate-200);
+}
+
+.breadcrumb-list {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: 0.55rem 1.5rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  font-size: 0.82rem;
+  color: var(--color-slate-500);
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item a {
+  color: var(--color-slate-500);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-navy-600);
+}
+
+/* Separator between items */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '\203A';
+  margin: 0 0.45rem;
+  color: var(--color-slate-400);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.breadcrumb-current {
+  color: var(--color-slate-700);
+  font-weight: 500;
+}
+
+/* --- Responsive: Mobile (< 960px) --- */
+@media (max-width: 959px) {
+  .textbook-sidebar-toggle {
+    display: flex;
+  }
+
+  .textbook-sidebar {
+    display: none !important;
+  }
+
+  .breadcrumb-list {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* --- Responsive: Tablet (960px - 1199px) --- */
+@media (min-width: 960px) and (max-width: 1199px) {
+  .textbook-sidebar-toggle {
+    display: none !important;
+  }
+
+  .textbook-sidebar-overlay,
+  .textbook-sidebar-overlay.show {
+    display: none !important;
+  }
+
+  .textbook-sidebar-drawer {
+    display: none !important;
+  }
+}
+
+/* --- Responsive: Desktop (>= 1200px) --- */
+@media (min-width: 1200px) {
+  .textbook-sidebar {
+    display: block;
+  }
+
+  .textbook-sidebar-toggle {
+    display: none !important;
+  }
+
+  .textbook-sidebar-overlay,
+  .textbook-sidebar-overlay.show {
+    display: none !important;
+  }
+
+  .textbook-sidebar-drawer {
+    display: none !important;
+  }
+}
+
 /* === Inline Style Replacements === */
 
 /* Footer watermark — replaces style="font-size:0.88rem; opacity:0.6; ..." */

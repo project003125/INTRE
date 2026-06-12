@@ -407,7 +407,8 @@ body {
 
 /* =============================================
    CHAPTER NAV SIDEBAR (left panel)
-   Self-contained — does NOT use .toc-sidebar base class
+   New pages use .textbook-sidebar from shared/sidebar.js
+   Legacy pages use .toc-sidebar--left (inline scripts)
    ============================================= */
 .toc-sidebar--left {
     display: none;
@@ -669,6 +670,7 @@ body {
 
 /* ===== Desktop: dual sidebar (left=chapters, right=page TOC) ===== */
 @media (min-width: 1200px) {
+    .textbook-sidebar,
     .toc-sidebar--left {
         display: block;
     }
