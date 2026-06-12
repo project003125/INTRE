@@ -75,6 +75,12 @@ nav.light .nav-links a {
   background-color: rgba(255,255,255,0.08);
 }
 
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible {
+  outline: var(--stroke-structure) solid var(--color-amber-500);
+  outline-offset: 3px;
+}
+
 nav.light .nav-links a:hover {
   color: var(--color-slate-900);
   background-color: var(--color-slate-100);
@@ -491,7 +497,7 @@ hr {
 
 .subpage-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(31, 72, 128, 0.08);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ===== 子页面表格 ===== */
@@ -534,7 +540,7 @@ hr {
 }
 
 .table tbody tr:hover td {
-  background-color: var(--color-navy-50) !important;
+  background-color: var(--color-navy-50);
 }
 
 /* ===== 子页面信息框 ===== */
