@@ -666,6 +666,12 @@ body.toc-open {
     .toc-toggle-btn { display: none !important; }
     .toc-overlay, .toc-overlay.show { display: none !important; }
 
+    /* Tablet TOC is also a side panel — unlock body scroll */
+    body.toc-open {
+        overflow: auto;
+        touch-action: auto;
+    }
+
     /* Offset content for right sidebar */
     .page-header-inner {
         margin-right: 210px;
@@ -734,6 +740,12 @@ body.toc-open {
 
     .toc-toggle-btn { display: none !important; }
     .toc-overlay, .toc-overlay.show { display: none !important; }
+
+    /* Desktop TOC is a side panel, not an overlay — unlock body scroll */
+    body.toc-open {
+        overflow: auto;
+        touch-action: auto;
+    }
 
     /* Center content between sidebars
        Formula: left_offset = 240px + (viewport - 480px - 740px) / 2
