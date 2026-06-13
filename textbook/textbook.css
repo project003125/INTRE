@@ -586,11 +586,19 @@ body {
     font-weight: 600;
     cursor: pointer;
     box-shadow: var(--shadow-sm);
-    transition: box-shadow var(--duration-fast), transform 0.1s, bottom var(--duration-slow) var(--ease-smooth), background var(--duration-fast);
+    transition: box-shadow var(--duration-fast), transform 0.1s, opacity 0.25s ease, bottom var(--duration-slow) var(--ease-smooth), background var(--duration-fast);
     align-items: center; gap: 0.3rem;
 }
 .toc-toggle-btn:hover { box-shadow: var(--shadow-sm); }
 .toc-toggle-btn:active { transform: scale(0.97); }
+
+/* 滚动时自动隐藏浮动按钮 */
+.toc-toggle-btn.btn-hidden {
+    transform: translateY(80px);
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* When sidebar is open, hide the toggle button on mobile
    (the header already has a close button) */
 .toc-toggle-btn.is-open {

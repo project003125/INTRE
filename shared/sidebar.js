@@ -73,6 +73,34 @@
   }
 
   /* ================================================================
+     Auto-hide button on scroll
+     Hides button when scrolling down, shows when scrolling up.
+     ================================================================ */
+  function autoHideOnScroll(btn) {
+    if (!btn) return;
+    var lastScrollY = 0;
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var currentY = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentY > 400) {
+          if (currentY > lastScrollY + 10) {
+            btn.classList.add('btn-hidden');
+          } else if (currentY < lastScrollY - 10) {
+            btn.classList.remove('btn-hidden');
+          }
+        } else {
+          btn.classList.remove('btn-hidden');
+        }
+        lastScrollY = currentY;
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ================================================================
      Desktop Sidebar (left, chapter navigation)
      Fixed position, 240px, always visible on wide screens.
      Collapses to icon on tablets (< 1200px).
@@ -238,6 +266,9 @@
         fab.focus();
       }
     });
+
+    // Auto-hide FAB on scroll
+    autoHideOnScroll(fab);
   }
 
   /* ================================================================
@@ -426,6 +457,9 @@
   }
 
   /* ================================================================
+    // Auto-hide toggle button on scroll
+    autoHideOnScroll(toggleBtn);
+
      Init
      ================================================================ */
   function init() {
