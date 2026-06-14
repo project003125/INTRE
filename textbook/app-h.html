@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>附录H：形式审查——压力测试与替代测试结果摘要 · INTRE 导论教材</title>
-    <meta name="description" content="形式审查结果摘要：压力测试与替代测试的关键数据与结论。">
+    <meta name="description" content="本附录汇总INTRE框架在理论建构阶段经历的系统性压力测试与替代测试结果。这些测试旨在检验框架的逻辑自洽性、可证伪性、核心组件的必要性以及在功能层中间层候选架构中的竞争定位。所有测试均由INTRE内部团队完成，部分测试已通过预注册方式公开。">
     <meta property="og:title" content="附录H：形式审查——压力测试与替代测试结果摘要">
-    <meta property="og:description" content="形式审查结果摘要：压力测试与替代测试的关键数据与结论。">
+    <meta property="og:description" content="本附录汇总INTRE框架在理论建构阶段经历的系统性压力测试与替代测试结果。这些测试旨在检验框架的逻辑自洽性、可证伪性、核心组件的必要性以及在功能层中间层候选架构中的竞争定位。所有测试均由INTRE内部团队完成，部分测试已通过预注册方式公开。">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://project003125.github.io/INTRE-website/textbook/app-h.html">
     <meta property="og:image" content="https://project003125.github.io/INTRE-website/assets/og-image.svg">
     <link rel="canonical" href="https://project003125.github.io/INTRE-website/textbook/app-h.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="附录H：形式审查——压力测试与替代测试结果摘要">
-    <meta name="twitter:description" content="形式审查结果摘要：压力测试与替代测试的关键数据与结论。">
+    <meta name="twitter:description" content="本附录汇总INTRE框架在理论建构阶段经历的系统性压力测试与替代测试结果。这些测试旨在检验框架的逻辑自洽性、可证伪性、核心组件的必要性以及在功能层中间层候选架构中的竞争定位。所有测试均由INTRE内部团队完成，部分测试已通过预注册方式公开。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -69,12 +69,20 @@
 
     <main class="textbook-content" id="main-content">
         <h1 class="chapter-title">附录H：形式审查——压力测试与替代测试结果摘要</h1>
+
+
 <p>本附录汇总INTRE框架在理论建构阶段经历的系统性压力测试与替代测试结果。这些测试旨在检验框架的逻辑自洽性、可证伪性、核心组件的必要性以及在功能层中间层候选架构中的竞争定位。所有测试均由INTRE内部团队完成，部分测试已通过预注册方式公开。</p>
+
 <hr class="section-divider">
-<h3>H.1 内部理论压力测试（17项）</h3>
+
+<h2>H.1 内部理论压力测试（17项）</h2>
+
 <p><strong>测试范围</strong>：覆盖公理层、模块层、R-D-S维度层、诊断逻辑层、干预操作层、环境架构层及整体架构。</p>
+
 <p><strong>总体结果</strong>：17项测试中，<strong>12项完全通过，5项条件性通过，0项失败</strong>。所有未完全通过的项目均指向<strong>形式化不完整或边界声明缺失</strong>，可通过补充规则修复，无需修改核心架构。</p>
-<div class="table-wrap"><table>
+
+<div class="table-wrap">
+<table>
 <thead><tr>
 <th>层级</th>
 <th>测试数</th>
@@ -133,20 +141,28 @@
 <td>无</td>
 </tr>
 <tr>
-<td><strong>总计</strong></td>
-<td><strong>17</strong></td>
-<td><strong>12</strong></td>
-<td><strong>5</strong></td>
-<td><strong>全部为形式化不足，无致命逻辑矛盾</strong></td>
+<td>**总计**</td>
+<td>**17**</td>
+<td>**12**</td>
+<td>**5**</td>
+<td>**全部为形式化不足，无致命逻辑矛盾**</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
+
 <p><strong>核心可证伪性测试（#17）</strong>：框架五条核心主张（C1-M1-M6完备性、C2-R-D-S完备性、C3-G-M-A-R完备性、C4-D→R→S序列必然性、C5-M3-RES-D独立存在性）均被操作化为可检验预测。<strong>最脆弱实证节点为C5（M3-RES-D独立存在性）</strong>，其证伪将连锁影响RES-D跨模块统一性及MODULATE操作靶点。</p>
+
 <hr class="section-divider">
-<h3>H.2 外部兼容性压力测试（10篇既有论文）</h3>
+
+<h2>H.2 外部兼容性压力测试（10篇既有论文）</h2>
+
 <p><strong>测试方法</strong>：在每篇论文分析前预设可能削弱INTRE核心区分的失败条件，再核对原论文结果是否触发。</p>
+
 <p><strong>结果</strong>：<strong>10篇论文均未触发预设主要失败条件</strong>。若干跨论文发现与INTRE核心功能区分形成高度相容，包括：</p>
-<div class="table-wrap"><table>
+
+<div class="table-wrap">
+<table>
 <thead><tr>
 <th>论文主题</th>
 <th>关键发现</th>
@@ -185,13 +201,21 @@
 <td>C</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
+
 <p><strong>总体裁决</strong>：INTRE在当前第一轮外部文献压力测试中维持未证伪状态，具备跨领域功能层转译潜力，值得进入高风险前瞻性检验。</p>
+
 <hr class="section-divider">
-<h3>H.3 核心组件替代测试（460个替代方案）</h3>
+
+<h2>H.3 核心组件替代测试（460个替代方案）</h2>
+
 <p>对16项核心组件分别设计20–40个替代方案，遍历检验是否存在功能等价或更优的替代架构。</p>
+
 <p><strong>累计结果</strong>：</p>
-<div class="table-wrap"><table>
+
+<div class="table-wrap">
+<table>
 <thead><tr>
 <th>统计项</th>
 <th>数值</th>
@@ -204,9 +228,9 @@
 <td>100%</td>
 </tr>
 <tr>
-<td><strong>完全替代</strong></td>
-<td><strong>0</strong></td>
-<td><strong>0%</strong></td>
+<td>**完全替代**</td>
+<td>**0**</td>
+<td>**0%**</td>
 </tr>
 <tr>
 <td>部分覆盖/互补</td>
@@ -219,9 +243,13 @@
 <td>49.6%</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
+
 <p><strong>各组件替代测试关键裁决</strong>（完整总表见05-V-17）：</p>
-<div class="table-wrap"><table>
+
+<div class="table-wrap">
+<table>
 <thead><tr>
 <th>编号</th>
 <th>核心组件</th>
@@ -314,12 +342,19 @@
 <td>序列由功能依赖关系强制担保，刚性随失调程度调整</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
+
 <p><strong>结论</strong>：在“现象层与神经层之间建立功能上可操作的中间抽象层次”这一明确工程约束下，该架构的16项核心组件<strong>无一被任何替代方案完全替代</strong>。</p>
+
 <hr class="section-divider">
-<h3>H.4 角色化替代测试（23个中间层候选架构）</h3>
+
+<h2>H.4 角色化替代测试（23个中间层候选架构）</h2>
+
 <p>按照《心理系统中间层架构比较测试标准v2.0》，将INTRE功能层与23个其他中间层候选架构（计算层、动力层+、意义层、冲突层、网络层、表征层、控制层等）进行角色化比较，评估各架构在六类职能上的表现。</p>
+
 <p><strong>核心结论</strong>：</p>
+
 <ul>
 <li><strong>通用状态描述层</strong>：INTRE是<strong>最强</strong>候选。计算层和动力层+在预测和编码可靠性上更优，但描述颗粒度显著低于INTRE（5 vs 3/4）。</li>
 <li><strong>操作语法生成层</strong>：INTRE是<strong>唯一</strong>满足全部条件的候选（控制能力≥4/5、跨流派翻译≥80/100、靶点特异性等四项子标准全满足）。最接近的控制层因跨流派翻译未达标（<60）而被排除。</li>
@@ -328,16 +363,36 @@
 <li><strong>深层结构视角</strong>：冲突层在症状换形解释上有独特优势，需补齐编码可靠性后可作为增强层。</li>
 <li><strong>元科学治理层</strong>：INTRE是唯一建立分层证据管理和可证伪性声明的架构。</li>
 </ul>
+
 <p><strong>最终裁决</strong>：<strong>没有替代者，只有互补层</strong>。INTRE不声称在所有职能上最优，但它是唯一同时通过“通用状态描述层”和“操作语法生成层”双核心角色准入条件的架构。</p>
+
 <hr class="section-divider">
-<h3>H.5 总体结论：结构稳健性与实证债务</h3>
-<p><strong>已完成的逻辑与结构验证</strong>： - 内部理论压力测试：17项通过（含条件通过），无致命逻辑矛盾。 - 外部兼容性压力测试：10篇论文未触发主要失败条件。 - 核心组件替代测试：460个替代方案中0个完全替代。 - 角色化替代测试：在双核心职能上保持不可替代的结构优势。</p>
-<p><strong>尚待跨越的三道实证关卡</strong>： 1. <strong>编码可靠性</strong>：M-R-D-S状态语法的编码员间一致性（κ ≥ 0.60）。 2. <strong>干预匹配增量效度</strong>：基于G-M-A-R的靶点匹配干预优于常规治疗。 3. <strong>PSE预测表现</strong>：动力学仿真对个体轨迹的预测精度与校准度。</p>
+
+<h2>H.5 总体结论：结构稳健性与实证债务</h2>
+
+<p><strong>已完成的逻辑与结构验证</strong>：</p>
+<ul>
+<li>内部理论压力测试：17项通过（含条件通过），无致命逻辑矛盾。</li>
+<li>外部兼容性压力测试：10篇论文未触发主要失败条件。</li>
+<li>核心组件替代测试：460个替代方案中0个完全替代。</li>
+<li>角色化替代测试：在双核心职能上保持不可替代的结构优势。</li>
+</ul>
+
+<p><strong>尚待跨越的三道实证关卡</strong>：</p>
+<ol>
+<li><strong>编码可靠性</strong>：M-R-D-S状态语法的编码员间一致性（κ ≥ 0.60）。</li>
+<li><strong>干预匹配增量效度</strong>：基于G-M-A-R的靶点匹配干预优于常规治疗。</li>
+<li><strong>PSE预测表现</strong>：动力学仿真对个体轨迹的预测精度与校准度。</li>
+</ol>
+
 <p><strong>框架的可证伪性承诺</strong>：五条核心主张均有明确的证伪路径，其中最脆弱的节点是 <strong>M3-RES-D的三通道收敛效度研究</strong>。框架已内建版本演化与强反例触发协议，承诺在证据面前有序修正或降级。</p>
+
 <hr class="section-divider">
+
 <p><em>本附录基于以下文档编制：05-R-01、05-R-02、05-R-03、05-V-00至05-V-19。详细数据请参见各原始报告。</em></p>
 <hr class="section-divider">
-<h2>版本记录</h2>
+<hr class="section-divider">
+<div class="version-record-title">版本记录</div>
 <div class="table-wrap"><table>
 <thead><tr>
 <th>版本</th>
@@ -355,7 +410,9 @@
     </main>
 
     <div class="page-footer-nav">
-        <div class="chapter-nav"><a href="app-g.html" class="nav-link prev">‹ 术语对照</a><a href="index.html" class="nav-link up">☰ 目录</a><a href="app-i.html" class="nav-link next">家教案例 ›</a></div>
+        <div class="chapter-nav"><a href="app-g.html" class="nav-link prev">‹ 术语对照</a>
+<a href="index.html" class="nav-link up">☰ 目录</a>
+<a href="app-i.html" class="nav-link next">家教案例 ›</a></div>
     </div>
 
     <footer>
@@ -376,9 +433,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
         onload="renderMathInElement(document.querySelector('.textbook-content') || document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 
-
-    <script src="../shared/sidebar.js"></script>
-
     <script src="../shared/nav-toggle.js"></script>
+    <script src="../shared/sidebar.js"></script>
 </body>
 </html>
